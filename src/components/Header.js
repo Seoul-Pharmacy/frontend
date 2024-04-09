@@ -1,9 +1,10 @@
-import { useTranslation } from 'react-i18next'; 
+import { useTranslation } from 'react-i18next';
 
 const lngs = {
   en: { nativeName: 'English' },
-    ko: { nativeName: "Korean" },
-    jp: { nativeName: 'Japanese' },
+  ko: { nativeName: "Korean" },
+  cn: { nativeName: 'Chinese' },
+  jp: { nativeName: 'Japanese' },
 };
 
 export default function Header() {
@@ -12,7 +13,7 @@ export default function Header() {
   return (
     <div className="App">
       <header>
-	      <div>
+        <div>
           {Object.keys(lngs).map((lng) => (
             <button key={lng} style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }} type="submit" onClick={() => i18n.changeLanguage(lng)}>
               {lngs[lng].nativeName}

@@ -4,6 +4,7 @@ import LanguaeDetector from "i18next-browser-languagedetector";
 
 import TranslationEn from './translation.en.json';
 import TranslationKo from './translation.ko.json';
+import TranslationCn from './translation.cn.json';
 import TranslationJp from './translation.jp.json';
 
 i18n
@@ -24,6 +25,11 @@ i18n
             ko: {
                 translation: {
                     description: TranslationKo
+                }
+            },
+            cn: {
+                translation: {
+                    description: TranslationCn
                 }
             },
             jp: {
