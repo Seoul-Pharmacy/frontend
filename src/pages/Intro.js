@@ -17,7 +17,7 @@ export default function Intro() {
     return (
         <div className="Intro-body">
             <h1>What is Seoul Pharmacy?</h1>
-            <p class="intro">This is a website looking for late-night pharmacies and foreign-speaking pharmacies around me in Korea.</p>
+            <p className="intro">This is a website looking for late-night pharmacies and foreign-speaking pharmacies around me in Korea.</p>
             <h2>Select Language</h2>
             <div>
                 {Object.keys(lngs).map((lng) => (

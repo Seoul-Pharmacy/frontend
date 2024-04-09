@@ -12,10 +12,10 @@ export default function Header() {
   const { i18n } = useTranslation();
 
   return (
-    <div className="App">
+    <>
       <header>
         <div>
-          <a href="/main"><h1>로고</h1></a>
+          <a href="/main">로고</a>
           {Object.keys(lngs).map((lng) => (
             <button key={lng} style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }} type="submit" onClick={() => i18n.changeLanguage(lng)}>
               {lngs[lng].nativeName}
@@ -23,7 +23,7 @@ export default function Header() {
           ))}
         </div>
       </header>
-    </div>
+    </>
   );
 }
 

@@ -1,18 +1,29 @@
 * {
     margin: 0;
 }
+
 .Intro-body {
     background-color: #3f2153;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
+
 h1 {
     color: #c9bff9;
-    font-size:5rem;
+    font-size: 5rem;
 }
+
 h2 {
     color: #c9bff9;
-    font-size:4rem;
+    font-size: 4rem;
 }
+
 .intro {
     color: #baadbf;
-    font-size:3rem;
+    font-size: 3rem;
 }

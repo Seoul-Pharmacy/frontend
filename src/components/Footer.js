@@ -5,12 +5,12 @@ export default function Footer() {
 
   return (
     <div className="App">
-      <header>
+      <footer>
         <p>{t('description.GEN')}</p>
         <p>{t('description.GroupName')}</p>
         <p>{t('description.Insta')}</p>
         <p>{t('description.Email')}</p>
-      </header>
+      </footer>
     </div>
   );
 }
