@@ -3,5 +3,9 @@
     "GroupName": "단체이름: 일본어",
     "Insta": "インスタグラム: 일본어",
     "Email": "이메일: 일본어",
-    "search": "検索"
+    "search": "検索",
+    "find_near": "私の位置の近くを探す",
+    "find_near_description": "現在地から近い場所を探します。",
+    "find_by_region": "地域選択で探す",
+    "find_by_region_description": "見つけたい地域を選択して探します。"
 }

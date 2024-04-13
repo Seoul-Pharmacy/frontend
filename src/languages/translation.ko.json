@@ -3,5 +3,9 @@
     "GroupName": "단체명: ",
     "Insta": "인스타: ",
     "Email": "이메일: ",
-    "search": "검색"
+    "search": "검색",
+    "find_near": "내 위치 근처로 찾기",
+    "find_near_description": "현재 위치에서 가까운 곳을 찾습니다.",
+    "find_by_region": "지역 선택으로 찾기",
+    "find_by_region_description": "찾고 싶은 지역을 선택해서 찾습니다."
 }

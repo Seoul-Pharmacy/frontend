@@ -3,5 +3,9 @@
     "GroupName": "组名: 단체명",
     "Insta": "Instagram: ",
     "Email": "Email: ",
-    "search": "检索"
+    "search": "检索",
+    "find_near": "查找位置接近我的位置",
+    "find_near_description": "找到离当前位置近的地方 。",
+    "find_by_region": "区域选择查找",
+    "find_by_region_description": "选择想找的地区找。"
 }

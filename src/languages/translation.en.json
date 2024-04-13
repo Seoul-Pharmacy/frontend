@@ -3,5 +3,9 @@
     "GroupName": "Group Name: ",
     "Insta": "Instagram: ",
     "Email": "Email: ",
-    "search": "search"
+    "search": "search",
+    "find_near": "Find near my location",
+    "find_near_description": "Find a location close to my current location.",
+    "find_by_region": "Find by Region Selection",
+    "find_by_region_description": "Select the area you want to look for and find it."
 }
