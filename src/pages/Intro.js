@@ -2,25 +2,25 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import ko from '../images/KoImage.png';
-import en from '../images/EnImage.png';
-import cn from '../images/CnImage.png';
-import jp from '../images/JpImage.png';
+import koImg from '../images/KoImage.png';
+import enImg from '../images/EnImage.png';
+import cnImg from '../images/CnImage.png';
+import jpImg from '../images/JpImage.png';
 import Footer from '../components/Footer';
 import './Intro.css';
 
 const lngs = {
-    en: { nativeName: 'English' },
-    ko: { nativeName: "Korean" },
-    cn: { nativeName: 'Chinese' },
-    jp: { nativeName: 'Japanese' },
+    en: { nativeName: 'English', imageName: enImg},
+    ko: { nativeName: 'Korean', imageName: koImg},
+    cn: { nativeName: 'Chinese', imageName: cnImg},
+    jp: { nativeName: 'Japanese', imageName: jpImg},
 };
 
 export default function Intro() {
     const navigate = useNavigate();
     const { i18n } = useTranslation();
     return (
-        <div className="Intro-body">
+        <div className="intro-wrapper">
             <div className="intro">
                 <div className="intro-text">
                     <h1>What is PharmaSeoul?</h1>
@@ -31,7 +31,17 @@ export default function Intro() {
             <div className="language-body">
                 <h2>Select a language.</h2>
                 {Object.keys(lngs).map((lng) => (
-                    <button className="language" key={lng} style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }} type="submit">
+                    <button
+                        className="intro-lan-button" key={lng}
+                        type="submit"
+                        style={{
+                            backgroundImage: `url(${lngs[lng].imageName})`
+                        }}
+                        onClick={() => {
+                            i18n.changeLanguage(lng);
+                            navigate('/main');
+                        }}>
+                        {lngs[lng].nativeName}
                     </button>
                 ))}
             </div>
