@@ -2,3 +2,24 @@
     display: flex;
     flex-direction: row;
 }
+
+.locationMark {
+    height: 56vh;
+}
+
+.main-wrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+.selectOption {
+    color: white;
+    width: 300px;
+    height: 470px;
+    background-size: cover;
+    position: relative;
+    display : inline-block;
+    background-repeat :no-repeat;
+    border: 0px;
+    border-radius: 30px;
+}
