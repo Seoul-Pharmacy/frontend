@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: transparent;
+}
+
+header>div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+header a {
+    margin-right: 2vw;
+    text-decoration: none;
+    color: #004770;
+}
+
+.home-icon {
+    width: 53px;
+    height: 53px;
+}
+
+header button {
+    padding-right: 2px;
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header .title {
+    position: absolute;
+    color: #004770;
+    font-size: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
