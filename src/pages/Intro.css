@@ -3,8 +3,7 @@
 }
 
 .Intro-body {
-    background-color: #3f2153;
-    min-height: 100vh;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,17 +12,28 @@
     color: white;
 }
 
-h1 {
-    color: #c9bff9;
-    font-size: 5rem;
+.intro {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/src/images/introImage.png);
+    background-size: cover;
+    position: relative;
+    display : inline-block;
+    margin-bottom: 5%;
+    max-width: 100%;
+    background-repeat :no-repeat;
+    border-bottom-right-radius: 70px;
+    border-bottom-left-radius: 70px;
 }
+
+.intro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+    font-size: x-large;
+  }
 
 h2 {
-    color: #c9bff9;
-    font-size: 4rem;
-}
-
-.intro {
-    color: #baadbf;
-    font-size: 3rem;
+    color: black;
 }
