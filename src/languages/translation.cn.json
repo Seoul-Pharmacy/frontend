@@ -1,11 +1,11 @@
 {
-    "GEN": "Number: 010-",
-    "GroupName": "组名: 단체명",
-    "Insta": "Instagram: ",
-    "Email": "Email: ",
+    "owner": "所有者",
+    "GEN": "电话号码",
+    "groupName": "组名",
+    "email": "Email",
     "search": "检索",
-    "find_near": "查找位置接近我的位置",
-    "find_near_description": "找到离当前位置近的地方 。",
-    "find_by_region": "区域选择查找",
-    "find_by_region_description": "选择想找的地区找。"
+    "findNear": "查找位置接近我的位置",
+    "findNearDescription": "找到离当前位置近的地方 。",
+    "findByRegion": "区域选择查找",
+    "findByRegionDescription": "选择想找的地区找。"
 }

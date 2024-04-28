@@ -1,11 +1,11 @@
 {
-    "GEN": "대표번호: 010-",
-    "GroupName": "단체이름: 일본어",
-    "Insta": "インスタグラム: 일본어",
-    "Email": "이메일: 일본어",
+    "owner": "所有者",
+    "GEN": "電話番号",
+    "groupName": "チームの名前",
+    "email": "email",
     "search": "検索",
-    "find_near": "私の位置の近くを探す",
-    "find_near_description": "現在地から近い場所を探します。",
-    "find_by_region": "地域選択で探す",
-    "find_by_region_description": "見つけたい地域を選択して探します。"
+    "findNear": "私の位置の近くを探す",
+    "findNearDescription": "現在地から近い場所を探します。",
+    "findByRegion": "地域選択で探す",
+    "findByRegionDescription": "見つけたい地域を選択して探します。"
 }

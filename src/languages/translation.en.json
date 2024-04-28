@@ -1,11 +1,11 @@
 {
-    "GEN": "Number: 010-",
-    "GroupName": "Group Name: ",
-    "Insta": "Instagram: ",
-    "Email": "Email: ",
+    "owner": "Owner",
+    "GEN": "Number",
+    "groupName": "Team Name",
+    "email": "Email",
     "search": "search",
-    "find_near": "Find near my location",
-    "find_near_description": "Find a location close to my current location.",
-    "find_by_region": "Find by Region Selection",
-    "find_by_region_description": "Select the area you want to look for and find it."
+    "findNear": "Find near my location",
+    "findNearDescription": "Find a location close to my current location.",
+    "findByRegion": "Find by Region Selection",
+    "findByRegionDescription": "Select the area you want to look for and find it."
 }
