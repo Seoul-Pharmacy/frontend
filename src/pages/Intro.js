@@ -10,10 +10,10 @@ import Footer from '../components/Footer';
 import './Intro.css';
 
 const lngs = {
-    ko: { nativeName: 'Korean', imageName: koImg},
-    en: { nativeName: 'English', imageName: enImg},
-    cn: { nativeName: 'Chinese', imageName: cnImg},
-    jp: { nativeName: 'Japanese', imageName: jpImg},
+    ko: { nativeName: '한국어', imageName: koImg },
+    en: { nativeName: 'English', imageName: enImg },
+    cn: { nativeName: '华侨华人', imageName: cnImg },
+    jp: { nativeName: '日本語です', imageName: jpImg },
 };
 
 export default function Intro() {
@@ -27,7 +27,6 @@ export default function Intro() {
                     <p>Guide of the location of nearby pharmacies that are currently open.</p>
                 </div>
             </div>
-            
             <div className="language-body">
                 <h2>Select a language.</h2>
                 {Object.keys(lngs).map((lng) => (
