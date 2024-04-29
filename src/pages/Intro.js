@@ -2,10 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import koImg from '../images/KoImage.png';
-import enImg from '../images/EnImage.png';
-import cnImg from '../images/CnImage.png';
-import jpImg from '../images/JpImage.png';
+import koImg from '../images/IntroPage/KoImage.png';
+import enImg from '../images/IntroPage/EnImage.png';
+import cnImg from '../images/IntroPage/CnImage.png';
+import jpImg from '../images/IntroPage/JpImage.png';
 import Footer from '../components/Footer';
 import './Intro.css';
 
