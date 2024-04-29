@@ -5,13 +5,22 @@ import Modal from 'react-modal';
 
 import './Main.css';
 import Header from '../components/Header.js';
+
 import Nearby from '../images/nearby.png';
 import Region from '../images/region.png';
 import Glasses from '../images/readingGlassesIcon.png';
 import Mark from '../images/locationMarkIcon.png';
+
+import CloseButton from '../images/close.png';
+
 import Footer from '../components/Footer.js';
 
 function PopUp({ isOpen, toggleModal }) {
+    const [selectedOption, setSelectedOption] = useState('');
+
+    const handleDropdownChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
     return (
         <Modal
             isOpen={isOpen}
@@ -19,9 +28,16 @@ function PopUp({ isOpen, toggleModal }) {
             ariaHideApp={false}
             contentLabel="Region Selection Modal"
             shouldCloseOnOverlayClick={false}
+            overlayClassName="regionModal-overlay"
+            className="regionModal-content"
         >
-            <h2>지역 선택</h2>
-            <button onClick={toggleModal}>닫기</button>
+            <img className="closeButton" src={CloseButton} onClick={toggleModal} alt="close button"/>
+            <h2>지역과 시간을 설정해보세요!</h2>
+            <p>영업시간</p>
+            <select value={selectedOption} onChange={handleDropdownChange}>
+                <option></option>
+            </select>
+            <button className="selectionComplete">선택완료</button>
         </Modal>
     );
 }
@@ -36,7 +52,7 @@ export default function Main() {
     return (
         <>
             <div className="main-wrapper">
-                <Header className="mainHeader" />
+                <Header />
                 <main className="selection">
                     <div>
                         <img src={Glasses} alt="reading glasses" />
