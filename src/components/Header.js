@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
 import homeIcon from '../images/homeIcon.png';
@@ -11,9 +12,14 @@ const lngs = {
 
 export default function Header() {
   const { i18n } = useTranslation();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState(i18n.resolvedLanguage);
 
-  const handleLanguageChange = (event) => {
-    i18n.changeLanguage(event.target.value);
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+  const handleSelectLang = (lang) => {
+    i18n.changeLanguage(lang);
+    setSelectedLang(lang);
+    setDropdownOpen(false);
   };
 
   return (
@@ -23,11 +29,20 @@ export default function Header() {
           <a href="/main">
             <img className="home-icon" src={homeIcon} alt="home"/>
           </a>
-          <select onChange={handleLanguageChange} className="language-select" value={i18n.resolvedLanguage}>
-            {Object.keys(lngs).map((lng) => (
-              <option key={lng} value={lng}>{lngs[lng].nativeName}</option>
-            ))}
-          </select>
+          <div className="custom-dropdown">
+            <div className="dropdown-btn" onClick={toggleDropdown}>
+              {lngs[selectedLang].nativeName}
+            </div>
+            {dropdownOpen && (
+              <div className="dropdown-content">
+                {Object.keys(lngs).map((lng) => (
+                  <div key={lng} className="dropdown-item" onClick={() => handleSelectLang(lng)}>
+                    {lngs[lng].nativeName}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
           <a className="title" href="/main">PharmaSeoul</a>
         </div>
       </header>
