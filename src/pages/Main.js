@@ -11,7 +11,6 @@ import Glasses from '../images/readingGlassesIcon.png';
 import Mark from '../images/locationMarkIcon.png';
 import Footer from '../components/Footer.js';
 
-// 모달 컴포넌트 정의
 function PopUp({ isOpen, toggleModal }) {
     return (
         <Modal
@@ -27,7 +26,6 @@ function PopUp({ isOpen, toggleModal }) {
     );
 }
 
-// 메인 컴포넌트 정의
 export default function Main() {
     const navigate = useNavigate();
     const { t } = useTranslation();
@@ -38,7 +36,7 @@ export default function Main() {
     return (
         <>
             <div className="main-wrapper">
-                <Header />
+                <Header className="mainHeader" />
                 <main className="selection">
                     <div>
                         <img src={Glasses} alt="reading glasses" />
