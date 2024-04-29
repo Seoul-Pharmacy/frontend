@@ -10,8 +10,8 @@ import Footer from '../components/Footer';
 import './Intro.css';
 
 const lngs = {
-    en: { nativeName: 'English', imageName: enImg},
     ko: { nativeName: 'Korean', imageName: koImg},
+    en: { nativeName: 'English', imageName: enImg},
     cn: { nativeName: 'Chinese', imageName: cnImg},
     jp: { nativeName: 'Japanese', imageName: jpImg},
 };
