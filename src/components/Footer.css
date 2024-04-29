@@ -4,7 +4,7 @@ div {
 
 footer {
     background-color: #004770;
-    min-height: 10vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: baseline;
@@ -13,7 +13,7 @@ footer {
     color: white;
 }
 
-p {
+footer>p {
     text-decoration-line: none;
     align-items: flex-start;
     color: white;
