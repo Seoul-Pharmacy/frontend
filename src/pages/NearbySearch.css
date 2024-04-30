@@ -1,10 +1,10 @@
-.nearbySearchDesign {
+.nearby-search-design {
     display: flex;
     width: 100%;
     height: 100vh;
 }
 
-.leftRec {
+.left-rec {
     position: absolute;
     background-color: #004770;
     border-bottom-right-radius: 13vw;
@@ -13,9 +13,33 @@
     width: 70vw;
     height: 270px;
     top: 120px;
+    text-align: left;
 }
 
-.rightRec {
+#nearby-description {
+    font-family: "SUIT-Light";
+    font-size: 18px;
+    color: white;
+    margin: 0;
+    padding: 65px 0 0 8vw;
+}
+
+#for-you {
+    font-family: "SUIT-Light";
+    font-size: 35px;
+    line-height: 130%;
+    color: white;
+    margin: 0;
+    padding: 20px 0 0 8vw;
+}
+
+#is-here {
+    font-family: "SUIT-ExtraBold";
+    margin: 0;
+}
+
+
+.right-rec {
     position: absolute;
     background-color: #AEDCF6;
     border-bottom-left-radius: 13vw;
@@ -56,6 +80,16 @@
     .leftRec {
         height: 180px;
     }
+
+    #nearby-description {
+        font-size: 15px;
+        padding: 70px 0 0 6vw;
+    }
+    
+    #for-you {
+        font-size: 28px;
+        padding: 20px 0 0 6vw;
+    }
     
     .rightRec {
         height: 180px;
@@ -80,6 +114,16 @@
 @media (max-width: 480px) {
     .leftRec {
         height: 120px;
+    }
+
+    #nearby-description {
+        font-size: 13px;
+        padding: 50px 0 0 8vw;
+    }
+    
+    #for-you {
+        font-size: 20px;
+        padding: 13px 0 0 8vw;
     }
 
     .rightRec {

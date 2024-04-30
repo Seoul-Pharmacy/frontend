@@ -12,9 +12,12 @@ export default function NearbySearch() {
     return(
         <>
             <Header />
-            <div className="nearbySearchDesign">
-                <div className="leftRec" />
-                <div className="rightRec" />
+            <div className="nearby-search-design">
+                <div className="left-rec">
+                    <p id="nearby-description">위치기반 맞춤형 정보 제공</p>
+                    <p id="for-you">고객님이 찾던 약국,<p id="is-here">여기 다 있습니다!</p></p>
+                </div>
+                <div className="right-rec" />
                 <div id="nearby-icon">
                     <img className="greenBag" src={GreenBag} />
                     <img className="hand" src={Hand} />
