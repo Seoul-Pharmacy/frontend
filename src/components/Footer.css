@@ -11,8 +11,9 @@ footer {
     justify-content: flex-start;
     color: white;
     padding : 5vh 5vw;
-    font-size: smaller;
+    font-size: 18px;
     /*font-weight: bolder;*/
+    font-family: "SUIT-medium";
 }
 
 footer>p {
@@ -30,10 +31,28 @@ footer>p>span {
 
 .contact-button {
     width: 5vh;
-    margin: 1vw;
+    margin: 0 2vh;
 }
 
 #contact-div {
     width: 90vw;
     text-align: right;
 }
+
+/*모바일*/
+@media (max-width: 575px) {
+    footer {
+        font-size: 13px;
+    }
+
+    .contact-button {
+        min-width: 25px;
+        width: 4vh;
+        margin: 0 2vh;
+    }
+} 
+
+/*태블릿*/
+@media (max-width: 767px) {
+
+} 
