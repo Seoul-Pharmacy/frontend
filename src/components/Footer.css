@@ -10,7 +10,7 @@ footer {
     align-items: baseline;
     justify-content: flex-start;
     color: white;
-    padding : 5vh 5vw;
+    padding : 5vh 8vw;
     font-size: 18px;
     /*font-weight: bolder;*/
     font-family: "SUIT-medium";
@@ -39,6 +39,12 @@ footer>p>span {
     text-align: right;
 }
 
+
+/*태블릿*/
+@media (max-width: 767px) {
+
+}
+
 /*모바일*/
 @media (max-width: 575px) {
     footer {
@@ -50,9 +56,4 @@ footer>p>span {
         width: 4vh;
         margin: 0 2vh;
     }
-} 
-
-/*태블릿*/
-@media (max-width: 767px) {
-
-} 
+}
