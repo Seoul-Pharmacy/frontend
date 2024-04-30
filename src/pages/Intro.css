@@ -48,6 +48,7 @@
     border: 0;
     border-radius: 2rem;
     cursor: pointer;
+    font-size: smaller;
 }
 
 .language-body-name {

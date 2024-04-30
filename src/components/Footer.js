@@ -26,7 +26,19 @@ export default function Footer() {
             <p>{t('description.GEN')} <span>{FOOTER_TEXT.GEN}</span></p>
             <p>{t('description.email')} <span>{FOOTER_TEXT.email}</span></p>
 
+            <div id="contact-div">
+                <a
+                    href={FOOTER_TEXT.kakao}>
+                    <img className="contact-button"
+                         src={kakaoIMG}/>
+                </a>
 
+                <a
+                    href={FOOTER_TEXT.insta}>
+                    <img className="contact-button"
+                         src={instaIMG}/>
+                </a>
+            </div>
         </footer>
     );
 }

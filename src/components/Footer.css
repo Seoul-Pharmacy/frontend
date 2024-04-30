@@ -27,3 +27,13 @@ footer>p>span {
     font-weight: normal;
 }
 
+
+.contact-button {
+    width: 5vh;
+    margin: 1vw;
+}
+
+#contact-div {
+    width: 90vw;
+    text-align: right;
+}
