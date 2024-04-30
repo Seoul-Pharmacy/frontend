@@ -74,7 +74,7 @@ header a {
 }
 
 .dropdown-btn {
-    background-color: transparent;
+    background-color: white;
     color: inherit;
     padding: 8px 16px;
     padding-right: 30px; /* 화살표 공간 확보 */
@@ -109,4 +109,26 @@ header .title {
     font-size: 40px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+@media (max-width: 1000px) {
+    header .title {
+        position: absolute;
+        color: #004770;
+        font-size: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .custom-dropdown {
+        position: relative;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 17px;
+        color: #004770;
+    }
+    .home-icon {
+        width: 35px;
+        height: 35px;
+    }
 }
