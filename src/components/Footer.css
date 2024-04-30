@@ -13,7 +13,6 @@ footer {
     color: white;
     padding : 5vh 8vw;
     font-size: 18px;
-    /*font-weight: bolder;*/
     font-family: "SUIT-medium";
 }
 
@@ -31,19 +30,28 @@ footer>p>span {
 
 
 .contact-button {
-    width: 5vh;
-    margin: 0 2vh;
+    width: 40px;
+    margin-left: 4vw;
 }
+
 
 #contact-div {
     width: 90vw;
     text-align: right;
+    padding-right: 8vw;
+    box-sizing: border-box;
 }
 
 
 /*태블릿*/
 @media (max-width: 767px) {
+    footer {
+        font-size: 16px;
+    }
 
+    .contact-button {
+        width: 30px;
+    }
 }
 
 /*모바일*/
@@ -53,8 +61,6 @@ footer>p>span {
     }
 
     .contact-button {
-        min-width: 25px;
-        width: 4vh;
-        margin: 0 2vh;
+        width: 25px;
     }
 }
