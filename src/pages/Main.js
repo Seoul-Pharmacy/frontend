@@ -55,12 +55,12 @@ export default function Main() {
                 <Header />
                 <div id="body-wrapper">
                     <div id="findPharmacy-wrapper">
-                        {/*<img className="locationMark" src={Mark} alt="location mark"/>*/}
 
                         <div id="findPharmacy-text1">
                             내가 설정한 위치로 조건에 딱 맞는
                         </div>
-                        <div id="findPharmacy-text2">약국으로 찾기<img id="readingGlasses" src={Glasses} alt=""/></div>
+                        <div id="findPharmacy-text2">약국 찾기<img id="readingGlasses" src={Glasses} alt=""/></div>
+                        <img className="locationMark" src={Mark} alt="location mark"/>
                     </div>
                     <section>
                         <div
@@ -69,7 +69,7 @@ export default function Main() {
                             }}>
                             <p className="selectOptionTitle">{t('description.find_near')}</p>
                             <p className="selectOptionDescription">{t('description.find_near_description')}</p>
-                            <button className="whiteSelectButton" onClick={() => navigate('/nearbysearch')}>
+                            <button className="SelectOptionInnerButton" onClick={() => navigate('/nearbysearch')}>
                                 선택하기
                             </button>
                         </div>
@@ -79,7 +79,7 @@ export default function Main() {
                             }}>
                             <p className="selectOptionTitle">{t('description.find_by_region')}</p>
                             <p className="selectOptionDescription">{t('description.find_by_region_description')}</p>
-                            <button className="whiteSelectButton" onClick={toggleModal}>
+                            <button className="SelectOptionInnerButton" onClick={toggleModal}>
                                 선택하기
                             </button>
                         </div>
