@@ -7,12 +7,12 @@
 .left-rec {
     position: absolute;
     background-color: #004770;
-    border-bottom-right-radius: 13vw;
+    border-bottom-right-radius: 8vw;
     color: white;
     z-index: 10;
     width: 70vw;
     height: 270px;
-    top: 120px;
+    top: 110px;
     text-align: left;
 }
 
@@ -42,12 +42,12 @@
 .right-rec {
     position: absolute;
     background-color: #AEDCF6;
-    border-bottom-left-radius: 13vw;
+    border-bottom-left-radius: 8vw;
     z-index: 9;
     width: 81vw;
     height: 270px;
     right: 0px;
-    top: calc(120px + 10vh);
+    top: calc(110px + 10vh);
 }
 
 #nearby-icon {
@@ -55,7 +55,7 @@
     display: flex;
     flex-direction: column;
     right: 2vw;
-    top: calc(120px + 8.5vh);
+    top: calc(120px + 7.5vh);
     width: 400px;
     height:300px;
     text-align: left;
@@ -78,7 +78,9 @@
 /*태블릿*/
 @media (max-width: 800px) {
     .left-rec {
+        top: 80px;
         height: 180px;
+        border-bottom-right-radius: 10vw;
     }
 
     #nearby-description {
@@ -92,10 +94,13 @@
     }
     
     .right-rec {
+        top: calc(80px + 10vh);
         height: 180px;
+        border-bottom-right-radius: 10vw;
     }
     
     #nearby-icon {
+        top: calc(80px + 9vh);
         width: 280px;
         height: 230px;
     }
@@ -114,7 +119,9 @@
 /*모바일*/
 @media (max-width: 480px) {
     .left-rec {
+        top: 55px;
         height: 120px;
+        border-bottom-right-radius: 12vw;
     }
 
     #nearby-description {
@@ -128,11 +135,13 @@
     }
 
     .right-rec {
+        top: calc(55px + 10vh);
         height: 120px;
+        border-bottom-right-radius: 12vw;
     }
     
     #nearby-icon {
-        top: calc(120px + 9vh);
+        top: calc(55px + 8vh);
         width: 190px;
         height: 150px;
         right: 1vw;
