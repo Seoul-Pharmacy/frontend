@@ -1,6 +1,6 @@
 #main-wrapper {
     width: 100vw;
-    height: 100vh;
+    /*height: 100vh;*/
 }
 
 #body-wrapper {
@@ -71,7 +71,7 @@ section {
     box-sizing: border-box;
 
     display: flex;
-    gap: 2vw;
+    gap: 2%;
     width: 50vw;
     height: 100%;
     /*position: absolute;*/
@@ -82,13 +82,12 @@ section {
 
 .selectOptionButton {
     position: relative;
-    width: 24vw;
+    width: 48%;
     height: 100%;
     color: white;
     background-size: cover;
     border: 0;
     border-radius: 25px;
-    white-space: nowrap;
 }
 
 .selectOptionTitle {
@@ -113,8 +112,9 @@ section {
     border-radius: 6vw;
     background-color: #d9d9d933;
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .regionModal-overlay {
@@ -141,6 +141,8 @@ section {
     overflow: auto;
 }
 
+
+/*모달*/
 .closeButton {
     position: relative;
     width: 42px;
@@ -159,69 +161,28 @@ section {
 }
 
 /*mobile*/
-/*@media (max-width: 480px) {*/
-/*    #main-wrapper {*/
-/*        width: 100%;*/
-/*        !*height: 170vh;*!*/
-/*    }*/
+@media (max-width: 480px) {
+    #body-wrapper {
+        display: block;
+    }
 
-/*    #selection {*/
-/*        flex-direction: column;*/
-/*    }*/
+    #findPharmacy-wrapper {
+        height: 40%;
+        width: 100%;
+    }
 
-/*    #findPharmacy-wrapper {*/
-/*        flex-direction: column;*/
-/*        width: 100vw;*/
-/*        left: 0;*/
-/*        height: 15vw;*/
-/*    }*/
-/*    */
-/*    #findPharmacy-text {*/
-/*        display: flex;*/
-/*        align-items: center;*/
-/*        justify-content: center;*/
-/*    }*/
+    #findPharmacy-text1, #findPharmacy-text1, #locationMark {
+        position: static;
+    }
 
-/*    #findPharmacy-text>p>p {*/
-/*        position: absolute;*/
-/*        width: 400px;*/
-/*        font-style: normal;*/
-/*        font-weight: 700;*/
-/*        font-size: 45px;*/
-/*        line-height: 80px;*/
-/*    }*/
+    .locationMark {
+        position: relative;
+        width: 9vw;
+        height: 15vw;
+    }
 
-/*    .locationMark {*/
-/*        position: relative;*/
-/*        width: 8vw;*/
-/*        height: 13vw;*/
-/*        top: 0;*/
-/*        padding-left: 10vw;*/
-/*    }*/
-
-/*    section {*/
-/*        display: flex;*/
-/*        position: relative;*/
-/*        padding: 0 1vw;*/
-/*        gap: 3vw;*/
-/*        justify-content: center;*/
-/*        margin: 0;*/
-/*    }*/
-/*    */
-/*    .selectOptionButton {*/
-/*        width: 40vw;*/
-/*        height: 50vw;*/
-/*    }*/
-
-/*    .whiteSelectButton {*/
-/*        position: relative;*/
-/*        width: 34vw;*/
-/*        max-width: 270px;*/
-/*        height: 8.5vw;*/
-/*        max-height: 70px;*/
-/*        margin-top: 20vw;*/
-/*        border-radius: 4vw;*/
-/*        cursor: pointer;*/
-/*        font-size: 20px;*/
-/*    }*/
-/*}*/
+    section {
+        width: 100%;
+        height: 60%;
+    }
+}
