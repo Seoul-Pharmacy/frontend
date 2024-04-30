@@ -1,32 +1,34 @@
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0 5vw;
+    padding: 0 7vw;
     background-color: transparent;
-    width: 90vw;
-    height: 16vh;
-    /*삭제 요망*/
-    border: lightgray solid 1px;
-}
-a {
-    text-decoration: none;
-    color: #004770;
+    width: 100vw;
+    height: 110px;
+    align-items: center;
 }
 
-header>div {
+.header-content > a {
+    text-decoration: none;
+    color: #004770;
+    font-family: "SUIT-Regular";
+}
+
+header > div {
     display: flex;
     justify-content: flex-start;
-    /*align-items: center;*/
 }
 
 .language-dropdown {
     position: relative;
+    top: 10px;
     border: none;
     background-color: transparent;
     cursor: pointer;
-    font-size: 30px;
     color: #004770;
+    font-family: "SUIT-Regular";
+    font-size: 22px;
+    padding-left: 40px;
 }
 
 
@@ -34,19 +36,29 @@ header>div {
     display: none;
     position: absolute;
     background-color: white;
-    min-width: 160px;
-    z-index: 1;
-    border: 2px solid #004770;
-    border-radius: 20px;
+    min-width: 120px;
+    margin: 5px 0 0 -15px;
+    z-index: 100;
+    border: 1px solid #004770;
+    border-radius: 12px;
+    transition: visibility 0.5s, opacity 0.5s linear;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .language-dropdown:hover .dropdown-item-wrapper {
+    visibility: visible;
+    opacity: 1;
+}
+
+.language-dropdown:hover .dropdown-item-wrapper,
+.dropdown-item-wrapper:hover {
     display: block;
 }
 
 .dropdown-item {
     color: #004770;
-    padding: 12px 16px;
+    padding: 11px 20px;
     text-decoration: none;
     text-align: left;
     font-size: inherit;
@@ -55,28 +67,26 @@ header>div {
 .dropdown-item:hover {
      background-color: #004770;
      color: white;
-     border-radius: 15px;
+     border-radius: 10px;
  }
 
 .dropdown-btn {
     background-color: transparent;
     color: inherit;
     /* 화살표 공간 확보 */
-    padding: 0px 30px 0px 16px;
+    padding: 0px 30px 0px 0px;
     text-align: left;
     text-decoration: none;
     display: inline-block;
     font-size: inherit;
     position: relative; /* 화살표 위치 설정을 위함 */
-    /*border: none;*/
-
 }
 
 .dropdown-btn::after {
     content: '';
     position: absolute;
-    right: 10px;
-    top: 50%;
+    right: 5px;
+    top: 60%;
     width: 8px;
     height: 8px;
     border-right: 2px solid #004770;
@@ -92,49 +102,96 @@ header>div {
 .title {
     position: absolute;
     color: #004770;
-    font-size: 50px;
+    font-size: 30px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 
 .home-icon {
-    width: 5vh;
-    height: 5vh;
+    position: relative;
+    top: 5px;
+    width: 35px;
+    height: 35px;
 }
-/*@media (max-width: 1000px) {*/
-/*    header .title {*/
-/*        position: absolute;*/
-/*        color: #004770;*/
-/*        font-size: 30px;*/
-/*        left: 50%;*/
-/*        transform: translateX(-50%);*/
-/*    }*/
-/*    .custom-dropdown {*/
-/*        position: relative;*/
-/*        border: none;*/
-/*        background-color: transparent;*/
-/*        cursor: pointer;*/
-/*        font-size: 17px;*/
-/*        color: #004770;*/
-/*    }*/
-/*    .home-icon {*/
-/*        width: 35px;*/
-/*        height: 35px;*/
-/*    }*/
-/*}*/
 
+/*태블릿*/
+@media (max-width: 800px) {
+    header {
+        padding: 0 4vw;
+        height: 80px;
+    }
+    
+    .home-icon {
+        display: none;
+    }
+
+    .language-dropdown {
+        position: relative;
+        top: 7px;
+        font-size: 17px;
+        padding-left: 20px;
+    }
+
+    .dropdown-item-wrapper {
+        min-width: 90px;
+        margin: 0 0 0 -15px;
+    }
+    
+    .dropdown-item {
+        padding: 8px 20px;
+    }
+
+    .dropdown-btn::after {
+        right: 8px;
+        top: 55%;
+        width: 6px;
+        height: 6px;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+}
 
 /*모바일*/
 @media (max-width: 480px) {
-    .title {
-        position: absolute;
-        font-size: 25px;
-        transform: translateX(0%);
-        right: 0;
+    header {
+        padding: 0 6vw;
+        height: 55px;
     }
 
     .home-icon {
         display: none;
+    }
+
+    .language-dropdown {
+        position: relative;
+        top: 7px;
+        font-size: 15px;
+        padding-left: 4vw;
+    }
+
+    .dropdown-item-wrapper {
+        min-width: 80px;
+        margin: 0 0 0 -15px;
+    }
+    
+    .dropdown-item {
+        padding: 6px 0 6px 16px;
+    }
+
+    .dropdown-btn::after {
+        right: 15px;
+        width: 5px;
+        height: 5px;
+        border-right: 1px solid #004770;
+        border-bottom: 1px solid #004770;
+    }
+
+    .title {
+        font-size: 20px;
+        transform: translateX(0%);
+        right: 4vw;
     }
 }

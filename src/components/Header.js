@@ -6,8 +6,8 @@ import homeIcon from '../images/homeIcon.png';
 const lngs = {
     en: {nativeName: 'English'},
     ko: {nativeName: '한국어'},
-    cn: {nativeName: '华侨华人'},
-    jp: {nativeName: '日本語です'},
+    cn: {nativeName: '中国人'},
+    jp: {nativeName: '日本語'},
 };
 
 export default function Header() {
