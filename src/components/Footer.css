@@ -4,17 +4,19 @@ div {
 
 footer {
     background-color: #004770;
-    width: 100%;
+    width: 90vw;
     display: flex;
     flex-direction: column;
     align-items: baseline;
     justify-content: flex-start;
-    font-size: calc(15px + 2vmin);
     color: white;
+    padding : 5vh 5vw;
+    font-size: smaller;
 }
 
 footer>p {
     text-decoration-line: none;
     align-items: flex-start;
     color: white;
+    margin: 1vh;
 }
