@@ -28,23 +28,25 @@ export default function Intro() {
                 </div>
             </div>
             <div className="language-body">
-                <h2>Select a language.</h2>
-                {Object.keys(lngs).map((lng) => (
-                    <button
-                        className="intro-lan-button" key={lng}
-                        type="submit"
-                        style={{
-                            backgroundImage: `url(${lngs[lng].imageName})`
-                        }}
-                        onClick={() => {
-                            i18n.changeLanguage(lng);
-                            navigate('/main');
-                        }}>
-                        {lngs[lng].nativeName}
-                    </button>
-                ))}
+                <div className="language-body-inner">
+                    <div className="language-body-name">Select a language.</div>
+                    {Object.keys(lngs).map((lng) => (
+                        <button
+                            className="intro-lan-button" key={lng}
+                            type="submit"
+                            style={{
+                                backgroundImage: `url(${lngs[lng].imageName})`
+                            }}
+                            onClick={() => {
+                                i18n.changeLanguage(lng);
+                                navigate('/main');
+                            }}>
+                            {lngs[lng].nativeName}
+                        </button>
+                    ))}
+                </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     )
 }
