@@ -1,33 +1,51 @@
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
 import homeIcon from '../images/homeIcon.png';
 
 const lngs = {
   en: { nativeName: 'English' },
-  ko: { nativeName: "Korean" },
-  cn: { nativeName: 'Chinese' },
-  jp: { nativeName: 'Japanese' },
+  ko: { nativeName: '한국어' },
+  cn: { nativeName: '华侨华人' },
+  jp: { nativeName: '日本語です' },
 };
 
 export default function Header() {
   const { i18n } = useTranslation();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState(i18n.resolvedLanguage);
+
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+  const handleSelectLang = (lang) => {
+    i18n.changeLanguage(lang);
+    setSelectedLang(lang);
+    setDropdownOpen(false);
+  };
 
   return (
     <>
       <header>
-        <div>
+        <div className="header-content">
           <a href="/main">
             <img className="home-icon" src={homeIcon} alt="home"/>
           </a>
-          {Object.keys(lngs).map((lng) => (
-            <button key={lng} style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }} type="submit" onClick={() => i18n.changeLanguage(lng)}>
-              {lngs[lng].nativeName}
-            </button>
-          ))}
-          <a className="title" href="/main">pharamaseoul</a>
+          <div className="custom-dropdown">
+            <div className="dropdown-btn" onClick={toggleDropdown}>
+              {lngs[selectedLang].nativeName}
+            </div>
+            {dropdownOpen && (
+              <div className="dropdown-content">
+                {Object.keys(lngs).map((lng) => (
+                  <div key={lng} className="dropdown-item" onClick={() => handleSelectLang(lng)}>
+                    {lngs[lng].nativeName}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          <a className="title" href="/main">PharmaSeoul</a>
         </div>
       </header>
     </>
   );
 }
-

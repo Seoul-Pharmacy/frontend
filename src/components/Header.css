@@ -5,6 +5,7 @@ header {
     padding: 15px;
     background-color: transparent;
     width: 100%;
+    height: 120px;
 }
 
 header>div {
@@ -24,14 +25,82 @@ header a {
     height: 53px;
 }
 
-header button {
-    color: #004770;
-    font-size: 32px;
-    padding-right: 2px;
+.custom-dropdown {
+    position: relative;
     border: none;
     background-color: transparent;
-    border-radius: 5px;
     cursor: pointer;
+    font-size: 20px;
+    color: #004770;
+}
+
+.dropdown-btn {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    padding: 8px 16px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: inherit;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    z-index: 1;
+    border: 2px solid #004770;
+    border-radius: 20px;
+}
+
+.custom-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-item {
+    color: #004770;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-item:hover {
+    background-color: #004770;
+    color: white;
+    border-radius: 15px;
+}
+
+.dropdown-btn {
+    background-color: transparent;
+    color: inherit;
+    padding: 8px 16px;
+    padding-right: 30px; /* 화살표 공간 확보 */
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: inherit;
+    position: relative; /* 화살표 위치 설정을 위함 */
+}
+
+.dropdown-btn::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #004770;
+    border-bottom: 2px solid #004770;
+    transform: translateY(-75%) rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.custom-dropdown:hover .dropdown-btn::after {
+    transform: translateY(-25%) rotate(-135deg); /* 활성화 시 화살표 방향 변경 */
 }
 
 header .title {
