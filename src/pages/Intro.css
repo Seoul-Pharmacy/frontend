@@ -27,28 +27,40 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: x-large;
 }
 
 .intro-text>h1 {
     font-family: "Suranna-Regular";
+    line-height: 120%;
+    font-size: 55px;
+    white-space: nowrap;
 }
 
 .intro-text>p {
     font-family: "SUIT-Regular";
+    line-height: 110%;
+    font-size: 28px;
 }
 
 .language-body {
     width: 90vw;
-    height: 60vh;
+    height: calc(20vw + 10vh);
     padding: 5vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.language-body-button {
+    display: flex;
+    gap: 2vw;
+    justify-content: center;
+    align-items: center;
 }
 
 .intro-lan-button {
-    margin: 1vw;
     color: white;
     width: 20vw;
-    height: 41vh;
+    height: 20vw;
     background-size: cover;
     position: relative;
     display: inline-block;
@@ -56,7 +68,7 @@
     border: 0;
     border-radius: 2rem;
     cursor: pointer;
-    font-size: smaller;
+    font-size: 18px;
 }
 
 .language-body-name {
@@ -64,8 +76,54 @@
     color: black;
     text-align: left;
     padding: 3vh 2vw;
+    font-size: 25px;
 }
 
 .intro-lan-button {
     font-family: "SUIT-Regular";
 }
+
+/*태블릿*/
+@media (max-width: 800px) {
+    .language-body-button {
+        gap: 1vw;
+    }
+
+    .language-body-name {
+        font-size: 22px;
+    }
+
+    .intro-lan-button {
+        margin: 1vw;
+        width: 20vw;
+        height: 20vw;
+        font-size: 13px;
+    }
+
+    .intro-text>p {
+        white-space: normal;
+    }
+}
+
+/*모바일*/
+@media (max-width: 480px) {
+    .language-body-button {
+        gap: 0.5vw;
+    }
+
+    .language-body-name {
+        font-size: 18px;
+    }
+
+    .intro-text>h1 {
+        line-height: 110%;
+        font-size: 35px;
+        white-space: normal;
+    }
+    
+    .intro-text>p {
+        line-height: 100%;
+        font-size: 20px;
+    }
+    
+} 
