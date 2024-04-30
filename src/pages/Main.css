@@ -1,44 +1,49 @@
 #main-wrapper {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 }
 
-#selection {
+#body-wrapper {
     display: flex;
-    flex-direction: row;
+    height: 60vh;
+    width: 84vw;
+    padding: 6vh 8vw 15vh;
 }
+
 
 #findPharmacy-wrapper {
-    display: flex;
-    position: relative;
+    /*display: flex;*/
+    /*position: relative;*/
     left: 5vw;
-    width: 40vw;
-    height: 100vw;
+    width: 28vw;
+    height: 100%
 }
 
-#findPharmacy-text {
-    display: flex;
-}
-
-#findPharmacy-text>p {
-    position: absolute;
-    width: 40vw;
+#findPharmacy-text1 {
+    /*position: absolute;*/
+    width: 100%;
     font-style: normal;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 40px;
     line-height: 35px;
     color: #004770;
     z-index: 1;
+    white-space: nowrap;
+    text-align: center;
 }
 
-#findPharmacy-text>p>p {
-    position: relative;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 58px;
-    line-height: 80px;
+#findPharmacy-text2 {
+    /*position: relative;*/
+    /*font-style: normal;*/
+    width: 100%;
+    font-weight: 700;
+    font-size: 60px;
+    /*line-height: 80px;*/
     color: black;
-    z-index: 1;
+    /*z-index: 1;*/
+    white-space: nowrap;
+    text-align: center;
+
 }
 
 #findPharmacy {
@@ -59,24 +64,33 @@
     z-index: 0;
 }
 
+
 section {
+    box-sizing: border-box;
+
     display: flex;
-    gap: 1vw;
-    position: absolute;
-    margin-left: 45vw;
+    gap: 2vw;
+    width: 56vw;
+    height: 100%;
+    /*position: absolute;*/
+    /*margin-left: 45vw;*/
+    /*padding: 12vh 0;*/
+    padding: 4vh 0;
 }
 
 .selectOptionButton {
-    width: 40vw;
-    max-width: 330px;
-    height: 60vh;
+    /*padding-top: 6vh;*/
+    width: 29vw;
+    /*max-width: 330px;*/
+    height: 100%;
     color: white;
     background-size: cover;
-    position: relative;
-    display: inline-block;
-    background-repeat: no-repeat;
-    border: 0px;
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*background-repeat: no-repeat;*/
+    border: 0;
     border-radius: 30px;
+    white-space: nowrap;
 }
 
 .selectOptionTitle {
@@ -144,69 +158,69 @@ section {
 }
 
 /*mobile*/
-@media (max-width: 1000px) {
-    #main-wrapper {
-        width: 100%;
-        height: 170vh;
-    }
+/*@media (max-width: 480px) {*/
+/*    #main-wrapper {*/
+/*        width: 100%;*/
+/*        !*height: 170vh;*!*/
+/*    }*/
 
-    #selection {
-        flex-direction: column;
-    }
+/*    #selection {*/
+/*        flex-direction: column;*/
+/*    }*/
 
-    #findPharmacy-wrapper {
-        flex-direction: column;
-        width: 100vw;
-        left: 0;
-        height: 15vw;
-    }
-    
-    #findPharmacy-text {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+/*    #findPharmacy-wrapper {*/
+/*        flex-direction: column;*/
+/*        width: 100vw;*/
+/*        left: 0;*/
+/*        height: 15vw;*/
+/*    }*/
+/*    */
+/*    #findPharmacy-text {*/
+/*        display: flex;*/
+/*        align-items: center;*/
+/*        justify-content: center;*/
+/*    }*/
 
-    #findPharmacy-text>p>p {
-        position: absolute;
-        width: 400px;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 45px;
-        line-height: 80px;
-    }
+/*    #findPharmacy-text>p>p {*/
+/*        position: absolute;*/
+/*        width: 400px;*/
+/*        font-style: normal;*/
+/*        font-weight: 700;*/
+/*        font-size: 45px;*/
+/*        line-height: 80px;*/
+/*    }*/
 
-    .locationMark {
-        position: relative;
-        width: 8vw;
-        height: 13vw;
-        top: 0;
-        padding-left: 10vw;
-    }
+/*    .locationMark {*/
+/*        position: relative;*/
+/*        width: 8vw;*/
+/*        height: 13vw;*/
+/*        top: 0;*/
+/*        padding-left: 10vw;*/
+/*    }*/
 
-    section {
-        display: flex;
-        position: relative;
-        padding: 0 1vw;
-        gap: 3vw;
-        justify-content: center;
-        margin: 0;
-    }
-    
-    .selectOptionButton {
-        width: 40vw;
-        height: 50vw;
-    }
+/*    section {*/
+/*        display: flex;*/
+/*        position: relative;*/
+/*        padding: 0 1vw;*/
+/*        gap: 3vw;*/
+/*        justify-content: center;*/
+/*        margin: 0;*/
+/*    }*/
+/*    */
+/*    .selectOptionButton {*/
+/*        width: 40vw;*/
+/*        height: 50vw;*/
+/*    }*/
 
-    .whiteSelectButton {
-        position: relative;
-        width: 34vw;
-        max-width: 270px;
-        height: 8.5vw;
-        max-height: 70px;
-        margin-top: 20vw;
-        border-radius: 4vw;
-        cursor: pointer;
-        font-size: 20px;
-    }
-}
+/*    .whiteSelectButton {*/
+/*        position: relative;*/
+/*        width: 34vw;*/
+/*        max-width: 270px;*/
+/*        height: 8.5vw;*/
+/*        max-height: 70px;*/
+/*        margin-top: 20vw;*/
+/*        border-radius: 4vw;*/
+/*        cursor: pointer;*/
+/*        font-size: 20px;*/
+/*    }*/
+/*}*/

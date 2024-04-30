@@ -53,12 +53,14 @@ export default function Main() {
         <>
             <div id="main-wrapper">
                 <Header />
-                <div id="selection">
+                <div id="body-wrapper">
                     <div id="findPharmacy-wrapper">
-                        <div id="findPharmacy-text">
-                            <p>내가 설정한 위치로 조건에 딱 맞는 <p>약국으로 찾기<img id="readingGlasses" src={Glasses} alt="reading glasses" /></p></p>
+                        {/*<img className="locationMark" src={Mark} alt="location mark"/>*/}
+
+                        <div id="findPharmacy-text1">
+                            내가 설정한 위치로 조건에 딱 맞는
                         </div>
-                        <img className="locationMark" src={Mark} alt="location mark" />
+                        <div id="findPharmacy-text2">약국으로 찾기<img id="readingGlasses" src={Glasses} alt=""/></div>
                     </div>
                     <section>
                         <div
