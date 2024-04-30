@@ -12,8 +12,8 @@ import './Intro.css';
 const lngs = {
     ko: { nativeName: '한국어', imageName: koImg },
     en: { nativeName: 'English', imageName: enImg },
-    cn: { nativeName: '华侨华人', imageName: cnImg },
-    jp: { nativeName: '日本語です', imageName: jpImg },
+    cn: { nativeName: '中国人', imageName: cnImg },
+    jp: { nativeName: '日本語', imageName: jpImg },
 };
 
 export default function Intro() {
