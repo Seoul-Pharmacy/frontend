@@ -8,6 +8,7 @@ header {
     border: lightgray solid 1px;
     align-items: center;
 }
+
 .header-content > a {
     text-decoration: none;
     color: #004770;
@@ -25,7 +26,6 @@ header > div {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    font-size: 30px;
     color: #004770;
     font-family: "SUIT-Regular";
     font-size: 22px;
@@ -42,9 +42,18 @@ header > div {
     z-index: 100;
     border: 1px solid #004770;
     border-radius: 12px;
+    transition: visibility 0.5s, opacity 0.5s linear;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .language-dropdown:hover .dropdown-item-wrapper {
+    visibility: visible;
+    opacity: 1;
+}
+
+.language-dropdown:hover .dropdown-item-wrapper,
+.dropdown-item-wrapper:hover {
     display: block;
 }
 
@@ -109,7 +118,41 @@ header > div {
 
 /*태블릿*/
 @media (max-width: 800px) {
+    header {
+        padding: 0 4vw;
+        height: 80px;
+    }
+    
+    .home-icon {
+        display: none;
+    }
 
+    .language-dropdown {
+        position: relative;
+        top: 7px;
+        font-size: 17px;
+        padding: 0;
+    }
+
+    .dropdown-item-wrapper {
+        min-width: 90px;
+        margin: 0 0 0 12px;
+    }
+    
+    .dropdown-item {
+        padding: 11px 20px;
+    }
+
+    .dropdown-btn::after {
+        right: 8px;
+        top: 55%;
+        width: 6px;
+        height: 6px;
+    }
+
+    .title {
+        font-size: 26px;
+    }
 }
 
 /*모바일*/
