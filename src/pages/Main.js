@@ -51,11 +51,13 @@ export default function Main() {
 
     return (
         <>
-            <div className="main-wrapper">
+            <div id="main-wrapper">
                 <Header />
-                <main className="selection">
-                    <div>
-                        <img src={Glasses} alt="reading glasses" />
+                <div id="selection">
+                    <div id="findPharmacy-wrapper">
+                        <div id="findPharmacy-text">
+                            <p>내가 설정한 위치로 조건에 딱 맞는 <p>약국으로 찾기<img id="readingGlasses" src={Glasses} alt="reading glasses" /></p></p>
+                        </div>
                         <img className="locationMark" src={Mark} alt="location mark" />
                     </div>
                     <section>
@@ -80,9 +82,9 @@ export default function Main() {
                             </button>
                         </div>
                     </section>
-                </main>
-                <Footer />
+                </div>
             </div>
+            <Footer />
             <PopUp isOpen={modalOpen} toggleModal={toggleModal} />
         </>
     );
