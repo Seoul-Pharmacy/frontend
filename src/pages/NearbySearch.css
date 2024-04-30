@@ -6,35 +6,99 @@
 
 .leftRec {
     position: absolute;
+    background-color: #004770;
+    border-bottom-right-radius: 13vw;
     color: white;
     z-index: 10;
-    width: 60vw;
-    height: 36vh;
-    top: 17vh;
+    width: 70vw;
+    height: 270px;
+    top: 120px;
 }
 
 .rightRec {
     position: absolute;
+    background-color: #AEDCF6;
+    border-bottom-left-radius: 13vw;
     z-index: 9;
     width: 81vw;
-    height: 36vh;
+    height: 270px;
     right: 0px;
-    top: 30vh;
+    top: calc(120px + 10vh);
+}
+
+#nearby-icon {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 2vw;
+    top: calc(120px + 8.5vh);
+    width: 400px;
+    height:300px;
+    text-align: left;
 }
 
 .greenBag {
-    position: absolute;
-    z-index: 15;
-    width: 242px;
-    height: 231px;
-    right: 0px;
-    top: 30vh;
+    position: relative;
+    z-index: 16;
+    width: 150px;
+    left: 3vw;
 }
 
 .hand {
-    position: absolute;
-    z-index: 16;
-    width: 242px;
-    right: 0px;
-    top: 30vh;
+    position: relative;
+    z-index: 15;
+    top: 10px;
+    width: 400px;
+}
+
+/*태블릿*/
+@media (max-width: 800px) {
+    .leftRec {
+        height: 180px;
+    }
+    
+    .rightRec {
+        height: 180px;
+    }
+    
+    #nearby-icon {
+        width: 260px;
+        height: 210px;
+    }
+
+    .greenBag {
+        width: 110px;
+    }
+    
+    .hand {
+        top: 10px;
+        width: 260px;
+    }
+}
+
+/*모바일*/
+@media (max-width: 480px) {
+    .leftRec {
+        height: 120px;
+    }
+
+    .rightRec {
+        height: 120px;
+    }
+    
+    #nearby-icon {
+        top: calc(120px + 9vh);
+        width: 170px;
+        height: 190px;
+        right: 1vw;
+    }
+
+    .greenBag {
+        width: 70px;
+    }
+    
+    .hand {
+        top: 8px;
+        width: 170px;
+    }
 }

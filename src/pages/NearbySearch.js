@@ -13,10 +13,12 @@ export default function NearbySearch() {
         <>
             <Header />
             <div className="nearbySearchDesign">
-                <img className="leftRec" src={LeftRectangle} />
-                <img className="rightRec" src={RightRectangle} />
-                <img className="greenBag" src={GreenBag} />
-                <img className="hand" src={Hand} />
+                <div className="leftRec" />
+                <div className="rightRec" />
+                <div id="nearby-icon">
+                    <img className="greenBag" src={GreenBag} />
+                    <img className="hand" src={Hand} />
+                </div>
             </div>
             <Footer />
         </>
