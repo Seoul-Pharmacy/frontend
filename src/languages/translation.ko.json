@@ -1,8 +1,8 @@
 {
-    "GEN": "대표번호: 010-",
-    "GroupName": "단체명: ",
-    "Insta": "인스타: ",
-    "Email": "이메일: ",
+    "owner": "대표",
+    "GEN": "전화",
+    "groupName": "팀명",
+    "email": "메일",
     "search": "검색",
     "find_near": "내 위치 근처로 찾기",
     "find_near_description": "현재 위치에서 가까운 곳을 찾습니다.",

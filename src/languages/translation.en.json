@@ -1,8 +1,8 @@
 {
-    "GEN": "Number: 010-",
-    "GroupName": "Group Name: ",
-    "Insta": "Instagram: ",
-    "Email": "Email: ",
+    "owner": "Owner",
+    "GEN": "Number",
+    "groupName": "Team Name",
+    "email": "Email",
     "search": "search",
     "find_near": "Find near my location",
     "find_near_description": "Find a location close to my current location.",

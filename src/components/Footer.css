@@ -12,6 +12,7 @@ footer {
     color: white;
     padding : 5vh 5vw;
     font-size: smaller;
+    /*font-weight: bolder;*/
 }
 
 footer>p {
@@ -20,3 +21,9 @@ footer>p {
     color: white;
     margin: 1vh;
 }
+
+
+footer>p>span {
+    font-weight: normal;
+}
+
