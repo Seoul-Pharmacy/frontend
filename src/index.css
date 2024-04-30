@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "SUIT-Bold";
+  src: url("./fonts/SUIT-Bold.ttf");
+}
+
+@font-face {
+  font-family: "SUIT-ExtraBold";
+  src: url("./fonts/SUIT-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: "SUIT-Light";
+  src: url("./fonts/SUIT-Light.ttf");
+}
+
+@font-face {
+  font-family: "SUIT-Medium";
+  src: url("./fonts/SUIT-Medium.ttf");
+}
+
+@font-face {
+  font-family: "SUIT-Regular";
+  src: url("./fonts/SUIT-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Suranna-Regular";
+  src: url("./fonts/Suranna-Regular.ttf");
+}

@@ -30,6 +30,14 @@
     font-size: x-large;
 }
 
+.intro-text>h1 {
+    font-family: "Suranna-Regular";
+}
+
+.intro-text>p {
+    font-family: "SUIT-Regular";
+}
+
 .language-body {
     width: 90vw;
     height: 60vh;
@@ -55,7 +63,9 @@
     margin: 0;
     color: black;
     text-align: left;
-    font-weight: normal;
     padding: 3vh 2vw;
 }
 
+.intro-lan-button {
+    font-family: "SUIT-Regular";
+}
