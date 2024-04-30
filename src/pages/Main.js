@@ -67,7 +67,7 @@ export default function Main() {
                             className="selectOptionButton" style={{
                                 backgroundImage: `url(${Nearby})`
                             }}>
-                            <p className="selectOptionTitle">{t('description.find_near')}</p>
+                            <h3 className="selectOptionTitle">{t('description.find_near')}</h3>
                             <p className="selectOptionDescription">{t('description.find_near_description')}</p>
                             <button className="SelectOptionInnerButton" onClick={() => navigate('/nearbysearch')}>
                                 선택하기
@@ -77,7 +77,7 @@ export default function Main() {
                             className="selectOptionButton" style={{
                                 backgroundImage: `url(${Region})`
                             }}>
-                            <p className="selectOptionTitle">{t('description.find_by_region')}</p>
+                            <h3 className="selectOptionTitle">{t('description.find_by_region')}</h3>
                             <p className="selectOptionDescription">{t('description.find_by_region_description')}</p>
                             <button className="SelectOptionInnerButton" onClick={toggleModal}>
                                 선택하기
