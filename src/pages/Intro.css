@@ -52,7 +52,7 @@
 
 .language-body-button {
     display: flex;
-    gap: 1vw;
+    gap: 2vw;
     justify-content: center;
     align-items: center;
 }
@@ -85,17 +85,20 @@
 
 /*태블릿*/
 @media (max-width: 800px) {
-    .intro-lan-button {
-        margin: 1vw;
-        width: 20vw;
-        height: 20vw;
-        font-size: 13px;
+    .language-body-button {
+        gap: 1vw;
     }
 
     .language-body-name {
         font-size: 22px;
     }
 
+    .intro-lan-button {
+        margin: 1vw;
+        width: 20vw;
+        height: 20vw;
+        font-size: 13px;
+    }
 
     .intro-text>p {
         white-space: normal;
@@ -104,6 +107,10 @@
 
 /*모바일*/
 @media (max-width: 480px) {
+    .language-body-button {
+        gap: 0.5vw;
+    }
+
     .language-body-name {
         font-size: 18px;
     }
