@@ -6,14 +6,12 @@ export default function useIsPossibleLanguage({ english, japanese, chinese }) {
         speaking_japanese: false,
         speaking_chinese: false
     });
+    const toggleLanguage = (language) => {
+        setisPossibleLanguage(prevLanguages => ({
+            ...prevLanguages,
+            [language]: !prevLanguages[language]
+        }));
+    };
 
-    useEffect(() => {
-        setisPossibleLanguage({
-            speaking_english: english,
-            speaking_japanese: japanese,
-            speaking_chinese: chinese
-        });
-    }, [english, japanese, chinese]);
-
-    return isPossibleLanguage;
+    return [isPossibleLanguage, toggleLanguage];
 }
