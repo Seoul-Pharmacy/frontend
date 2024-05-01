@@ -17,7 +17,7 @@ export default function Map() {
   return (
     <div
       className="map"
-      style={{ width: "500px", height: "300px" }}
+      style={{ width: "350px", height: "250px" }}
       ref={mapRef}
     ></div>
   );
