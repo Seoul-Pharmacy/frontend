@@ -44,7 +44,7 @@
 
 .language-body {
     width: 90vw;
-    height: calc(20vw + 10vh);
+    height: calc(23.5vw + 10vh);
     padding: 5vw;
     justify-content: center;
     align-items: center;
@@ -60,7 +60,7 @@
 .intro-lan-button {
     color: white;
     width: 20vw;
-    height: 20vw;
+    height: 23.5vw;
     background-size: cover;
     position: relative;
     display: inline-block;
@@ -75,8 +75,9 @@
     margin: 0;
     color: black;
     text-align: left;
-    padding: 3vh 2vw;
     font-size: 25px;
+    padding: 0 2vw 3vh;
+    font-weight: 500;
 }
 
 .intro-lan-button {
@@ -95,8 +96,6 @@
 
     .intro-lan-button {
         margin: 1vw;
-        width: 20vw;
-        height: 20vw;
         font-size: 13px;
     }
 
