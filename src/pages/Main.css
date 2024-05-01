@@ -22,12 +22,11 @@
     /*공백에서 중앙 정렬하기 위해 -4vw*/
     position: relative;
     left: -4vw;
-
-    width: 100%;
-
+    letter-spacing: -0.5px;
+    font-family: "SUIT-SemiBold";
     font-weight: 600;
-    font-size: 20px;
-    line-height: 50px;
+    font-size: 18px;
+    padding-top: 15px;
     color: #004770;
     text-align: center;
 }
@@ -35,11 +34,11 @@
 #findPharmacy-text2 {
     position: relative;
     left: -4vw;
-
     width: 100%;
-
+    padding-top: 13px;
+    font-family: "SUIT-ExtraBold";
     font-weight: 1000;
-    font-size: 40px;
+    font-size: 60px;
     color: black;
     text-align: center;
 
@@ -53,9 +52,8 @@
     position: relative;
     top: 5px;
     left: 5px;
-
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 .locationMark {
@@ -69,9 +67,8 @@
 
 section {
     box-sizing: border-box;
-
     display: flex;
-    gap: 2%;
+    gap: 3%;
     width: 50vw;
     height: 100%;
     /*position: absolute;*/
@@ -96,11 +93,13 @@ section {
     margin: 0;
     padding-top: 14%;
     font-size: 25px;
+    font-family: "SUIT-Bold";
     text-align: left;
 }
 
 .selectOptionDescription {
     font-size: 15px;
+    font-family: "SUIT-Regular";
     text-align: left;
 }
 
@@ -108,17 +107,16 @@ section {
     position: absolute;
     bottom: 8%;
     left: 14.5%;
-
     width: 71%;
     max-width: 270px;
     height: 13%;
-
     outline: solid 2px #fff;
     outline-offset: -2px;
     border-radius: 6vw;
     background-color: #d9d9d933;
     color: white;
     font-size: 20px;
+    font-family: "SUIT-Regular";
     cursor: pointer;
     white-space: nowrap;
 }
@@ -166,6 +164,47 @@ section {
     border-width: 0;
 }
 
+/*tablet*/
+@media (max-width: 800px) {
+    .locationMark {
+        width: 90px;
+        height: 150px;
+    }
+
+    #findPharmacy-text1 {
+        font-weight: 600;
+        font-size: 13px;
+    }
+    
+    #findPharmacy-text2 {
+        font-size: 40px;
+        padding-top: 8px;
+    }
+
+    #readingGlasses {
+        width: 40px;
+        height: 40px;
+    }
+
+    #body-wrapper {
+        height: 50vh;
+        width: 100vw;
+        padding: 6vh 8vw 10vh;
+    }
+
+    .selectOptionTitle {
+        font-size: 18px;
+    }
+    
+    .selectOptionDescription {
+        font-size: 12px;
+    }
+    
+    .SelectOptionInnerButton {
+        font-size: 13px;
+    }
+}
+
 /*mobile*/
 @media (max-width: 480px) {
     #body-wrapper {
@@ -185,6 +224,7 @@ section {
         position: relative;
         width: 9vw;
         height: 15vw;
+        top: 2vh;
     }
 
     section {
