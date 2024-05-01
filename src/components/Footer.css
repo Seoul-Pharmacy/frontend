@@ -13,6 +13,7 @@ footer {
     color: white;
     padding : 5vh 8vw;
     font-size: 18px;
+    font-weight: 600;
     font-family: "SUIT-medium";
 }
 
@@ -42,6 +43,9 @@ footer>p>span {
     box-sizing: border-box;
 }
 
+.footer-item {
+    font-size: 16px;
+}
 
 /*태블릿*/
 @media (max-width: 767px) {
@@ -51,6 +55,10 @@ footer>p>span {
 
     .contact-button {
         width: 30px;
+    }
+
+    .footer-item {
+        font-size: 14px;
     }
 }
 
@@ -62,5 +70,9 @@ footer>p>span {
 
     .contact-button {
         width: 25px;
+    }
+
+    .footer-item {
+        font-size: 11px;
     }
 }

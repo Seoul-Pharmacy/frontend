@@ -21,10 +21,10 @@ export default function Footer() {
     return (
         <footer>
             <p>pharmaseoul</p>
-            <p>{t('description.owner')} <span>{FOOTER_TEXT.owner}</span></p>
-            <p>{t('description.groupName')} <span>{FOOTER_TEXT.groupName}</span></p>
-            <p>{t('description.GEN')} <span>{FOOTER_TEXT.GEN}</span></p>
-            <p>{t('description.email')} <span>{FOOTER_TEXT.email}</span></p>
+            <p>{t('description.owner')} <span className='footer-item'>{FOOTER_TEXT.owner}</span></p>
+            <p>{t('description.groupName')} <span className='footer-item'>{FOOTER_TEXT.groupName}</span></p>
+            <p>{t('description.GEN')} <span className='footer-item'>{FOOTER_TEXT.GEN}</span></p>
+            <p>{t('description.email')} <span className='footer-item'>{FOOTER_TEXT.email}</span></p>
 
             <div id="contact-div">
                 <a
