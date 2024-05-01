@@ -1,3 +1,4 @@
+import './Map.css';
 import React, { useCallback, useEffect, useRef } from "react";
 
 export default function Map() {
@@ -17,7 +18,6 @@ export default function Map() {
   return (
     <div
       className="map"
-      style={{ width: "350px", height: "250px" }}
       ref={mapRef}
     ></div>
   );
