@@ -57,9 +57,9 @@ export default function Main() {
                     <div id="findPharmacy-wrapper">
 
                         <div id="findPharmacy-text1">
-                            내가 설정한 위치로 조건에 딱 맞는
+                            {t('description.find_pharmacy_explanation')}
                         </div>
-                        <div id="findPharmacy-text2">약국 찾기<img id="readingGlasses" src={Glasses} alt=""/></div>
+                        <div id="findPharmacy-text2">{t('description.find_pharmacy')}<img id="readingGlasses" src={Glasses} alt=""/></div>
                         <img className="locationMark" src={Mark} alt="location mark"/>
                     </div>
                     <section>
@@ -70,7 +70,7 @@ export default function Main() {
                             <h3 className="selectOptionTitle">{t('description.find_near')}</h3>
                             <p className="selectOptionDescription">{t('description.find_near_description')}</p>
                             <button className="SelectOptionInnerButton" onClick={() => navigate('/nearbysearch')}>
-                                선택하기
+                                {t('description.select')}
                             </button>
                         </div>
                         <div
@@ -80,7 +80,7 @@ export default function Main() {
                             <h3 className="selectOptionTitle">{t('description.find_by_region')}</h3>
                             <p className="selectOptionDescription">{t('description.find_by_region_description')}</p>
                             <button className="SelectOptionInnerButton" onClick={toggleModal}>
-                                선택하기
+                                {t('description.select')}
                             </button>
                         </div>
                     </section>

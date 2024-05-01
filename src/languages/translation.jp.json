@@ -7,5 +7,8 @@
     "find_near": "私の位置の近くを探す",
     "find_near_description": "現在地から近い場所を探します。",
     "find_by_region": "地域選択で探す",
-    "find_by_region_description": "見つけたい地域を選択して探します。"
+    "find_by_region_description": "見つけたい地域を選択して探します。",
+    "find_pharmacy_explanation": "私が設定した場所で条件にぴったりの",
+    "find_pharmacy": "薬局を探す",
+    "select": "選ぶ"
 }

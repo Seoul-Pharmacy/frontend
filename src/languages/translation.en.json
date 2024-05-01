@@ -7,5 +7,8 @@
     "find_near": "Find near my location",
     "find_near_description": "Find a location close to my current location.",
     "find_by_region": "Find by Region Selection",
-    "find_by_region_description": "Select the area you want to look for and find it."
+    "find_by_region_description": "Select the area you want to look for and find it.",
+    "find_pharmacy_explanation": "The location I set perfectly meets the conditions",
+    "find_pharmacy": "Find a pharmacy.",
+    "select": "Select"
 }

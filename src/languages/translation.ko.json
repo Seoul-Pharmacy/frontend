@@ -7,5 +7,8 @@
     "find_near": "내 위치 근처로 찾기",
     "find_near_description": "현재 위치에서 가까운 곳을 찾습니다.",
     "find_by_region": "지역 선택으로 찾기",
-    "find_by_region_description": "찾고 싶은 지역을 선택해서 찾습니다."
+    "find_by_region_description": "찾고 싶은 지역을 선택해서 찾습니다.",
+    "find_pharmacy_explanation": "내가 설정한 위치 조건에 딱 맞는",
+    "find_pharmacy": "약국 찾기",
+    "select": "선택하기"
 }

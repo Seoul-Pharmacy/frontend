@@ -7,5 +7,8 @@
     "find_near": "查找位置接近我的位置",
     "find_near_description": "找到离当前位置近的地方 。",
     "find_by_region": "区域选择查找",
-    "find_by_region_description": "选择想找的地区找。"
+    "find_by_region_description": "选择想找的地区找。",
+    "find_pharmacy_explanation": "使用您设置的位置查找符合您标准的药房.",
+    "find_pharmacy": "寻找药房",
+    "select": "选择"
 }
