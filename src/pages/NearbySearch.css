@@ -197,8 +197,153 @@
 }
 
 #search-inner-wrapper {
+    position: relative;
     width: 55%;
 }
+
+/*드롭다운*/
+.dropdown{
+    position : relative;
+    display : inline-block;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.dropdown-button{
+    display: flex;
+
+    position: relative;
+    text-align: left;
+    cursor : pointer;
+    width: 304px;
+    height: 33px;
+
+    align-items: center;
+
+    border: 0;
+    background: #FFFFFF;
+    border-radius: 33.5px;
+    box-shadow: 0 0 5px 3px #DCDCDC;
+}
+
+.dropdown-button>.arrow-icon {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+
+.dropdown-content{
+    width: 304px;
+    display : none;
+    position : absolute;
+    top: 40px;
+    z-index : 1; /*다른 요소들보다 앞에 배치*/
+    font-weight: 400;
+    border-radius: 4px;
+
+    background-color: white;
+    box-shadow: 0 0 5px 1px #DCDCDC;
+
+}
+
+.dropdown-item:hover {
+    background-color: #004770;
+    color: white;
+    border-radius: 4px;
+}
+
+.location-icon {
+    width: 17px;
+    height: 17px;
+    padding-left: 3px;
+    padding-right: 7px;
+
+}
+.arrow-icon {
+    width: 12px;
+    height: 8px;
+}
+
+
+select:focus{
+    outline:none;
+}
+
+#time-dropdown-wrapper {
+    width: 304px;
+    height: 33px;
+
+    border: 0;
+    background: #FFFFFF;
+    border-radius: 33.5px;
+    box-shadow: 0 0 5px 3px #DCDCDC;
+}
+
+/*검색버튼*/
+#pharmacy-search-button {
+    position: absolute;
+    right: 0;
+
+    width: 211px;
+    height: 50px;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    background: #C6E7F9;
+    border: 0;
+    box-shadow: 0px 4px 16.4px rgba(0, 0, 0, 0.25);
+    border-radius: 42px;
+
+}
+
+/*체크박스*/
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /*width: 50px;*/
+    /*height: 20px;*/
+    /*background-color: #ffffff; !* 체크박스의 배경 색상 설정 *!*/
+    /*border: 1px solid #cccccc; !* 체크박스의 테두리 설정 *!*/
+    /*border-radius: 3px; !* 체크박스 모서리 둥글게 설정 *!*/
+}
+
+#language-checkbox-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.language-checkbox {
+    /*display: inline-block;*/
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 70px;
+    height: 30px;
+
+    border-radius: 13px;
+}
+
+#speaking-japanese:checked + #speaking-japanese-label{
+    background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
+    color: white;
+}
+
+#speaking-chinese:checked + #speaking-chinese-label{
+    background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
+    color: white;
+}
+
+#speaking-english:checked + #speaking-english-label{
+    background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
+    color: white;
+}
+
+
 
 /*결과창*/
 #result-wrapper {
@@ -255,3 +400,4 @@
     top: 7%;
     text-align: left;
 }
+

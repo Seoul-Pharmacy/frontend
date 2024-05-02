@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from 'react';
 import './NearbySearch.css';
 
 import Header from "../components/Header";
@@ -8,8 +8,33 @@ import Map from "../components/map/Map"
 
 import GreenBag from '../images/NearbySearchPage/greenBag.png';
 import Hand from '../images/NearbySearchPage/hand.png';
+import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
+import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
+import Time from '../images/NearbySearchPage/timeIcon.png';
 
 export default function NearbySearch() {
+    const [timeDropdownMode, setTimeDropDownMode] = useState(false);
+    const [guDropdownMode, setGuDropdownMode] = useState(false);
+
+    const openDropdown = (dropdownName, isOpen, setIsOpen) => {
+        let content;
+        if (dropdownName === 'si') {
+            content = document.getElementById("si-dropdown");
+        } else {
+            content = document.getElementById("time-dropdown");
+        }
+
+        if (!isOpen) {
+            content.style.display = 'block';
+            setIsOpen(true);
+            return;
+        }
+
+        content.style.display = 'none';
+        setIsOpen(false);
+    };
+
+
     return (
         <>
             <Header/>
@@ -31,17 +56,49 @@ export default function NearbySearch() {
                     <h1 id="result-explanation-inner-text2">가까운 약국을 알려드려요!</h1>
                 </div>
                 <div id="search-inner-wrapper">
-                    <textarea>약국 이름 검색</textarea>
-                    <br/>
-                    <select>
-                        <option selected value="시 구 드롭다움">시 구 드롭다움</option>
-                    </select>
-                    <br/>
-                    <select>
-                        <option selected value="시간 드롭다운">시간 드롭다운</option>
-                    </select>
-                    <div>외국어 선택</div>
-                    <button>검색</button>
+                    {/*<input type="text" placeholder="약국 이름 검색"/>*/}
+                    {/*<button type="submit">검색</button>*/}
+
+                    <div className="dropdown">
+                        <button onClick={() => {
+                            openDropdown('si', guDropdownMode, setGuDropdownMode)
+                        }} className="dropdown-button">
+                            <img className="location-icon" src={LocationIcon} alt=""/>
+                            군/구
+                            <img className="arrow-icon" src={Arrow} alt=""/>
+                        </button>
+                        <div id="si-dropdown" className="dropdown-content">
+                            <div className="dropdown-item">profile</div>
+                            <div className="dropdown-item">write a post</div>
+                            <div className="dropdown-item">settings</div>
+                        </div>
+                    </div>
+
+                    <div className="dropdown">
+                        <button onClick={() => {
+                            openDropdown('time', timeDropdownMode, setTimeDropDownMode)
+                        }} className="dropdown-button">
+                            <img className="location-icon" src={Time} alt=""/>
+                            영업시간
+                            <img className="arrow-icon" src={Arrow} alt=""/>
+                        </button>
+                        <div id="time-dropdown" className="dropdown-content">
+                            <div className="dropdown-item">profile</div>
+                            <div className="dropdown-item">write a post</div>
+                            <div className="dropdown-item">settings</div>
+                        </div>
+                    </div>
+                    <div id="language-checkbox-wrapper">
+                        <input id="speaking-japanese" type="checkbox"/>
+                        <label id="speaking-japanese-label" className="language-checkbox" htmlFor="speaking-japanese">일본어 가능</label>
+                        <input id="speaking-chinese" type="checkbox"/>
+                        <label id="speaking-chinese-label" className="language-checkbox" htmlFor="speaking-chinese">중국어 가능</label>
+                        <input id="speaking-english" type="checkbox"/>
+                        <label id="speaking-english-label" className="language-checkbox" htmlFor="speaking-english">영어 가능</label>
+                    </div>
+
+
+                    <button id="pharmacy-search-button">검색</button>
                 </div>
             </div>
 
