@@ -69,16 +69,8 @@ export default function NearbySearch({ userLocation }) {
                         <option selected value="시간 드롭다운">시간 드롭다운</option>
                     </select>
                     <div>외국어 선택</div>
-                    <button>검색</button>
+                    <button onClick={fetchPharmacies}>검색</button>
                 </div>
-            </div>
-            <div>
-                <p>{lat}</p>
-                <p>{lng}</p>
-                <button onClick={fetchPharmacies}>검색</button>
-                {pharmacies.map(pharmacy => (
-                    <div key={pharmacy.id} result={pharmacy}></div>
-                ))}
             </div>
             <Result result={pharmacies}/>
             <Footer />

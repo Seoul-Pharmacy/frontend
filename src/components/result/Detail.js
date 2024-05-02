@@ -1,38 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import apiDetails from '../../api/apiDetail';
+import apiDetail from '../../api/apiDetail';
 import Map from "../map/Map";
-import nearbyApi from '../../api/nearbyApi';
 
-export default function Detail({ id }) {
+export default function Detail({ identifier }) {
     const [pharmacy, setPharmacy] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        setLoading(true);
-        nearbyApi(id).then(data => {
-            if (data) {
-                setPharmacy(data);
-            } else {
-                setError('Failed to load pharmacy details.');
-            }
-            setLoading(false);
-        })
-    }, [id]);
+        if (identifier) {
+            apiDetail(identifier).then(data => {
+                if (data) {
+                    setPharmacy(data);
+                    setError(null);
+                } else {
+                    setError('약국 정보를 불러오는 데 실패했습니다.');
+                }
+                setLoading(false);
+            }).catch(err => {
+                setError('네트워크 오류가 발생했습니다.');
+                setLoading(false);
+            });
+        }
+    }, [identifier]);
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
-    if (!pharmacy) return <div>No data found.</div>;
+    if (loading) return <div>로딩 중...</div>;
+    if (error) return <div>오류: {error}</div>;
+    if (!pharmacy) return <div>선택된 약국 정보가 없습니다.</div>;
 
     return (
         <article id="result-details">
             <Map/>
             <div id="result-details-text-wrapper">
-                <h1 id="result-details-name">약국 이름: {pharmacy.results.name}</h1>
-                <div id="result-details-name">주소</div>
-                <div id="result-details-name">영업시간</div>
-                <div id="result-details-GEN">전화번호</div>
-                <div id="result-details-distance">거리</div>
+                <h1 id="result-details-name">약국 이름 | {pharmacy.name}</h1>
+                <div id="result-details-name">주소 | {pharmacy.si} {pharmacy.gu} {pharmacy.road_name_address} </div>
+                <div id="result-details-name">영업시간 | 월요일: {pharmacy.mon_open_time}~{pharmacy.mon_close_time}
+                <p>화요일: {pharmacy.tue_open_time}~{pharmacy.tue_close_time}</p>
+                <p>수요일: {pharmacy.wed_open_time}~{pharmacy.wed_close_time}</p></div>
+                <p>목요일: {pharmacy.thu_open_time}~{pharmacy.thu_close_time}</p>
+                <p>금요일: {pharmacy.fri_open_time}~{pharmacy.fri_close_time}</p>
+                <p>토요일: {pharmacy.sat_open_time}~{pharmacy.sat_close_time}</p>
+                <p>일요일: {pharmacy.sun_open_time}~{pharmacy.sun_close_time}</p>
+                <p>공휴일: {pharmacy.holiday_open_time}~{pharmacy.holiday_close_time}</p>
+                <div id="result-details-GEN">전화번호 | {pharmacy.main_number}</div>
             </div>
         </article>
     );

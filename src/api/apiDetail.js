@@ -1,4 +1,4 @@
-export async function apiDetail( id = 1 ) {
+export default async function apiDetail( id ) {
     const url = `http://www.pharmaseoul.com:8000/api/pharmacies/${id}`;
 
     try {
