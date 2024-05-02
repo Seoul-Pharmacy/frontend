@@ -69,7 +69,7 @@ export default function NearbySearch({ userLocation }) {
             <div className="nearby-search-design">
                 <div className="left-rec">
                     <p id="nearby-description">위치기반 맞춤형 정보 제공</p>
-                    <p id="for-you">고객님이 찾던 약국,<p id="is-here">여기 다 있습니다!</p></p>
+                    <div id="for-you">고객님이 찾던 약국,<p id="is-here">여기 다 있습니다!</p></div>
                 </div>
                 <div className="right-rec" />
                 <div id="nearby-icon">
@@ -124,9 +124,12 @@ export default function NearbySearch({ userLocation }) {
                         <input id="speaking-english" type="checkbox"/>
                         <label id="speaking-english-label" className="language-checkbox" htmlFor="speaking-english">영어 가능</label>
                     </div>
-
-
-                    <button id="pharmacy-search-button">검색</button>
+                    <button
+                        id="pharmacy-search-button"
+                        onClick={fetchPharmacies}
+                    >
+                        검색
+                    </button>
                 </div>
             </div>
             <Result result={pharmacies}/>
