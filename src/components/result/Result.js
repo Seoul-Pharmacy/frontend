@@ -19,7 +19,11 @@ export default function Result({ result }) {
         <div id="result-summarize-wrapper">
             <ul id="result-summarize-inner-wrapper">
                 {result.map(pharmacy => (
-                    <li className="pharmacy-list-item" onClick={() => handleSelectPharmacy(pharmacy.id)}>
+                    <li
+                        className="pharmacy-list-item"
+                        onClick={() => handleSelectPharmacy(pharmacy.id)}
+                        id={identifier === pharmacy.id ? "selected" : ""}
+                    >
                         <Summarize
                             key={pharmacy.id}
                             name={pharmacy.name}

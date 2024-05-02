@@ -240,6 +240,10 @@
     border-radius: 5px;
 }
 
+#selected {
+    background-color: #C6E7F9;
+}
+
 /*약국 디테일*/
 #result-details {
     background-color: white;
