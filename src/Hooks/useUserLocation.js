@@ -16,7 +16,8 @@ export default function useLocation() {
                     });
             },
             (error) => {
-                console.error(error.message);
+                console.error("Geolocation access denied:", error.message);
+                setLocation({ lat: null, lng: null });
             });
         }
     }, []);
