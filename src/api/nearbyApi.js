@@ -1,11 +1,11 @@
-export async function nearbyApi( language, location, isOpen=true ) {
-    const { latitude, longitude } = location;
-    if (latitude === null || longitude === null ){
+export default async function nearbyApi(language, location, isOpen=true) {
+    if (!location || location.lat === null || location.lng === null) {
         console.error("Location data is not available.");
         return;
     }
 
-    const url = `http://localhost:3000/pharmacies?language=${language}&latitude=${latitude}&longitude=${longitude}&isOpen=${isOpen}`;
+    const { lat, lng } = location;
+    const url = `http://www.pharmaseoul.com:8000/api/nearby-pharmacies?language=${language}&latitude=${lat}&longitude=${lng}`;
 
     try {
         const response = await fetch(url, {
@@ -19,7 +19,7 @@ export async function nearbyApi( language, location, isOpen=true ) {
         }
         return await response.json();
     } catch (error) {
-        console.error('Failed to fetch: ', error);
+        console.error('Failed to fetch:', error);
         return null;
     }
 }

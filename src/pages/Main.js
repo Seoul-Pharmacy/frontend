@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Modal from 'react-modal';
 
+import useUserLocation from '../Hooks/useUserLocation.js';
 import './Main.css';
 import Header from '../components/Header.js';
 
@@ -45,6 +46,16 @@ function PopUp({ isOpen, toggleModal }) {
 export default function Main() {
     const navigate = useNavigate();
     const { t } = useTranslation();
+    const location = useUserLocation();
+    const goToNearbySearch = () => {
+        if (location && location.lat && location.lng) {
+            // URL을 통해 위치 정보를 전달
+            navigate(`/nearbysearch?lat=${location.lat}&lng=${location.lng}`);
+        } else {
+            console.error("Location data is not available.");
+        }
+    };
+
     const [modalOpen, setModalOpen] = useState(false);
 
     const toggleModal = () => setModalOpen(!modalOpen);
@@ -68,7 +79,7 @@ export default function Main() {
                             }}>
                             <h3 className="selectOptionTitle">{t('description.find_near')}</h3>
                             <p className="selectOptionDescription">{t('description.find_near_description')}</p>
-                            <button className="SelectOptionInnerButton" onClick={() => navigate('/nearbysearch')}>
+                            <button className="SelectOptionInnerButton" onClick={goToNearbySearch} userLocation={location}>
                                 {t('description.select')}
                             </button>
                         </div>
