@@ -188,10 +188,12 @@
 
 #result-explanation-inner-text1 {
     color: #0045D1;
+    font-size: 20px;
 }
 
-#result-explanation-inner-text12 {
-
+#result-explanation-inner-text2 {
+    font-weight: 900;
+    font-size: 30px;
 }
 
 #search-inner-wrapper {

@@ -27,8 +27,8 @@ export default function NearbySearch() {
 
             <div id="search-wrapper">
                 <div id="result-explanation-text">
-                    <p >내 주변에 있는, 지금 영업중인</p>
-                    <h1>가까운 약국을 알려드려요!</h1>
+                    <p id="result-explanation-inner-text1">내 주변에 있는, 지금 영업중인</p>
+                    <h1 id="result-explanation-inner-text2">가까운 약국을 알려드려요!</h1>
                 </div>
                 <div id="search-inner-wrapper">
                     <textarea>약국 이름 검색</textarea>
