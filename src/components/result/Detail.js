@@ -24,13 +24,31 @@ export default function Detail({ identifier }) {
         }
     }, [identifier]);
 
-    if (loading) return <div>로딩 중...</div>;
-    if (error) return <div>오류: {error}</div>;
-    if (!pharmacy) return <div>선택된 약국 정보가 없습니다.</div>;
+    if (loading) return (
+        <article id="result-details">
+            <div id="result-details-text-wrapper">
+                loading...
+            </div>
+        </article>
+    );
+    if (error) return (
+        <article id="result-details">
+            <div id="result-details-text-wrapper">
+                error: {error}
+            </div>
+        </article>
+    )
+    if (!pharmacy) return (
+        <article id="result-details">
+            <div id="result-details-text-wrapper">
+                No pharmacy choosed.
+            </div>
+        </article>
+    );
 
     return (
         <article id="result-details">
-            <Map/>
+            <Map lat={parseFloat(pharmacy.latitude)} lng={parseFloat(pharmacy.longitude)} />
             <div id="result-details-text-wrapper">
                 <h1 id="result-details-name">약국 이름 | {pharmacy.name}</h1>
                 <div id="result-details-name">주소 | {pharmacy.si} {pharmacy.gu} {pharmacy.road_name_address} </div>

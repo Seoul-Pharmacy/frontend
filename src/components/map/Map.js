@@ -1,24 +1,25 @@
 import './Map.css';
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
-export default function Map() {
+export default function Map({ lat, lng }) {
   const mapRef = useRef(null);
 
-  const initMap = useCallback(() => {
-    new window.google.maps.Map(mapRef.current, {
-      center: { lat: 37.564214, lng: 127.001699 },
-      zoom: 11,
-    });
-  }, [mapRef]);
-
   useEffect(() => {
-    initMap();
-  }, [initMap]);
+    if (!window.google) {
+      console.error("Google Maps script not loaded");
+      return;
+    }
+
+    const center = lat && lng ? { lat, lng } : { lat: 37.564214, lng: 127.001699 };
+
+    new window.google.maps.Map(mapRef.current, {
+      center,
+      zoom: 20,
+    })
+    
+  }, [lat, lng]);
 
   return (
-    <div
-      className="map"
-      ref={mapRef}
-    ></div>
+    <div id="map" className="map" ref={mapRef}></div>
   );
 }

@@ -20,6 +20,7 @@ export default function Result({ result }) {
             <ul id="result-summarize-inner-wrapper">
                 {result.map(pharmacy => (
                     <li
+                        key={pharmacy.id}
                         className="pharmacy-list-item"
                         onClick={() => handleSelectPharmacy(pharmacy.id)}
                         id={identifier === pharmacy.id ? "selected" : ""}
