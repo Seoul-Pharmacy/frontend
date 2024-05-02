@@ -106,7 +106,7 @@
     .right-rec {
         top: 150px;
         height: 180px;
-        border-bottom-right-radius: 10vw;
+        border-bottom-left-radius: 10vw;
     }
     
     #nearby-icon {
@@ -151,7 +151,7 @@
     .right-rec {
         top: 100px;
         height: 120px;
-        border-bottom-right-radius: 12vw;
+        border-bottom-left-radius: 12vw;
     }
     
     #nearby-icon {

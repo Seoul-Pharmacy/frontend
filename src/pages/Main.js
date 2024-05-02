@@ -31,7 +31,7 @@ function PopUp({ isOpen, toggleModal }) {
             overlayClassName="regionModal-overlay"
             className="regionModal-content"
         >
-            <img className="closeButton" src={CloseButton} onClick={toggleModal} alt="close button"/>
+            <img className="closeButton" src={CloseButton} onClick={toggleModal} alt="close button" />
             <h2>지역과 시간을 설정해보세요!</h2>
             <p>영업시간</p>
             <select value={selectedOption} onChange={handleDropdownChange}>
@@ -55,12 +55,11 @@ export default function Main() {
                 <Header />
                 <div id="body-wrapper">
                     <div id="findPharmacy-wrapper">
-
                         <div id="findPharmacy-text1">
                             {t('description.find_pharmacy_explanation')}
                         </div>
-                        <div id="findPharmacy-text2">{t('description.find_pharmacy')}<img id="readingGlasses" src={Glasses} alt=""/></div>
-                        <img className="locationMark" src={Mark} alt="location mark"/>
+                        <div id="findPharmacy-text2">{t('description.find_pharmacy')}<img id="readingGlasses" src={Glasses} alt="" /></div>
+                        <img className="locationMark" src={Mark} alt="location mark" />
                     </div>
                     <section>
                         <div
