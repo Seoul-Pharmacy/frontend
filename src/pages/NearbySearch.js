@@ -14,7 +14,7 @@ import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
 import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
 import Time from '../images/NearbySearchPage/timeIcon.png';
 
-export default function NearbySearch({ userLocation }) {
+export default function NearbySearch({ userlocation }) {
     const [isOpen, toggleOpen] = useIsOpen();
     const [language, changeLanguage] = useLanguage();
 
