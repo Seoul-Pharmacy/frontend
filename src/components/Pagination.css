@@ -1,0 +1,27 @@
+.pagination {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    justify-content: center; /* 가운데 정렬 */
+}
+
+.page-item {
+    margin: 0 2px; /* 각 페이지 번호 사이에 간격을 둠 */
+}
+
+.page-link {
+    display: block; /*링크 버튼을 블록 요소로 만듦. padding 속성 설정을 위함*/
+    padding: 6px 10px; /*사용자가 클릭 가능한 영역*/
+    font-size: 15px;
+    color: black;
+    background-color: transparent;
+    border: 0px;
+}
+
+.page-link:hover {
+    cursor: pointer;
+}
+
+#active-page {
+    font-weight: 600; /* 활성화된 버튼 숫자의 두께 */
+}

@@ -1,3 +1,5 @@
+import './Pagination.css';
+
 export default function Pagination({ totalItems, paginate, currentPage, itemsPerPage }) {
     const pageNumbers = [];
   
@@ -10,7 +12,7 @@ export default function Pagination({ totalItems, paginate, currentPage, itemsPer
             <ul className="pagination">
                 {pageNumbers.map(number => (
                     <li key={number} className="page-item">
-                        <button onClick={() => paginate(number)} className="page-link"  id={`page-link ${currentPage === number ? 'active' : ''}`}>
+                        <button onClick={() => paginate(number)} className="page-link"  id={`${currentPage === number ? 'active-page' : ''}`}>
                             {number}
                         </button>
                     </li>
