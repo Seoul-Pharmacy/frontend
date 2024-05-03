@@ -6,18 +6,17 @@ import nearbyApi from '../api/nearbyApi';
 import './NearbySearch.css';
 
 import Header from "../components/Header";
+import SearchDesign from "../components/SearchDesgin";
 import Footer from "../components/Footer";
-import Result from "../components/result/Result";
+import NearbyResult from "../components/result/NearbyResult";
 
-import GreenBag from '../images/NearbySearchPage/greenBag.png';
-import Hand from '../images/NearbySearchPage/hand.png';
 import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
 import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
 import Time from '../images/NearbySearchPage/timeIcon.png';
 import Language from '../images/NearbySearchPage/languageIcon.png';
 import {Button, Dropdown} from "react-bootstrap";
 
-export default function NearbySearch({ userLocation }) {
+export default function NearbySearch() {
     const [isOpen, toggleOpen] = useIsOpen();
     const [language, changeLanguage] = useLanguage();
 
@@ -59,18 +58,7 @@ export default function NearbySearch({ userLocation }) {
     return (
         <>
             <Header />
-            <div className="nearby-search-design">
-                <div className="left-rec">
-                    <p id="nearby-description">위치기반 맞춤형 정보 제공</p>
-                    <div id="for-you">고객님이 찾던 약국,<p id="is-here">여기 다 있습니다!</p></div>
-                </div>
-                <div className="right-rec" />
-                <div id="nearby-icon">
-                    <img className="greenBag" src={GreenBag} />
-                    <img className="hand" src={Hand} />
-                </div>
-            </div>
-
+            <SearchDesign>위치기반 맞춤형 정보 제공</SearchDesign>
             <div id="search-wrapper">
                 <div id="result-explanation-text">
                     <p id="result-explanation-inner-text1">내 주변에 있는, 지금 영업중인</p>
@@ -128,8 +116,8 @@ export default function NearbySearch({ userLocation }) {
                     <Button variant="primary" id="pharmacy-search-button" onClick={fetchPharmacies}>검색</Button>{' '}
                 </div>
             </div>
-            <Result result={pharmacies}/>
-            <Footer/>
+            <NearbyResult result={pharmacies}/>
+            <Footer />
         </>
     )
 }

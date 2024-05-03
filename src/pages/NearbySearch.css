@@ -450,6 +450,10 @@ input[type="checkbox"] {
     border-radius: 5px;
 }
 
+.pharmacy-list-item:hover {
+    cursor: pointer;
+}
+
 #selected {
     background-color: #C6E7F9;
 }
