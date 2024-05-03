@@ -15,6 +15,7 @@ import Hand from '../images/NearbySearchPage/hand.png';
 import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
 import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
 import Time from '../images/NearbySearchPage/timeIcon.png';
+import Language from '../images/NearbySearchPage/languageIcon.png';
 
 export default function NearbySearch({ userLocation }) {
     const [isOpen, toggleOpen] = useIsOpen();
@@ -86,44 +87,54 @@ export default function NearbySearch({ userLocation }) {
                 <div id="search-inner-wrapper">
                     {/*<input type="text" placeholder="약국 이름 검색"/>*/}
                     {/*<button type="submit">검색</button>*/}
+                    <div id="search-condition-wrapper">
+                        <div className="dropdown">
+                            <button onClick={() => {
+                                openDropdown('si', guDropdownMode, setGuDropdownMode)
+                            }} className="dropdown-button">
+                                <img className="location-icon" src={LocationIcon} alt=""/>
+                                군/구
+                                <img className="arrow-icon" src={Arrow} alt=""/>
+                            </button>
+                            <div id="si-dropdown" className="dropdown-content">
+                                <div className="dropdown-item">profile</div>
+                                <div className="dropdown-item">write a post</div>
+                                <div className="dropdown-item">settings</div>
+                            </div>
+                        </div>
 
-                    <div className="dropdown">
-                        <button onClick={() => {
-                            openDropdown('si', guDropdownMode, setGuDropdownMode)
-                        }} className="dropdown-button">
-                            <img className="location-icon" src={LocationIcon} alt=""/>
-                            군/구
-                            <img className="arrow-icon" src={Arrow} alt=""/>
-                        </button>
-                        <div id="si-dropdown" className="dropdown-content">
-                            <div className="dropdown-item">profile</div>
-                            <div className="dropdown-item">write a post</div>
-                            <div className="dropdown-item">settings</div>
+                        <div className="dropdown">
+                            <button onClick={() => {
+                                openDropdown('time', timeDropdownMode, setTimeDropDownMode)
+                            }} className="dropdown-button">
+                                <img className="location-icon" src={Time} alt=""/>
+                                영업시간
+                                <img className="arrow-icon" src={Arrow} alt=""/>
+                            </button>
+                            <div id="time-dropdown" className="dropdown-content">
+                                <div className="dropdown-item">profile</div>
+                                <div className="dropdown-item">write a post</div>
+                                <div className="dropdown-item">settings</div>
+                            </div>
+                        </div>
+
+
+                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>가능한 언어 선택(복수)</h3>
+                        <div id="language-checkbox-wrapper">
+                            <input id="speaking-japanese" type="checkbox"/>
+                            <label id="speaking-japanese-label" className="language-checkbox"
+                                   htmlFor="speaking-japanese">일본어
+                                가능</label>
+                            <input id="speaking-chinese" type="checkbox"/>
+                            <label id="speaking-chinese-label" className="language-checkbox" htmlFor="speaking-chinese">중국어
+                                가능</label>
+                            <input id="speaking-english" type="checkbox"/>
+                            <label id="speaking-english-label" className="language-checkbox" htmlFor="speaking-english">영어
+                                가능</label>
                         </div>
                     </div>
 
-                    <div className="dropdown">
-                        <button onClick={() => {
-                            openDropdown('time', timeDropdownMode, setTimeDropDownMode)
-                        }} className="dropdown-button">
-                            <img className="location-icon" src={Time} alt=""/>
-                            영업시간
-                            <img className="arrow-icon" src={Arrow} alt=""/>
-                        </button>
-                        <div id="time-dropdown" className="dropdown-content">
-                            <div className="dropdown-item">profile</div>
-                            <div className="dropdown-item">write a post</div>
-                            <div className="dropdown-item">settings</div>
-                        </div>
-                    </div>
-                    <div id="language-checkbox-wrapper">
-                        <input id="speaking-japanese" type="checkbox"/>
-                        <label id="speaking-japanese-label" className="language-checkbox" htmlFor="speaking-japanese">일본어 가능</label>
-                        <input id="speaking-chinese" type="checkbox"/>
-                        <label id="speaking-chinese-label" className="language-checkbox" htmlFor="speaking-chinese">중국어 가능</label>
-                        <input id="speaking-english" type="checkbox"/>
-                        <label id="speaking-english-label" className="language-checkbox" htmlFor="speaking-english">영어 가능</label>
-                    </div>
+
                     <button
                         id="pharmacy-search-button"
                         onClick={fetchPharmacies}
@@ -133,7 +144,7 @@ export default function NearbySearch({ userLocation }) {
                 </div>
             </div>
             <Result result={pharmacies}/>
-            <Footer />
+            <Footer/>
         </>
     )
 }
