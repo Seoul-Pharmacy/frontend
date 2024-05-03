@@ -38,7 +38,7 @@
     padding-top: 13px;
     font-family: "SUIT-ExtraBold";
     font-weight: 1000;
-    font-size: 60px;
+    font-size: 50px;
     color: black;
     text-align: center;
 
@@ -71,9 +71,6 @@ section {
     gap: 3%;
     width: 50vw;
     height: 100%;
-    /*position: absolute;*/
-    /*margin-left: 45vw;*/
-    /*padding: 12vh 0;*/
     padding-top: 4vh;
 }
 
@@ -166,6 +163,7 @@ section {
 
 /*tablet*/
 @media (max-width: 800px) {
+
     .locationMark {
         width: 90px;
         height: 150px;
@@ -186,11 +184,6 @@ section {
         height: 40px;
     }
 
-    #body-wrapper {
-        height: 50vh;
-        width: 100vw;
-        padding: 6vh 8vw 10vh;
-    }
 
     .selectOptionTitle {
         font-size: 18px;
@@ -216,15 +209,8 @@ section {
         width: 100%;
     }
 
-    #findPharmacy-text1, #findPharmacy-text1, #locationMark {
-        position: static;
-    }
-
     .locationMark {
-        position: relative;
-        width: 9vw;
-        height: 15vw;
-        top: 2vh;
+        display: none;
     }
 
     section {

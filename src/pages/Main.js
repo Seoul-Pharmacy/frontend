@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import {useNavigate} from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 import useUserLocation from '../Hooks/useUserLocation.js';
 
 import './Main.css';
@@ -16,7 +16,7 @@ import Mark from '../images/locationMarkIcon.png';
 
 export default function Main() {
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const location = useUserLocation();
     const goToNearbySearch = () => {
         if (location && location.lat && location.lng) {
@@ -29,41 +29,40 @@ export default function Main() {
 
     return (
         <>
-            <div id="main-wrapper">
-                <Header />
-                <div id="body-wrapper">
-                    <div id="findPharmacy-wrapper">
-                        <div id="findPharmacy-text1">
-                            {t('description.find_pharmacy_explanation')}
-                        </div>
-                        <div id="findPharmacy-text2">{t('description.find_pharmacy')}<img id="readingGlasses" src={Glasses} alt="" /></div>
-                        <img className="locationMark" src={Mark} alt="location mark" />
+            <Header/>
+            <div id="body-wrapper">
+                <div id="findPharmacy-wrapper">
+                    <div id="findPharmacy-text1">
+                        {t('description.find_pharmacy_explanation')}
                     </div>
-                    <section>
-                        <div
-                            className="selectOptionButton" style={{
-                                backgroundImage: `url(${Nearby})`
-                            }}>
-                            <h3 className="selectOptionTitle">{t('description.find_near')}</h3>
-                            <p className="selectOptionDescription">{t('description.find_near_description')}</p>
-                            <button className="SelectOptionInnerButton" onClick={goToNearbySearch} userLocation={location}>
-                                {t('description.select')}
-                            </button>
-                        </div>
-                        <div
-                            className="selectOptionButton" style={{
-                                backgroundImage: `url(${Region})`
-                            }}>
-                            <h3 className="selectOptionTitle">{t('description.find_by_region')}</h3>
-                            <p className="selectOptionDescription">{t('description.find_by_region_description')}</p>
-                            <button className="SelectOptionInnerButton">
-                                {t('description.select')}
-                            </button>
-                        </div>
-                    </section>
+                    <div id="findPharmacy-text2">{t('description.find_pharmacy')}<img id="readingGlasses" src={Glasses}
+                                                                                      alt=""/></div>
+                    <img className="locationMark" src={Mark} alt="location mark"/>
                 </div>
+                <section>
+                    <div
+                        className="selectOptionButton" style={{
+                        backgroundImage: `url(${Nearby})`
+                    }}>
+                        <h3 className="selectOptionTitle">{t('description.find_near')}</h3>
+                        <p className="selectOptionDescription">{t('description.find_near_description')}</p>
+                        <button className="SelectOptionInnerButton" onClick={goToNearbySearch} userLocation={location}>
+                            {t('description.select')}
+                        </button>
+                    </div>
+                    <div
+                        className="selectOptionButton" style={{
+                        backgroundImage: `url(${Region})`
+                    }}>
+                        <h3 className="selectOptionTitle">{t('description.find_by_region')}</h3>
+                        <p className="selectOptionDescription">{t('description.find_by_region_description')}</p>
+                        <button className="SelectOptionInnerButton">
+                            {t('description.select')}
+                        </button>
+                    </div>
+                </section>
             </div>
-            <Footer />
+            <Footer/>
         </>
     );
 }
