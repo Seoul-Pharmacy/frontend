@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useIsOpen from '../Hooks/useIsOpen';
 import useLanguage from '../Hooks/useLanguage';
-import useUserLocation from '../Hooks/useUserLocation';
 import { useLocation } from 'react-router-dom';
 import nearbyApi from '../api/nearbyApi';
 import './NearbySearch.css';
@@ -16,6 +15,7 @@ import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
 import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
 import Time from '../images/NearbySearchPage/timeIcon.png';
 import Language from '../images/NearbySearchPage/languageIcon.png';
+import {Button, Dropdown} from "react-bootstrap";
 
 export default function NearbySearch({ userLocation }) {
     const [isOpen, toggleOpen] = useIsOpen();
@@ -42,27 +42,19 @@ export default function NearbySearch({ userLocation }) {
         fetchPharmacies();
     }, [lat, lng]);
 
-    const [timeDropdownMode, setTimeDropDownMode] = useState(false);
-    const [guDropdownMode, setGuDropdownMode] = useState(false);
-
-    const openDropdown = (dropdownName, isOpen, setIsOpen) => {
-        let content;
-        if (dropdownName === 'si') {
-            content = document.getElementById("si-dropdown");
-        } else {
-            content = document.getElementById("time-dropdown");
-        }
-
-        if (!isOpen) {
-            content.style.display = 'block';
-            setIsOpen(true);
-            return;
-        }
-
-        content.style.display = 'none';
-        setIsOpen(false);
+    const [gu, setGu] = useState("전체")
+    const clickGuDropdown = (event) => {
+        let gu = event.target.textContent;
+        setGu(gu);
+        document.getElementById('gu-value').innerText = gu;
     };
 
+    const [time, setTime] = useState("전체")
+    const clickTimeDropdown = (event) => {
+        let time = event.target.textContent;
+        setTime(time);
+        document.getElementById('time-value').innerText = time;
+    };
 
     return (
         <>
@@ -85,38 +77,37 @@ export default function NearbySearch({ userLocation }) {
                     <h1 id="result-explanation-inner-text2">가까운 약국을 알려드려요!</h1>
                 </div>
                 <div id="search-inner-wrapper">
-                    {/*<input type="text" placeholder="약국 이름 검색"/>*/}
-                    {/*<button type="submit">검색</button>*/}
+
                     <div id="search-condition-wrapper">
-                        <div className="dropdown">
-                            <button onClick={() => {
-                                openDropdown('si', guDropdownMode, setGuDropdownMode)
-                            }} className="dropdown-button">
+                        <Dropdown>
+                            <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
                                 <img className="location-icon" src={LocationIcon} alt=""/>
                                 군/구
+                                <div id="gu-value">전체</div>
                                 <img className="arrow-icon" src={Arrow} alt=""/>
-                            </button>
-                            <div id="si-dropdown" className="dropdown-content">
-                                <div className="dropdown-item">profile</div>
-                                <div className="dropdown-item">write a post</div>
-                                <div className="dropdown-item">settings</div>
-                            </div>
-                        </div>
+                            </Dropdown.Toggle>
 
-                        <div className="dropdown">
-                            <button onClick={() => {
-                                openDropdown('time', timeDropdownMode, setTimeDropDownMode)
-                            }} className="dropdown-button">
+                            <Dropdown.Menu>
+                            <Dropdown.Item onClick={clickGuDropdown}>Action</Dropdown.Item>
+                                <Dropdown.Item onClick={clickGuDropdown}>Another action</Dropdown.Item>
+                                <Dropdown.Item onClick={clickGuDropdown}>Something else</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+
+                        <Dropdown>
+                            <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
                                 <img className="location-icon" src={Time} alt=""/>
                                 영업시간
+                                <div id="time-value">전체</div>
                                 <img className="arrow-icon" src={Arrow} alt=""/>
-                            </button>
-                            <div id="time-dropdown" className="dropdown-content">
-                                <div className="dropdown-item">profile</div>
-                                <div className="dropdown-item">write a post</div>
-                                <div className="dropdown-item">settings</div>
-                            </div>
-                        </div>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>Action</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>Another action</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>Something else</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
 
 
                         <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>가능한 언어 선택(복수)</h3>
@@ -134,13 +125,7 @@ export default function NearbySearch({ userLocation }) {
                         </div>
                     </div>
 
-
-                    <button
-                        id="pharmacy-search-button"
-                        onClick={fetchPharmacies}
-                    >
-                        검색
-                    </button>
+                    <Button variant="primary" id="pharmacy-search-button" onClick={fetchPharmacies}>검색</Button>{' '}
                 </div>
             </div>
             <Result result={pharmacies}/>

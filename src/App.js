@@ -4,6 +4,7 @@ import './App.css';
 import Intro from './pages/Intro.js'
 import Main from './pages/Main.js';
 import NearbySearch from './pages/NearbySearch.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
