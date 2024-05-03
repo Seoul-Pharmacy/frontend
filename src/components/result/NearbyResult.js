@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Summarize from "./Summarize";
 import Detail from "./Detail";
+import Pagination from "../Pagination";
 
-export default function Result({ result }) {
+export default function NearbyResult({ result }) {
     const [ identifier, setIdentifier ] = useState(null);
-
+    
     useEffect(() => {
         if (result.length > 0) {
             setIdentifier(result[0].id);
@@ -14,6 +15,7 @@ export default function Result({ result }) {
     const handleSelectPharmacy = (id) => {
         setIdentifier(id);
     };
+
     return (
         <div id="result-wrapper">
         <div id="result-summarize-wrapper">
@@ -25,10 +27,14 @@ export default function Result({ result }) {
                         onClick={() => handleSelectPharmacy(pharmacy.id)}
                         id={identifier === pharmacy.id ? "selected" : ""}
                     >
-                        <Summarize
-                            key={pharmacy.id}
+                        <Summarize 
+                            id="nearby-summarize"
                             name={pharmacy.name}
-                            distance={pharmacy.distance} />
+                            distance={pharmacy.distance}
+                            si={pharmacy.si}
+                            gu={pharmacy.gu}
+                            road_name_address={pharmacy.road_name_address}
+                        />
                     </li>
                 ))}
             </ul>

@@ -8,13 +8,13 @@ import './NearbySearch.css';
 import Header from "../components/Header";
 import SearchDesign from "../components/SearchDesgin";
 import Footer from "../components/Footer";
-import Result from "../components/result/Result";
+import NearbyResult from "../components/result/NearbyResult";
 
 import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
 import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
 import Time from '../images/NearbySearchPage/timeIcon.png';
 
-export default function NearbySearch({ userlocation }) {
+export default function NearbySearch() {
     const [isOpen, toggleOpen] = useIsOpen();
     const [language, changeLanguage] = useLanguage();
 
@@ -119,7 +119,7 @@ export default function NearbySearch({ userlocation }) {
                     </button>
                 </div>
             </div>
-            <Result result={pharmacies}/>
+            <NearbyResult result={pharmacies}/>
             <Footer />
         </>
     )

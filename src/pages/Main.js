@@ -46,7 +46,7 @@ export default function Main() {
                             }}>
                             <h3 className="selectOptionTitle">{t('description.find_near')}</h3>
                             <p className="selectOptionDescription">{t('description.find_near_description')}</p>
-                            <button className="SelectOptionInnerButton" onClick={goToNearbySearch} userlocation={location}>
+                            <button className="SelectOptionInnerButton" onClick={goToNearbySearch}>
                                 {t('description.select')}
                             </button>
                         </div>
