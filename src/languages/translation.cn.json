@@ -10,5 +10,37 @@
     "find_by_region_description": "选择想找的地区找。",
     "find_pharmacy_explanation": "使用您设置的位置查找符合您标准的药房.",
     "find_pharmacy": "寻找药房",
-    "select": "选择"
+    "select": "选择",
+    
+    "based-on-location": "提供基于位置的定制信息",
+    
+    "result-explanation-text1": "我周围的 现在营业的",
+    "result-explanation-text2": "告诉您附近的药店!",
+
+    "_comment": "구",
+    "Jongro-gu": "鐘路區",
+    "Jung-gu": "中區",
+    "Yongsan-gu": "龍山區",
+    "Sungdong-gu": "城東區",
+    "Gwangjin-gu": "廣津區",
+    "Dongdaemun-gu": "東大門區",
+    "Jungrang-gu": "中浪區",
+    "Seongbuk-gu": "城北區",
+    "Gangbuk-gu": "江北區",
+    "Dobong-gu": "道峰區",
+    "Nowon-gu": "蘆原區",
+    "Eunpyeong-gu": "恩平區",
+    "Seodaemun-gu": "西大門區",
+    "Mapo-gu": "麻浦區",
+    "Yangcheon-gu": "陽川區",
+    "Gangseo-gu": "江西區",
+    "Guro-gu": "九老區",
+    "Geumcheon-gu": "衿川區",
+    "Yeongdeungpo-gu": "永登浦區",
+    "Dongjak-gu": "銅雀區",
+    "Gwanak-gu": "冠岳區",
+    "Seocho-gu": "瑞草區",
+    "Gangnam-gu": "江南區",
+    "Songpa-gu": "松坡區",
+    "Gangdong-gu": "江東區"
 }

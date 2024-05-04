@@ -10,5 +10,37 @@
     "find_by_region_description": "찾고 싶은 지역을 선택해서 찾습니다.",
     "find_pharmacy_explanation": "내가 설정한 위치 조건에 딱 맞는",
     "find_pharmacy": "약국 찾기",
-    "select": "선택하기"
+    "select": "선택하기",
+
+    "based-on-location": "위치기반 맞춤형 정보 제공",
+    
+    "result-explanation-text1": "내 주변에 있는, 지금 영업중인",
+    "result-explanation-text2": "가까운 약국을 알려드려요!",
+
+    "_comment": "구",
+    "Jongro-gu": "종로구",
+    "Jung-gu": "중구",
+    "Yongsan-gu": "용산구",
+    "Sungdong-gu": "성동구",
+    "Gwangjin-gu": "광진구",
+    "Dongdaemun-gu": "동대문구",
+    "Jungrang-gu": "중랑구",
+    "Seongbuk-gu": "성북구",
+    "Gangbuk-gu": "강북구",
+    "Dobong-gu": "도봉구",
+    "Nowon-gu": "노원구",
+    "Eunpyeong-gu": "은평구",
+    "Seodaemun-gu": "서대문구",
+    "Mapo-gu": "마포구",
+    "Yangcheon-gu": "양천구",
+    "Gangseo-gu": "강서구",
+    "Guro-gu": "구로구",
+    "Geumcheon-gu": "금천구",
+    "Yeongdeungpo-gu": "영등포구",
+    "Dongjak-gu": "동작구",
+    "Gwanak-gu": "관악구",
+    "Seocho-gu": "서초구",
+    "Gangnam-gu": "강남구",
+    "Songpa-gu": "송파구",
+    "Gangdong-gu": "강동구"
 }

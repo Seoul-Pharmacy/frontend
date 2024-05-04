@@ -10,5 +10,37 @@
     "find_by_region_description": "Select the area you want to look for and find it.",
     "find_pharmacy_explanation": "The location I set perfectly meets the conditions",
     "find_pharmacy": "Find a pharmacy.",
-    "select": "Select"
+    "select": "Select",
+
+    "based-on-location": "Pharmacy informaton based on location",
+
+    "result-explanation-text1": "Pharmacies' which are open and close to you",
+    "result-explanation-text2": "These are the nearest pharmacies around you!",
+
+    "_comment": "구",
+    "Jongro-gu": "Jongro-gu",
+    "Jung-gu": "Jung-gu",
+    "Yongsan-gu": "Yongsan-gu",
+    "Sungdong-gu": "Sungdong-gu",
+    "Gwangjin-gu": "Gwangjin-gu",
+    "Dongdaemun-gu": "Dongdaemun-gu",
+    "Jungrang-gu": "Jungrang-gu",
+    "Seongbuk-gu": "Seongbuk-gu",
+    "Gangbuk-gu": "Gangbuk-gu",
+    "Dobong-gu": "Dobong-gu",
+    "Nowon-gu": "Nowon-gu",
+    "Eunpyeong-gu": "Eunpyeong-gu",
+    "Seodaemun-gu": "Seodaemun-gu",
+    "Mapo-gu": "Mapo-gu",
+    "Yangcheon-gu": "Yangcheon-gu",
+    "Gangseo-gu": "Gangseo-gu",
+    "Guro-gu": "Guro-gu",
+    "Geumcheon-gu": "Geumcheon-gu",
+    "Yeongdeungpo-gu": "Yeongdeungpo-gu",
+    "Dongjak-gu": "Dongjak-gu",
+    "Gwanak-gu": "Gwanak-gu",
+    "Seocho-gu": "Seocho-gu",
+    "Gangnam-gu": "Gangnam-gu",
+    "Songpa-gu": "Songpa-gu",
+    "Gangdong-gu": "Gangdong-gu"
 }
