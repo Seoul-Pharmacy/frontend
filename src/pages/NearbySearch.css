@@ -343,6 +343,7 @@ input[type="checkbox"] {
 .language-checkbox {
     color: #004770;
     border: solid 1px #004770;
+    background-color: white;
 
     display: flex;
 
@@ -355,8 +356,7 @@ input[type="checkbox"] {
 }
 
 .language-checkbox:hover {
-    background-color: #004770;
-    color: white;
+    cursor: pointer;
 }
 
 #speaking-japanese:checked + #speaking-japanese-label{
