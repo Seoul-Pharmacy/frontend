@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useIsOpen from '../Hooks/useIsOpen';
 import { useLocation } from 'react-router-dom';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import nearbyApi from '../api/nearbyApi';
 import './NearbySearch.css';
 
@@ -10,7 +10,6 @@ import SearchDesign from "../components/SearchDesgin";
 import Footer from "../components/Footer";
 import NearbyResult from "../components/result/NearbyResult";
 
-import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
 import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
 import Time from '../images/NearbySearchPage/timeIcon.png';
 import Language from '../images/NearbySearchPage/languageIcon.png';
@@ -45,14 +44,7 @@ export default function NearbySearch() {
         fetchPharmacies(languageState);
     }, [lat, lng]);
 
-    const [gu, setGu] = useState("전체")
-    const clickGuDropdown = (event) => {
-        let gu = event.target.textContent;
-        setGu(gu);
-        document.getElementById('gu-value').innerText = gu;
-    };
-
-    const [time, setTime] = useState("전체")
+    const [time, setTime] = useState("전체");
     const clickTimeDropdown = (event) => {
         let time = event.target.textContent;
         setTime(time);
@@ -78,43 +70,6 @@ export default function NearbySearch() {
                 <div id="search-inner-wrapper">
 
                     <div id="search-condition-wrapper">
-                        <Dropdown>
-                            <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
-                                <img className="location-icon" src={LocationIcon} alt=""/>
-                                군/구
-                                <div id="gu-value">전체</div>
-                                <img className="arrow-icon" src={Arrow} alt=""/>
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Jongro-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Jung-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Yongsan-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Sungdong-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gwangjin-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Dongdaemun-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Jungrang-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Seongbuk-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gangbuk-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Dobong-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Nowon-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Eunpyeong-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Seodaemun-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Mapo-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Yangcheon-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gangseo-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Guro-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Geumcheon-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Yeongdeungpo-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Dongjak-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gwanak-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Seocho-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gangnam-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Songpa-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gangdong-gu')}</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
                                 <img className="location-icon" src={Time} alt=""/>
