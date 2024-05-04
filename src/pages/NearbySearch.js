@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import useIsOpen from '../Hooks/useIsOpen';
-import useLanguage from '../Hooks/useLanguage';
 import { useLocation } from 'react-router-dom';
 import nearbyApi from '../api/nearbyApi';
 import './NearbySearch.css';
@@ -18,17 +17,20 @@ import {Button, Dropdown} from "react-bootstrap";
 
 export default function NearbySearch() {
     const [isOpen, toggleOpen] = useIsOpen();
-    const [language, changeLanguage] = useLanguage();
-
+    const [languageState, setLanguageState] = useState({
+        japanese: false,
+        chinese: false,
+        english: false
+    });
     const [pharmacies, setPharmacies] = useState([]);
     const query = new URLSearchParams(useLocation().search);
     const lat = query.get('lat');
     const lng = query.get('lng');
     const location = { lat, lng };
 
-    const fetchPharmacies = () => {
+    function fetchPharmacies(language) {
         if (lat && lng) {
-            nearbyApi(language , location, isOpen)
+            nearbyApi(language.japanese, language.chinese, language.english , location, isOpen)
                 .then(data => {
                     setPharmacies(data.results || []);
                 }).catch(error => {
@@ -38,7 +40,7 @@ export default function NearbySearch() {
     };
 
     useEffect(() => {
-        fetchPharmacies();
+        fetchPharmacies(languageState);
     }, [lat, lng]);
 
     const [gu, setGu] = useState("전체")
@@ -53,6 +55,13 @@ export default function NearbySearch() {
         let time = event.target.textContent;
         setTime(time);
         document.getElementById('time-value').innerText = time;
+    };
+
+    const handleCheckboxChange = (language) => {
+        setLanguageState((prevState) => ({
+            ...prevState,
+            [language]: !prevState[language]
+        }));
     };
 
     return (
@@ -97,23 +106,52 @@ export default function NearbySearch() {
                             </Dropdown.Menu>
                         </Dropdown>
 
-
                         <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>가능한 언어 선택(복수)</h3>
                         <div id="language-checkbox-wrapper">
-                            <input id="speaking-japanese" type="checkbox"/>
-                            <label id="speaking-japanese-label" className="language-checkbox"
-                                   htmlFor="speaking-japanese">일본어
-                                가능</label>
-                            <input id="speaking-chinese" type="checkbox"/>
-                            <label id="speaking-chinese-label" className="language-checkbox" htmlFor="speaking-chinese">중국어
-                                가능</label>
-                            <input id="speaking-english" type="checkbox"/>
-                            <label id="speaking-english-label" className="language-checkbox" htmlFor="speaking-english">영어
-                                가능</label>
-                        </div>
+                        <input
+                            id="speaking-japanese"
+                            type="checkbox"
+                            checked={languageState.japanese}
+                            onChange={() => handleCheckboxChange('japanese')}
+                        />
+                        <label
+                            id="speaking-japanese-label"
+                            className="language-checkbox"
+                            htmlFor="speaking-japanese">
+                                日本語
+                        </label>
+                        <input
+                            id="speaking-chinese"
+                            type="checkbox"
+                            checked={languageState.chinese}
+                            onChange={() => handleCheckboxChange('chinese')}
+                        />
+                        <label
+                            id="speaking-chinese-label" className="language-checkbox" htmlFor="speaking-chinese">
+                                中国人
+                        </label>
+                        <input
+                            id="speaking-english"
+                            type="checkbox"
+                            checked={languageState.english}
+                            onChange={() => handleCheckboxChange('english')}
+                        />
+                            <label
+                                id="speaking-english-label"
+                                className="language-checkbox"
+                                htmlFor="speaking-english">
+                                    english
+                            </label>
+                    </div>
                     </div>
 
-                    <Button variant="primary" id="pharmacy-search-button" onClick={fetchPharmacies}>검색</Button>{' '}
+                    <Button
+                        variant="primary"
+                        id="pharmacy-search-button"
+                        onClick={() => fetchPharmacies(languageState)}
+                    >
+                        검색
+                    </Button>{' '}
                 </div>
             </div>
             <NearbyResult result={pharmacies}/>
