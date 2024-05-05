@@ -318,13 +318,49 @@
     background-color: #bae2f7;
 }
 
+/*현재 운영 중 체크박스*/
+input[type="checkbox"] {
+    display: none;
+}
+
+#present-checkbox-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+}
+
+.present-checkbox {
+    color: #004770;
+    border: solid 1px #004770;
+    background-color: white;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 33%;
+    height: 30px;
+    border-radius: 13px;
+}
+
+.present-checkbox:hover {
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
+    color: white;
+}
+
 /*체크박스*/
 #language-icon {
     width: 17px;
     padding-right: 5px;
 }
 
-#language-choice-text {
+#choice-text {
     display: flex;
     align-items: center;
 }
@@ -366,23 +402,6 @@ input[type="checkbox"] {
 .language-checkbox:hover {
     cursor: pointer;
 }
-
-#speaking-japanese:checked + #speaking-japanese-label{
-    background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
-    color: white;
-}
-
-#speaking-chinese:checked + #speaking-chinese-label{
-    background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
-    color: white;
-}
-
-#speaking-english:checked + #speaking-english-label{
-    background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
-    color: white;
-}
-
-
 
 /*검색 태블릿*/
 @media (max-width: 800px) {

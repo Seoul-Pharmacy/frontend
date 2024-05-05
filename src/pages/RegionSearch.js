@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import i18n from 'i18next';
+import koTranslations from '../languages/translation.ko.json';
 import { useTranslation } from 'react-i18next';
 import regionApi from '../api/regionApi';
 import DatePicker from 'react-datepicker';
@@ -24,22 +26,32 @@ export default function RegionSearch() {
         chinese: false,
         english: false
     });
-    
     const [selectedDate, setSelectedDate] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [pharmacies, setPharmacies] = useState([]);
     const [totalItems, setTotalItems] = useState(0);
     const itemsPerPage = 5;
 
-    const fetchPharmacies = (gu, language, date, time) => {
-        regionApi(currentPage, gu, language.japanese, language.chinese, language.english, date, time)
+    const fetchPharmacies = (gu, language, date, time, present) => {
+        regionApi(currentPage, gu, language.japanese, language.chinese, language.english, date, time, present)
             .then(data => {
                 setPharmacies(data.results || []);
                 setTotalItems(data.count || 0);
             }).catch(error => {
-                console.error("Failed to fetch pharmacies:", error);
+                console.error('Failed to fetch pharmacies:', error);
+                if (error.message === '404') {
+                    alert('404: No pharmacies found.');
+                } else {
+                    alert(`Error: ${error.message}`);
+                }
             });
     }
+
+    const handleDropdownChange = (lng) => {
+        document.getElementById('gu-value').innerText = t('description.' + gu);
+    };
+
+    i18n.on('languageChanged', handleDropdownChange);
 
     useEffect(() => {
         fetchPharmacies(gu, languageState);
@@ -47,9 +59,10 @@ export default function RegionSearch() {
 
     const [gu, setGu] = useState(null);
     const clickGuDropdown = (event) => {
-        let gu = event.target.textContent;
-        setGu(gu);
-        document.getElementById('gu-value').innerText = gu;
+        let gu = event.target.id;
+        let translatedGu = koTranslations[gu] || gu;
+        setGu(translatedGu);
+        document.getElementById('gu-value').innerText = t('description.' + gu);
     };
 
     const [time, setTime] = useState(null);
@@ -59,7 +72,17 @@ export default function RegionSearch() {
         document.getElementById('time-value').innerText = time;
     };
 
-    const handleCheckboxChange = (language) => {
+    const [isPresent, setIsPresent] = useState(true);
+    const handlePresentChange = (event) => {
+        const { name, checked } = event.target;
+        if (name === 'present' && checked) {
+            setIsPresent(true);
+        } else {
+            setIsPresent(false);
+        }
+    };
+
+    const handleLanguageChange = (language) => {
         setLanguageState((prevState) => ({
             ...prevState,
             [language]: !prevState[language]
@@ -72,12 +95,12 @@ export default function RegionSearch() {
 
 
     const handleSearch = () => {
-        fetchPharmacies(gu, languageState, selectedDate, time);
+        fetchPharmacies(gu, languageState, selectedDate, time, isPresent);
     };
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
-        fetchPharmacies(gu, languageState, selectedDate);
+        fetchPharmacies(gu, languageState, selectedDate, time, isPresent);
     };
     
     return(
@@ -100,33 +123,48 @@ export default function RegionSearch() {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Jongro-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Jung-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Yongsan-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Sungdong-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gwangjin-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Dongdaemun-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Jungrang-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Seongbuk-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gangbuk-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Dobong-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Nowon-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Eunpyeong-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Seodaemun-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Mapo-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Yangcheon-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gangseo-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Guro-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Geumcheon-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Yeongdeungpo-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Dongjak-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gwanak-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Seocho-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gangnam-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Songpa-gu')}</Dropdown.Item>
-                                <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gangdong-gu')}</Dropdown.Item>
+                            <Dropdown.Item id="Jongro-gu" onClick={clickGuDropdown}>{t('description.Jongro-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Jung-gu" onClick={clickGuDropdown}>{t('description.Jung-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Yongsan-gu" onClick={clickGuDropdown}>{t('description.Yongsan-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Sungdong-gu" onClick={clickGuDropdown}>{t('description.Sungdong-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Gwangjin-gu" onClick={clickGuDropdown}>{t('description.Gwangjin-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Dongdaemun-gu" onClick={clickGuDropdown}>{t('description.Dongdaemun-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Jungrang-gu" onClick={clickGuDropdown}>{t('description.Jungrang-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Seongbuk-gu" onClick={clickGuDropdown}>{t('description.Seongbuk-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Gangbuk-gu" onClick={clickGuDropdown}>{t('description.Gangbuk-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Dobong-gu" onClick={clickGuDropdown}>{t('description.Dobong-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Nowon-gu" onClick={clickGuDropdown}>{t('description.Nowon-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Eunpyeong-gu" onClick={clickGuDropdown}>{t('description.Eunpyeong-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Seodaemun-gu" onClick={clickGuDropdown}>{t('description.Seodaemun-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Mapo-gu" onClick={clickGuDropdown}>{t('description.Mapo-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Yangcheon-gu" onClick={clickGuDropdown}>{t('description.Yangcheon-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Gangseo-gu" onClick={clickGuDropdown}>{t('description.Gangseo-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Guro-gu" onClick={clickGuDropdown}>{t('description.Guro-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Geumcheon-gu" onClick={clickGuDropdown}>{t('description.Geumcheon-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Yeongdeungpo-gu" onClick={clickGuDropdown}>{t('description.Yeongdeungpo-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Dongjak-gu" onClick={clickGuDropdown}>{t('description.Dongjak-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Gwanak-gu" onClick={clickGuDropdown}>{t('description.Gwanak-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Seocho-gu" onClick={clickGuDropdown}>{t('description.Seocho-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Gangnam-gu" onClick={clickGuDropdown}>{t('description.Gangnam-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Songpa-gu" onClick={clickGuDropdown}>{t('description.Songpa-gu')}</Dropdown.Item>
+                                <Dropdown.Item id="Gangdong-gu" onClick={clickGuDropdown}>{t('description.Gangdong-gu')}</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
+                        <h3 id="choice-text">운영중 여부</h3>
+                            <div id="present-checkbox-wrapper">
+                                <input
+                                    type="checkbox"
+                                    id="search-present-time"
+                                    name="present"
+                                    checked={isPresent}
+                                    onChange={handlePresentChange}
+                                />
+                                <label
+                                    id="search-present-time-label" className="present-checkbox" 
+                                    htmlFor="search-present-time">
+                                    현재 운영중
+                                </label>
+                        </div>
                         <div className="container">
                             <div className="datepicker-container">
                                 <h3>{t('description.select-date')}</h3>
@@ -134,11 +172,12 @@ export default function RegionSearch() {
                                     selected={selectedDate}
                                     onChange={handleDateChange}
                                     dateFormat="yyyy-MM-dd"
+                                    disabled={isPresent}
                                 />
                             </div>
                         </div>
                         <Dropdown>
-                            <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
+                            <Dropdown.Toggle id="dropdown-basic" className="dropdown-select" disabled={isPresent}>
                                 <img className="location-icon" src={Time} alt=""/>
                                 {t('description.bussiness-hours')}
                                 <div id="time-value"></div>
@@ -206,7 +245,7 @@ export default function RegionSearch() {
                             id="speaking-japanese"
                             type="checkbox"
                             checked={languageState.japanese}
-                            onChange={() => handleCheckboxChange('japanese')}
+                            onChange={() => handleLanguageChange('japanese')}
                         />
                         <label
                             id="speaking-japanese-label"
@@ -218,7 +257,7 @@ export default function RegionSearch() {
                             id="speaking-chinese"
                             type="checkbox"
                             checked={languageState.chinese}
-                            onChange={() => handleCheckboxChange('chinese')}
+                            onChange={() => handleLanguageChange('chinese')}
                         />
                         <label
                             id="speaking-chinese-label" className="language-checkbox" htmlFor="speaking-chinese">
@@ -228,7 +267,7 @@ export default function RegionSearch() {
                             id="speaking-english"
                             type="checkbox"
                             checked={languageState.english}
-                            onChange={() => handleCheckboxChange('english')}
+                            onChange={() => handleLanguageChange('english')}
                         />
                             <label
                                 id="speaking-english-label"
