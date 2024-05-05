@@ -17,7 +17,7 @@ import {Button, Dropdown} from "react-bootstrap";
 
 export default function NearbySearch() {
     const {t} = useTranslation();
-    const [isOpen, toggleOpen] = useIsOpen();
+    const [isOpen, setIsOpen] = useState(true);
     const [languageState, setLanguageState] = useState({
         japanese: false,
         chinese: false,
@@ -29,7 +29,7 @@ export default function NearbySearch() {
     const lng = query.get('lng');
     const location = { lat, lng };
 
-    function fetchPharmacies(language) {
+    function fetchPharmacies(language, isOpen) {
         if (lat && lng) {
             nearbyApi(language.japanese, language.chinese, language.english , location, isOpen)
                 .then(data => {
@@ -41,14 +41,16 @@ export default function NearbySearch() {
     };
 
     useEffect(() => {
-        fetchPharmacies(languageState);
+        fetchPharmacies(languageState, isOpen);
     }, [lat, lng]);
 
-    const [time, setTime] = useState("전체");
-    const clickTimeDropdown = (event) => {
-        let time = event.target.textContent;
-        setTime(time);
-        document.getElementById('time-value').innerText = time;
+    const handleOpenChange = (event) => {
+        const { checked } = event.target;
+        if (checked) {
+            setIsOpen(true);
+        } else {
+            setIsOpen(false);
+        }
     };
 
     const handleCheckboxChange = (language) => {
@@ -69,20 +71,21 @@ export default function NearbySearch() {
                 </div>
                 <div id="search-inner-wrapper">
                     <div id="search-condition-wrapper">
-                        <Dropdown>
-                            <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
-                                <img className="location-icon" src={Time} alt=""/>
-                                {t('description.bussiness-hours')}
-                                <div id="time-value">전체</div>
-                                <img className="arrow-icon" src={Arrow} alt=""/>
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>Action</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>Another action</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>Something else</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                        <h3 id="choice-text">운영중 여부</h3>
+                            <div id="present-checkbox-wrapper">
+                                <input
+                                    type="checkbox"
+                                    id="search-present-time"
+                                    name="present"
+                                    checked={isOpen}
+                                    onChange={handleOpenChange}
+                                />
+                                <label
+                                    id="search-present-time-label" className="present-checkbox" 
+                                    htmlFor="search-present-time">
+                                    현재 운영중
+                                </label>
+                        </div>
 
                         <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>{t('description.language')}</h3>
                         <div id="language-checkbox-wrapper">
@@ -126,7 +129,7 @@ export default function NearbySearch() {
                 <Button
                     variant="primary"
                     id="pharmacy-search-button"
-                    onClick={() => fetchPharmacies(languageState)}
+                    onClick={() => fetchPharmacies(languageState, isOpen)}
                 >
                     {t('description.search')}
                 </Button>{' '}
