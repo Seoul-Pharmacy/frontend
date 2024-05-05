@@ -43,11 +43,13 @@
 }
 
 .language-body {
-    width: 90vw;
-    height: calc(23.5vw + 10vh);
+    width: 100vw;
+    height: calc(100% + 3vh);
     padding: 5vw;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+
 }
 
 .language-body-button {
