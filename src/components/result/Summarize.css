@@ -1,0 +1,21 @@
+#summarize-result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    padding: 1vh 2vw;
+}
+
+#summarize-name {
+    color: #004770;
+    font-family: "SUIT-ExtraBold";
+    font-size: 15px;
+    line-height: 200%;
+}
+
+#summarize-info {
+    color: #004770;
+    font-family: "SUIT-Medium";
+    font-size: 12px;
+    line-height: 100%;
+}
