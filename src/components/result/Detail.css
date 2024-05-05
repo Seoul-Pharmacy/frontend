@@ -1,0 +1,17 @@
+#result-details-text-wrapper {
+    display: block;
+    font-family: "SUIT-Medium";
+    font-size: 10px;
+}
+
+#result-details-name {
+    font-family: "SUIT-ExtraBold";
+    font-size: 25px;
+    color: #004770;
+    padding: 1vh 0;
+}
+
+#result-details-time {
+    padding: 1vh 0;
+    line-height: 50%;
+}
