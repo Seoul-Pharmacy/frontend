@@ -68,7 +68,6 @@ export default function NearbySearch() {
                     <h1 id="result-explanation-inner-text2">{t('description.result-explanation-text2')}</h1>
                 </div>
                 <div id="search-inner-wrapper">
-
                     <div id="search-condition-wrapper">
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
@@ -122,15 +121,15 @@ export default function NearbySearch() {
                                     english
                             </label>
                     </div>
-                    </div>
+                </div>
 
-                    <Button
-                        variant="primary"
-                        id="pharmacy-search-button"
-                        onClick={() => fetchPharmacies(languageState)}
-                    >
-                        검색
-                    </Button>{' '}
+                <Button
+                    variant="primary"
+                    id="pharmacy-search-button"
+                    onClick={() => fetchPharmacies(languageState)}
+                >
+                    검색
+                </Button>{' '}
                 </div>
             </div>
             <NearbyResult result={pharmacies}/>

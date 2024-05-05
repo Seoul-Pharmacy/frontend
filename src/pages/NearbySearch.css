@@ -245,6 +245,12 @@
     }
 }
 
+/*캘린더*/
+.react-datepicker__header {
+    background-color: white;
+    color: #fff;
+}
+
 #result-explanation-text {
     text-align: left;
     width: 50%;

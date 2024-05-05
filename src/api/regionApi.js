@@ -1,5 +1,8 @@
-export default async function regionApi(gu, japanese = false, chinese = false, english = false, page) {
-    const url = `http://www.pharmaseoul.com:8000/api/pharmacies?page=${page}&gu=${gu}&speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&enterTime=1030&exitTime=1100&year=2024&month=3&day=10`;
+export default async function regionApi(page, gu, japanese = false, chinese = false, english = false, selectedDate) {
+    const year = selectedDate.getFullYear();
+    const month = ('0' + (selectedDate.getMonth() + 1)).slice(-2); // 월은 0부터 시작
+    const day = ('0' + selectedDate.getDate()).slice(-2);
+    const url = `http://www.pharmaseoul.com:8000/api/pharmacies?page=${page}&gu=${gu}&speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&enterTime=1030&exitTime=1100&year=${year}&month=${month}&day=${day}`;
     try {
         const response = await fetch(url, {
             method: 'GET',

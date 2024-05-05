@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import regionApi from '../api/regionApi';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import './RegionSearch.css';
 
 import Header from "../components/Header";
@@ -22,13 +24,15 @@ export default function RegionSearch() {
         chinese: false,
         english: false
     });
+    
+    const [selectedDate, setSelectedDate] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [pharmacies, setPharmacies] = useState([]);
     const [totalItems, setTotalItems] = useState(0);
     const itemsPerPage = 5;
 
-    const fetchPharmacies = (gu, language) => {
-        regionApi(gu, language.japanese, language.chinese, language.english, currentPage)
+    const fetchPharmacies = (gu, language, date) => {
+        regionApi(currentPage, gu, language.japanese, language.chinese, language.english, date)
             .then(data => {
                 setPharmacies(data.results || []);
                 setTotalItems(data.count || 0);
@@ -62,13 +66,18 @@ export default function RegionSearch() {
         }));
     };
 
+    const handleDateChange = date => {
+        setSelectedDate(date);
+    };
+
+
     const handleSearch = () => {
-        fetchPharmacies(gu, languageState);
+        fetchPharmacies(gu, languageState, selectedDate);
     };
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
-        fetchPharmacies(gu, languageState);
+        fetchPharmacies(gu, languageState, selectedDate);
     };
     
     return(
@@ -81,7 +90,6 @@ export default function RegionSearch() {
                     <h1 id="result-explanation-inner-text2">{t('description.result-explanation-text2')}</h1>
                 </div>
                 <div id="search-inner-wrapper">
-
                     <div id="search-condition-wrapper">
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
@@ -119,7 +127,16 @@ export default function RegionSearch() {
                                 <Dropdown.Item onClick={clickGuDropdown}>{t('description.Gangdong-gu')}</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-
+                        <div className="container">
+                            <div className="datepicker-container">
+                                <h3>날짜 선택</h3>
+                                <DatePicker
+                                    selected={selectedDate}
+                                    onChange={handleDateChange}
+                                    dateFormat="yyyy-MM-dd"
+                                />
+                            </div>
+                        </div>
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
                                 <img className="location-icon" src={Time} alt=""/>
@@ -135,7 +152,7 @@ export default function RegionSearch() {
                             </Dropdown.Menu>
                         </Dropdown>
 
-                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>가능한 언어 선택(복수)</h3>
+                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>언어</h3>
                         <div id="language-checkbox-wrapper">
                         <input
                             id="speaking-japanese"
