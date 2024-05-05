@@ -1,17 +1,54 @@
 #result-details-text-wrapper {
     display: block;
     font-family: "SUIT-Medium";
-    font-size: 10px;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    #result-details-name {
+        font-family: "SUIT-ExtraBold";
+        font-size: 25px;
+        color: #004770;
+
+        padding-top: 20px;
+    }
+
+    .result-details-text-item {
+        padding: 7px;
+    }
 }
 
-#result-details-name {
-    font-family: "SUIT-ExtraBold";
-    font-size: 25px;
-    color: #004770;
-    padding: 1vh 0;
+#operating-hours-name {
+    font-size: 18px;
+    border: 0;
+    padding: 0;
+
+    background-color: white;
+    color: black;
 }
 
-#result-details-time {
-    padding: 1vh 0;
-    line-height: 50%;
+
+#operating-hours-dropdown {
+    font-size: 18px;
+}
+
+/*모바일*/
+@media (max-width: 480px) {
+    #result-details-text-wrapper {
+        font-size: 12px;
+
+        #result-details-name {
+            font-size: 20px;
+            padding-top: 20px;
+        }
+
+        .result-details-text-item {
+            padding: 5px;
+        }
+    }
+
+    #operating-hours-name {
+        font-size: 12px;
+    }
+
 }

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, {useEffect, useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import apiDetail from '../../api/apiDetail';
 import Map from "../map/Map";
 import './Detail.css';
+import {Dropdown} from "react-bootstrap";
 
-export default function Detail({ identifier }) {
+export default function Detail({identifier}) {
     const {t} = useTranslation();
     const [pharmacy, setPharmacy] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -51,19 +52,29 @@ export default function Detail({ identifier }) {
 
     return (
         <article id="result-details">
-            <Map lat={parseFloat(pharmacy.latitude)} lng={parseFloat(pharmacy.longitude)} />
+            <Map lat={parseFloat(pharmacy.latitude)} lng={parseFloat(pharmacy.longitude)}/>
             <div id="result-details-text-wrapper">
-                <h1 id="result-details-name">{t('description.pharmacy-name')} | {pharmacy.name}</h1>
-                <div id="result-details-name">{t('description.address')} | {pharmacy.si} {pharmacy.gu} {pharmacy.road_name_address} </div>
-                <div id="result-details-name">{t('description.bussiness-hours')} | {t('description.mon')}: {pharmacy.mon_open_time}~{pharmacy.mon_close_time}
-                <p>{t('description.tue')}: {pharmacy.tue_open_time}~{pharmacy.tue_close_time}</p>
-                <p>{t('description.wed')}: {pharmacy.wed_open_time}~{pharmacy.wed_close_time}</p></div>
-                <p>{t('description.thu')}: {pharmacy.thu_open_time}~{pharmacy.thu_close_time}</p>
-                <p>{t('description.fri')}: {pharmacy.fri_open_time}~{pharmacy.fri_close_time}</p>
-                <p>{t('description.sat')}: {pharmacy.sat_open_time}~{pharmacy.sat_close_time}</p>
-                <p>{t('description.sun')}: {pharmacy.sun_open_time}~{pharmacy.sun_close_time}</p>
-                <p>{t('description.holiday')}: {pharmacy.holiday_open_time}~{pharmacy.holiday_close_time}</p>
-                <div id="result-details-GEN">{t('description.number')} | {pharmacy.main_number}</div>
+                <h1 id="result-details-name" className="result-details-text-item">{pharmacy.name}</h1>
+                <div className="result-details-text-item">{t('description.address')} | {pharmacy.si} {pharmacy.gu} {pharmacy.road_name_address} </div>
+
+                <Dropdown>
+                    <Dropdown.Toggle id="operating-hours-name" className="result-details-text-item" variant="success">
+                        {t('description.bussiness-hours')} |
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu id="operating-hours-dropdown">
+                        <Dropdown.Item>{t('description.mon')}: {pharmacy.mon_open_time}~{pharmacy.mon_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('description.tue')}: {pharmacy.tue_open_time}~{pharmacy.tue_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('description.wed')}: {pharmacy.wed_open_time}~{pharmacy.wed_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('description.thu')}: {pharmacy.thu_open_time}~{pharmacy.thu_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('description.fri')}: {pharmacy.fri_open_time}~{pharmacy.fri_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('description.sat')}: {pharmacy.sat_open_time}~{pharmacy.sat_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('description.sun')}: {pharmacy.sun_open_time}~{pharmacy.sun_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('description.holiday')}: {pharmacy.holiday_open_time}~{pharmacy.holiday_close_time}</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+                <div className="result-details-text-item">{t('description.number')} | {pharmacy.main_number}</div>
             </div>
         </article>
     );
