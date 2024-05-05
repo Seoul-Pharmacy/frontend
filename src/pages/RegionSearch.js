@@ -86,15 +86,15 @@ export default function RegionSearch() {
             <SearchDesign>선택 지역 기반 정보 제공</SearchDesign>
             <div id="search-wrapper">
                 <div id="result-explanation-text">
-                    <p id="result-explanation-inner-text1">{t('description.result-explanation-text1')}</p>
-                    <h1 id="result-explanation-inner-text2">{t('description.result-explanation-text2')}</h1>
+                    <p id="result-explanation-inner-text1">{t('description.region-result-explanation-text1')}</p>
+                    <h1 id="result-explanation-inner-text2">{t('description.region-result-explanation-text2')}</h1>
                 </div>
                 <div id="search-inner-wrapper">
                     <div id="search-condition-wrapper">
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
                                 <img className="location-icon" src={LocationIcon} alt=""/>
-                                군/구
+                                {t('description.district/gu')}
                                 <div id="gu-value">전체</div>
                                 <img className="arrow-icon" src={Arrow} alt=""/>
                             </Dropdown.Toggle>
@@ -129,7 +129,7 @@ export default function RegionSearch() {
                         </Dropdown>
                         <div className="container">
                             <div className="datepicker-container">
-                                <h3>날짜 선택</h3>
+                                <h3>{t('description.select-date')}</h3>
                                 <DatePicker
                                     selected={selectedDate}
                                     onChange={handleDateChange}
@@ -140,7 +140,7 @@ export default function RegionSearch() {
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
                                 <img className="location-icon" src={Time} alt=""/>
-                                영업시간
+                                {t('description.bussiness-hours')}
                                 <div id="time-value">전체</div>
                                 <img className="arrow-icon" src={Arrow} alt=""/>
                             </Dropdown.Toggle>
@@ -152,7 +152,7 @@ export default function RegionSearch() {
                             </Dropdown.Menu>
                         </Dropdown>
 
-                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>언어</h3>
+                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>{t('description.language')}</h3>
                         <div id="language-checkbox-wrapper">
                         <input
                             id="speaking-japanese"
@@ -186,7 +186,7 @@ export default function RegionSearch() {
                                 id="speaking-english-label"
                                 className="language-checkbox"
                                 htmlFor="speaking-english">
-                                    english
+                                    English
                             </label>
                     </div>
                     </div>
@@ -196,7 +196,7 @@ export default function RegionSearch() {
                         id="pharmacy-search-button"
                         onClick={handleSearch}
                     >
-                        검색
+                        {t('description.search')}
                     </Button>{' '}
                 </div>
             </div>

@@ -64,15 +64,15 @@ export default function NearbySearch() {
             <SearchDesign>{t('description.based-on-location')}</SearchDesign>
             <div id="search-wrapper">
                 <div id="result-explanation-text">
-                    <p id="result-explanation-inner-text1">{t('description.result-explanation-text1')}</p>
-                    <h1 id="result-explanation-inner-text2">{t('description.result-explanation-text2')}</h1>
+                    <p id="result-explanation-inner-text1">{t('description.nearby-result-explanation-text1')}</p>
+                    <h1 id="result-explanation-inner-text2">{t('description.nearby-result-explanation-text2')}</h1>
                 </div>
                 <div id="search-inner-wrapper">
                     <div id="search-condition-wrapper">
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
                                 <img className="location-icon" src={Time} alt=""/>
-                                영업시간
+                                {t('description.bussiness-hours')}
                                 <div id="time-value">전체</div>
                                 <img className="arrow-icon" src={Arrow} alt=""/>
                             </Dropdown.Toggle>
@@ -84,7 +84,7 @@ export default function NearbySearch() {
                             </Dropdown.Menu>
                         </Dropdown>
 
-                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>가능한 언어 선택(복수)</h3>
+                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>{t('description.language')}</h3>
                         <div id="language-checkbox-wrapper">
                         <input
                             id="speaking-japanese"
@@ -118,7 +118,7 @@ export default function NearbySearch() {
                                 id="speaking-english-label"
                                 className="language-checkbox"
                                 htmlFor="speaking-english">
-                                    english
+                                    English
                             </label>
                     </div>
                 </div>
@@ -128,7 +128,7 @@ export default function NearbySearch() {
                     id="pharmacy-search-button"
                     onClick={() => fetchPharmacies(languageState)}
                 >
-                    검색
+                    {t('description.search')}
                 </Button>{' '}
                 </div>
             </div>
