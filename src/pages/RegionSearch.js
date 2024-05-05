@@ -32,8 +32,8 @@ export default function RegionSearch() {
     const [totalItems, setTotalItems] = useState(0);
     const itemsPerPage = 5;
 
-    const fetchPharmacies = (gu, language, date, time, present) => {
-        regionApi(currentPage, gu, language.japanese, language.chinese, language.english, date, time, present)
+    const fetchPharmacies = (gu, language, date, time, isOpen) => {
+        regionApi(currentPage, gu, language.japanese, language.chinese, language.english, date, time, isOpen)
             .then(data => {
                 setPharmacies(data.results || []);
                 setTotalItems(data.count || 0);
@@ -72,13 +72,13 @@ export default function RegionSearch() {
         document.getElementById('time-value').innerText = time;
     };
 
-    const [isPresent, setIsPresent] = useState(true);
+    const [isOpen, setIsOpen] = useState(true);
     const handlePresentChange = (event) => {
-        const { name, checked } = event.target;
-        if (name === 'present' && checked) {
-            setIsPresent(true);
+        const checked = event.target.checked;
+        if (checked) {
+            setIsOpen(true);
         } else {
-            setIsPresent(false);
+            setIsOpen(false);
         }
     };
 
@@ -95,12 +95,12 @@ export default function RegionSearch() {
 
 
     const handleSearch = () => {
-        fetchPharmacies(gu, languageState, selectedDate, time, isPresent);
+        fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
     };
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
-        fetchPharmacies(gu, languageState, selectedDate, time, isPresent);
+        fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
     };
     
     return(
@@ -156,7 +156,7 @@ export default function RegionSearch() {
                                     type="checkbox"
                                     id="search-present-time"
                                     name="present"
-                                    checked={isPresent}
+                                    checked={isOpen}
                                     onChange={handlePresentChange}
                                 />
                                 <label
@@ -172,12 +172,12 @@ export default function RegionSearch() {
                                     selected={selectedDate}
                                     onChange={handleDateChange}
                                     dateFormat="yyyy-MM-dd"
-                                    disabled={isPresent}
+                                    disabled={isOpen}
                                 />
                             </div>
                         </div>
                         <Dropdown>
-                            <Dropdown.Toggle id="dropdown-basic" className="dropdown-select" disabled={isPresent}>
+                            <Dropdown.Toggle id="dropdown-basic" className="dropdown-select" disabled={isOpen}>
                                 <img className="location-icon" src={Time} alt=""/>
                                 {t('description.bussiness-hours')}
                                 <div id="time-value"></div>
