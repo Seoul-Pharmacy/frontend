@@ -1,8 +1,8 @@
-// export default async function regionApi(gu, {en=false, jp=false, cn=false}, isOpen=true, enterTime, exitTime, year, month, day) {
-//     const url = `http://www.pharmaseoul.com:8000/api/pharmacies?page=1&gu=${gu}&speakingEnglish=${en}&speakingJapanese=${jp}&speakingChinese=${cn}&enterTime=${enterTime}&exitTime=${exitTime}&year=${year}&month=${month}&day=${day}`;
-
-export default async function regionApi(page) {
-    const url = `http://www.pharmaseoul.com:8000//api/pharmacies?page=${page}&gu=서대문구&speakingEnglish=true&enterTime=1030&exitTime=1100&year=2024&month=3&day=10`;
+export default async function regionApi(page, gu, japanese = false, chinese = false, english = false, selectedDate) {
+    const year = selectedDate.getFullYear();
+    const month = ('0' + (selectedDate.getMonth() + 1)).slice(-2); // 월은 0부터 시작
+    const day = ('0' + selectedDate.getDate()).slice(-2);
+    const url = `http://www.pharmaseoul.com:8000/api/pharmacies?page=${page}&gu=${gu}&speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&enterTime=1030&exitTime=1100&year=${year}&month=${month}&day=${day}`;
     try {
         const response = await fetch(url, {
             method: 'GET',

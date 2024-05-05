@@ -245,6 +245,12 @@
     }
 }
 
+/*캘린더*/
+.react-datepicker__header {
+    background-color: white;
+    color: #fff;
+}
+
 #result-explanation-text {
     text-align: left;
     width: 50%;
@@ -345,6 +351,7 @@ input[type="checkbox"] {
 .language-checkbox {
     color: #004770;
     border: solid 1px #004770;
+    background-color: white;
 
     display: flex;
 
@@ -357,8 +364,7 @@ input[type="checkbox"] {
 }
 
 .language-checkbox:hover {
-    background-color: #004770;
-    color: white;
+    cursor: pointer;
 }
 
 #speaking-japanese:checked + #speaking-japanese-label{
