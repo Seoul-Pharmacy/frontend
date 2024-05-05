@@ -15,7 +15,7 @@ import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
 import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
 import Time from '../images/NearbySearchPage/timeIcon.png';
 import Language from '../images/NearbySearchPage/languageIcon.png';
-import {Button, Dropdown} from "react-bootstrap";
+import { Button, Dropdown } from "react-bootstrap";
 
 export default function RegionSearch() {
     const {t} = useTranslation();
@@ -31,8 +31,8 @@ export default function RegionSearch() {
     const [totalItems, setTotalItems] = useState(0);
     const itemsPerPage = 5;
 
-    const fetchPharmacies = (gu, language, date) => {
-        regionApi(currentPage, gu, language.japanese, language.chinese, language.english, date)
+    const fetchPharmacies = (gu, language, date, time) => {
+        regionApi(currentPage, gu, language.japanese, language.chinese, language.english, date, time)
             .then(data => {
                 setPharmacies(data.results || []);
                 setTotalItems(data.count || 0);
@@ -45,14 +45,14 @@ export default function RegionSearch() {
         fetchPharmacies(gu, languageState);
     }, [currentPage]);
 
-    const [gu, setGu] = useState("전체");
+    const [gu, setGu] = useState(null);
     const clickGuDropdown = (event) => {
         let gu = event.target.textContent;
         setGu(gu);
         document.getElementById('gu-value').innerText = gu;
     };
 
-    const [time, setTime] = useState("전체");
+    const [time, setTime] = useState(null);
     const clickTimeDropdown = (event) => {
         let time = event.target.textContent;
         setTime(time);
@@ -72,7 +72,7 @@ export default function RegionSearch() {
 
 
     const handleSearch = () => {
-        fetchPharmacies(gu, languageState, selectedDate);
+        fetchPharmacies(gu, languageState, selectedDate, time);
     };
 
     const handlePageChange = (page) => {
@@ -95,7 +95,7 @@ export default function RegionSearch() {
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
                                 <img className="location-icon" src={LocationIcon} alt=""/>
                                 {t('description.district/gu')}
-                                <div id="gu-value">전체</div>
+                                <div id="gu-value"></div>
                                 <img className="arrow-icon" src={Arrow} alt=""/>
                             </Dropdown.Toggle>
 
@@ -141,17 +141,65 @@ export default function RegionSearch() {
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
                                 <img className="location-icon" src={Time} alt=""/>
                                 {t('description.bussiness-hours')}
-                                <div id="time-value">전체</div>
+                                <div id="time-value"></div>
                                 <img className="arrow-icon" src={Arrow} alt=""/>
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>Action</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>Another action</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>Something else</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>00:00~00:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>00:30~01:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>01:00~01:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>01:30~01:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>02:00~02:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>02:30~03:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>03:00~03:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>03:30~04:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>04:00~04:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>04:30~05:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>05:00~05:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>05:30~06:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>06:00~06:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>06:30~07:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>07:00~07:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>07:30~07:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>07:00~07:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>07:30~08:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>08:00~08:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>08:30~09:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>09:00~09:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>09:30~10:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>10:00~10:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>10:30~11:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>11:00~11:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>11:30~12:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>12:00~12:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>12:30~13:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>13:00~13:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>13:30~14:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>14:00~14:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>14:30~15:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>15:00~15:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>15:30~16:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>16:00~16:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>16:30~17:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>17:00~17:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>17:30~17:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>17:00~17:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>17:30~18:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>18:00~18:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>18:30~19:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>19:00~19:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>19:30~20:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>20:00~20:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>20:30~21:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>21:00~21:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>21:30~21:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>22:00~22:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>22:30~23:00</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>23:00~23:30</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" onClick={clickTimeDropdown}>23:30~24:00</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-
                         <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>{t('description.language')}</h3>
                         <div id="language-checkbox-wrapper">
                         <input

@@ -1,8 +1,13 @@
-export default async function regionApi(page, gu, japanese = false, chinese = false, english = false, selectedDate) {
-    const year = selectedDate.getFullYear();
-    const month = ('0' + (selectedDate.getMonth() + 1)).slice(-2); // 월은 0부터 시작
-    const day = ('0' + selectedDate.getDate()).slice(-2);
-    const url = `http://www.pharmaseoul.com:8000/api/pharmacies?page=${page}&gu=${gu}&speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&enterTime=1030&exitTime=1100&year=${year}&month=${month}&day=${day}`;
+export default async function regionApi(page, gu, japanese = false, chinese = false, english = false, date, time) {
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2); // 월은 0부터 시작
+    const day = ('0' + date.getDate()).slice(-2);
+    let [start, end] = time.split('~');
+    let [enterHour, enterMin] = start.split(':');
+    let [exitHour, exitMin] = end.split(':');
+    const enterTime = enterHour + enterMin;
+    const exitTime = exitHour + exitMin;
+    const url = `http://www.pharmaseoul.com:8000/api/pharmacies?page=${page}&gu=${gu}&speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&enterTime=${enterTime}&exitTime=${exitTime}&year=${year}&month=${month}&day=${day}`;
     try {
         const response = await fetch(url, {
             method: 'GET',
