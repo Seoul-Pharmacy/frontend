@@ -13,8 +13,8 @@ export default function SearchDesign({ children }){
             </div>
             <div className="right-rec" />
             <div id="nearby-icon">
-                <img className="greenBag" src={GreenBag} />
-                <img className="hand" src={Hand} />
+                <img className="greenBag" src={GreenBag} alt=""/>
+                <img className="hand" src={Hand} alt=""/>
             </div>
         </div>
     );

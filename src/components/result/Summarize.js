@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import './Summarize.css';
 
-export default function({ id, name, distance = 0, si, gu, road_name_address, speaking_english, speaking_chinese, speaking_japanese }) {
+export default function Summarize({ id, name, distance = 0, si, gu, road_name_address, speaking_english, speaking_chinese, speaking_japanese }) {
     const {t} = useTranslation();
     
     if (id === 'nearby-summarize') {

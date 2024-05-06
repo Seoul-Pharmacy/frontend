@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 import NearbyResult from "../components/result/NearbyResult";
 
 import Language from '../images/NearbySearchPage/languageIcon.png';
-import {Button, Dropdown} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 export default function NearbySearch() {
     const {t} = useTranslation();
