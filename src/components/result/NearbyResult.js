@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Summarize from "./Summarize";
 import Detail from "./Detail";
-import Pagination from "../Pagination";
 
 export default function NearbyResult({ result }) {
     const [ identifier, setIdentifier ] = useState(null);
@@ -34,6 +33,9 @@ export default function NearbyResult({ result }) {
                             si={pharmacy.si}
                             gu={pharmacy.gu}
                             road_name_address={pharmacy.road_name_address}
+                            speaking_english={pharmacy.speaking_english}
+                            speaking_chinese={pharmacy.speaking_chinese}
+                            speaking_japanese={pharmacy.speaking_japanese}
                         />
                     </li>
                 ))}
