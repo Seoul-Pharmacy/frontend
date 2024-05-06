@@ -32,6 +32,19 @@ export default function RegionSearch() {
     const [totalItems, setTotalItems] = useState(0);
     const itemsPerPage = 5;
 
+    // 검색 필터 마지막 저장 값
+    const [searchCriteria, setSearchCriteria] = useState({
+        gu: null,
+        languageState: {
+          japanese: false,
+          chinese: false,
+          english: false,
+        },
+        selectedDate: null,
+        time: null,
+        isOpen: true,
+    });
+
     const fetchPharmacies = (gu, language, date, time, isOpen) => {
         regionApi(currentPage, gu, language.japanese, language.chinese, language.english, date, time, isOpen)
             .then(data => {
@@ -54,8 +67,11 @@ export default function RegionSearch() {
     i18n.on('languageChanged', handleDropdownChange);
 
     useEffect(() => {
-        fetchPharmacies(gu, languageState);
-    }, [currentPage]);
+        if (searchCriteria.gu) {
+          const { gu, languageState, selectedDate, time, isOpen } = searchCriteria;
+          fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
+        }
+    }, [currentPage, searchCriteria]);
 
     const [gu, setGu] = useState(null);
     const clickGuDropdown = (event) => {
@@ -94,9 +110,19 @@ export default function RegionSearch() {
     };
 
 
-    const handleSearch = () => {
+    const handleSearch = (gu, languageState, selectedDate, time, isOpen) => {
+        console.log('Searching with gu:', gu);
+        setSearchCriteria({ gu, languageState, selectedDate, time, isOpen });
+        setCurrentPage(1);
+    };
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const onSearchClick = () => {
         if(gu && (isOpen || (selectedDate && time)) ) {
-            fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
+            handleSearch(gu, languageState, selectedDate, time, isOpen);
         } else if(!gu) {
             alert('구를 선택하세요.');
         } else if(selectedDate) {
@@ -106,11 +132,6 @@ export default function RegionSearch() {
         } else {
             alert('현재 운영 중 여부 혹은 날짜와 시간을 선택하세요.');
         }
-    };
-
-    const handlePageChange = (page) => {
-        setCurrentPage(page);
-        fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
     };
     
     return(
@@ -291,7 +312,7 @@ export default function RegionSearch() {
                     <Button
                         variant="primary"
                         id="pharmacy-search-button"
-                        onClick={handleSearch}
+                        onClick={onSearchClick}
                     >
                         {t('description.search')}
                     </Button>{' '}
