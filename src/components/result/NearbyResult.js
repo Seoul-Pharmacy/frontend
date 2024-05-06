@@ -3,10 +3,13 @@ import Summarize from "./Summarize";
 import Detail from "./Detail";
 
 export default function NearbyResult({ result }) {
-    const [ identifier, setIdentifier ] = useState(null);
-    
+    const [identifier, setIdentifier] = useState(null);
+    const [cachedResult, setCachedResult] = useState([]);
+
     useEffect(() => {
         if (result.length > 0) {
+            // result가 있으면 캐시된 결과를 업데이트 & 첫 번째 약국을 선택
+            setCachedResult(result);
             setIdentifier(result[0].id);
         }
     }, [result]);
@@ -19,7 +22,7 @@ export default function NearbyResult({ result }) {
         <div id="result-wrapper">
         <div id="result-summarize-wrapper">
             <ul id="result-summarize-inner-wrapper">
-                {result.map(pharmacy => (
+                {cachedResult.map(pharmacy => (
                     <li
                         key={pharmacy.id}
                         className="pharmacy-list-item"
