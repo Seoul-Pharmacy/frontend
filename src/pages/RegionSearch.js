@@ -60,7 +60,7 @@ export default function RegionSearch() {
             });
     }
 
-    const handleDropdownChange = (lng) => {
+    const handleDropdownChange = () => {
         document.getElementById('gu-value').innerText = t('description.' + gu);
     };
 
@@ -111,7 +111,6 @@ export default function RegionSearch() {
 
 
     const handleSearch = (gu, languageState, selectedDate, time, isOpen) => {
-        console.log('Searching with gu:', gu);
         setSearchCriteria({ gu, languageState, selectedDate, time, isOpen });
         setCurrentPage(1);
     };

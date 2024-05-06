@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import useIsOpen from '../Hooks/useIsOpen';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import nearbyApi from '../api/nearbyApi';
@@ -10,8 +9,6 @@ import SearchDesign from "../components/SearchDesgin";
 import Footer from "../components/Footer";
 import NearbyResult from "../components/result/NearbyResult";
 
-import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
-import Time from '../images/NearbySearchPage/timeIcon.png';
 import Language from '../images/NearbySearchPage/languageIcon.png';
 import {Button, Dropdown} from "react-bootstrap";
 
