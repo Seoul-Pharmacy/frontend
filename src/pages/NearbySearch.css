@@ -213,6 +213,9 @@
 
     .dropdown-menu {
         width: 100%;
+        height: 200px;
+        text-align: center;
+        overflow: auto;
         /*border-radius: 4px;*/
     }
 
@@ -242,6 +245,31 @@
     #time-value {
         position: absolute;
         width: 100%;
+    }
+
+    HTML CSSResult Skip Results Iframe
+    EDIT ON
+        /* 임의의 영역 생성 */
+    .scrollBar {
+        width: 200px;
+        height: 200px;
+        overflow-y: scroll;
+    }
+
+    /* 아래의 모든 코드는 영역::코드로 사용 */
+    .dropdown-menu::-webkit-scrollbar {
+        width: 5px;  /* 스크롤바의 너비 */
+    }
+
+    .dropdown-menu::-webkit-scrollbar-thumb {
+        height: 30%; /* 스크롤바의 길이 */
+        background: lightgray; /* 스크롤바의 색상 */
+
+        border-radius: 10px;
+    }
+
+    .dropdown-menu::-webkit-scrollbar-track {
+        background: white;
     }
 }
 
@@ -496,12 +524,13 @@ input[type="checkbox"] {
     min-height: 400px;
     box-shadow: 0 0 5px 3px #DCDCDC;
     border-radius: 20px 0 0 20px;
+
+    padding: 4% 4%;
 }
 
 #result-details-text-wrapper {
-    position: relative;
-    left: 10%;
-    top: 7%;
     text-align: left;
 }
+
+
 
