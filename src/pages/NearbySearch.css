@@ -183,11 +183,35 @@
     width: 100%;
     box-sizing: border-box;
 
+
+    /*현재영엉중버튼*/
+    #present-checkbox-wrapper {
+        padding-bottom: 10px;
+    }
+
     /*드롭다운*/
     .dropdown{
         position : relative;
         /*display : inline-block;*/
         padding-bottom: 10px;
+    }
+
+    /*캘린더 */
+    #calanger-wrapper {
+        width: 100%;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .calander-button-name {
+        position: absolute;
+        z-index: 100;
+        top: 7px;
+        left: 10px;
+    }
+
+    .react-datepicker-wrapper{
+        width: 100%;
     }
 
     .dropdown-select{
@@ -223,6 +247,8 @@
         position: absolute;
         right: 10px;
         top: 12px;
+        width: 12px;
+        height: 8px;
     }
 
     .location-icon {
@@ -230,11 +256,12 @@
         height: 17px;
         padding-left: 3px;
         padding-right: 7px;
-
     }
-    .arrow-icon {
-        width: 12px;
-        height: 8px;
+
+    .calander-icon {
+        width: 23px;
+        height: 17px;
+        padding-right: 7px;
     }
 
     #gu-value {
@@ -247,8 +274,6 @@
         width: 100%;
     }
 
-    HTML CSSResult Skip Results Iframe
-    EDIT ON
         /* 임의의 영역 생성 */
     .scrollBar {
         width: 200px;
@@ -315,7 +340,7 @@
 
 #search-wrapper {
     display: flex;
-    height: 30vh;
+    height: calc(100% + 5vh);
     padding: 0 5vw;
     width: 100%;
     box-sizing: border-box;
@@ -346,41 +371,6 @@
     background-color: #bae2f7;
 }
 
-/*현재 운영 중 체크박스*/
-input[type="checkbox"] {
-    display: none;
-}
-
-#present-checkbox-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-
-}
-
-.present-checkbox {
-    color: #004770;
-    border: solid 1px #004770;
-    background-color: white;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    width: 33%;
-    height: 30px;
-    border-radius: 13px;
-}
-
-.present-checkbox:hover {
-    cursor: pointer;
-}
-
-input[type="checkbox"]:checked + label {
-    background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
-    color: white;
-}
 
 /*체크박스*/
 #language-icon {
@@ -388,28 +378,49 @@ input[type="checkbox"]:checked + label {
     padding-right: 5px;
 }
 
-#choice-text {
-    display: flex;
-    align-items: center;
-}
+/*#choice-text {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
 
-input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0;
-    /*width: 50px;*/
-    /*height: 20px;*/
-    /*background-color: #ffffff; !* 체크박스의 배경 색상 설정 *!*/
-    /*border: 1px solid #cccccc; !* 체크박스의 테두리 설정 *!*/
-    /*border-radius: 3px; !* 체크박스 모서리 둥글게 설정 *!*/
-}
+/*input[type="checkbox"] {*/
+/*    -webkit-appearance: none;*/
+/*    -moz-appearance: none;*/
+/*    appearance: none;*/
+/*    margin: 0;*/
+/*    !*width: 50px;*!*/
+/*    !*height: 20px;*!*/
+/*    !*background-color: #ffffff; !* 체크박스의 배경 색상 설정 *!*!*/
+/*    !*border: 1px solid #cccccc; !* 체크박스의 테두리 설정 *!*!*/
+/*    !*border-radius: 3px; !* 체크박스 모서리 둥글게 설정 *!*!*/
+/*}*/
 
 #language-checkbox-wrapper {
     display: flex;
     justify-content: center;
     gap: 5px;
 
+    /*언어체크박스*/
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    input[type="checkbox"]:checked + label {
+        background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
+        color: white;
+    }
+
+    input[type="checkbox"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+        /*width: 50px;*/
+        /*height: 20px;*/
+        /*background-color: #ffffff; !* 체크박스의 배경 색상 설정 *!*/
+        /*border: 1px solid #cccccc; !* 체크박스의 테두리 설정 *!*/
+        /*border-radius: 3px; !* 체크박스 모서리 둥글게 설정 *!*/
+    }
 }
 
 .language-checkbox {
@@ -467,8 +478,10 @@ input[type="checkbox"] {
 
 /*결과창*/
 #result-wrapper {
-    height: 80vh;
+    height: 75vh;
+    min-height: 400px;
     display: flex;
+    padding-bottom: 5vh;
 }
 
 
@@ -484,14 +497,13 @@ input[type="checkbox"] {
 #result-summarize-inner-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     list-style-type: none;
 
     gap: 2%;
     width: 100%;
-    height: 90%;
+    height: 100%;
     padding-inline-start: 0;
     margin-block-start: 0;
     margin-block-end: 0;
@@ -520,7 +532,7 @@ input[type="checkbox"] {
 #result-details {
     background-color: white;
     width: 55%;
-    height: 90%;
+    height: 100%;
     min-height: 400px;
     box-shadow: 0 0 5px 3px #DCDCDC;
     border-radius: 20px 0 0 20px;
