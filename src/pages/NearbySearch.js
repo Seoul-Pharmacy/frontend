@@ -30,9 +30,19 @@ export default function NearbySearch() {
         if (lat && lng) {
             nearbyApi(language.japanese, language.chinese, language.english , location, isOpen)
                 .then(data => {
-                    setPharmacies(data.results || []);
+                    const results = data?.results || [];
+                    setPharmacies(results);
+                    // 빈 배열인 경우 404
+                    if (results.length === 0) {
+                        alert('404: No pharmacies found.');
+                    }
                 }).catch(error => {
-                    console.error("Failed to fetch pharmacies:", error);
+                    console.error('Failed to fetch pharmacies:', error);
+                    if (error.message === '404') {
+                        alert('404: No pharmacies found.');
+                    } else {
+                        alert(`Error: ${error.message}`);
+                    }
                 });
         }
     };
