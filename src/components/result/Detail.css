@@ -32,6 +32,14 @@
     font-size: 18px;
 }
 
+/*오류*/
+#result-details-else {
+    padding: 0 2vw;
+    text-align: left;
+    font-family: 'SUIT-Medium';
+    font-size: 25px;
+}
+
 /*모바일*/
 @media (max-width: 480px) {
     #result-details-text-wrapper {
@@ -49,6 +57,10 @@
 
     #operating-hours-name {
         font-size: 12px;
+    }
+
+    #result-details-else {
+        font-size: 15px;
     }
 
 }
