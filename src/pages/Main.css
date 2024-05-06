@@ -38,7 +38,7 @@
     padding-top: 13px;
     font-family: "SUIT-ExtraBold";
     font-weight: 1000;
-    font-size: 60px;
+    font-size: 45px;
     color: black;
     text-align: center;
 
@@ -59,8 +59,8 @@
     position: relative;
     left: -4vw;
     top: 30px;
-    width: 20vh;
-    height: 35vh;
+    width: 18vh;
+    height: 32vh;
 }
 
 
