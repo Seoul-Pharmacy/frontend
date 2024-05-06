@@ -35,8 +35,8 @@ export default function Main() {
                     <div id="findPharmacy-text1">
                         {t('description.find_pharmacy_explanation')}
                     </div>
-                    <div id="findPharmacy-text2">{t('description.find_pharmacy')}<img id="readingGlasses" src={Glasses}
-                                                                                      alt=""/></div>
+                    <div id="findPharmacy-text2">{t('description.find_pharmacy')}
+                    <img id="readingGlasses" src={Glasses} alt=""/></div>
                     <img className="locationMark" src={Mark} alt="location mark"/>
                 </div>
                 <section>
