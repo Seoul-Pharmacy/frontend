@@ -22,6 +22,7 @@
     cursor: pointer;
 }
 
-#active-page {
+
+.page-item.active .page-button {
     font-weight: 600; /* 활성화된 버튼 숫자의 두께 */
 }
