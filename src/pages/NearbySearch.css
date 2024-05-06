@@ -472,9 +472,6 @@ input[type="checkbox"] {
 }
 
 
-
-
-
 /*약국 리스트*/
 #result-summarize-wrapper {
     width: 45%;
@@ -514,22 +511,6 @@ input[type="checkbox"] {
 
 #selected {
     background-color: #C6E7F9;
-}
-
-/*약국 디테일*/
-#result-details {
-    background-color: white;
-    width: 55%;
-    height: 90%;
-    min-height: 400px;
-    box-shadow: 0 0 5px 3px #DCDCDC;
-    border-radius: 20px 0 0 20px;
-
-    padding: 4% 4%;
-}
-
-#result-details-text-wrapper {
-    text-align: left;
 }
 
 

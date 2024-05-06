@@ -1,3 +1,18 @@
+#result-details {
+    background-color: white;
+    width: 55%;
+    height: 90%;
+    min-height: 400px;
+    box-shadow: 0 0 5px 3px #DCDCDC;
+    border-radius: 20px 0 0 20px;
+
+    padding: 4% 4%;
+}
+
+#result-details-text-wrapper {
+    text-align: left;
+}
+
 #result-details-text-wrapper {
     display: block;
     font-family: "SUIT-Medium";
