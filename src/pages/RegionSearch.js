@@ -95,7 +95,17 @@ export default function RegionSearch() {
 
 
     const handleSearch = () => {
-        fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
+        if(gu && (isOpen || (selectedDate && time)) ) {
+            fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
+        } else if(!gu) {
+            alert('구를 선택하세요.');
+        } else if(selectedDate) {
+            alert('시간을 선택하세요.');
+        } else if(time) {
+            alert('날짜를 선택하세요.');
+        } else {
+            alert('현재 운영 중 여부 혹은 날짜와 시간을 선택하세요.');
+        }
     };
 
     const handlePageChange = (page) => {
