@@ -5,11 +5,7 @@ export default async function nearbyApi(japanese = false, chinese = false, engli
     }
     let url;
     const { lat, lng } = location;
-    if(isOpen) {
-        url = `http://www.pharmaseoul.com:8000/api/nearby-pharmacies?speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&latitude=${lat}&longitude=${lng}`;
-    } else {
-        url = `http://www.pharmaseoul.com:8000/api/nearby-pharmacies?speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&latitude=${lat}&longitude=${lng}&isOpen=${isOpen}`;
-    }
+    url = `http://www.pharmaseoul.com:8000/api/nearby-pharmacies?speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&latitude=${lat}&longitude=${lng}&isOpen=${isOpen}`;
     
 
     try {
