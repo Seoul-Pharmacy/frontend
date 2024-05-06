@@ -61,7 +61,10 @@ export default function RegionSearch() {
     }
 
     const handleDropdownChange = () => {
-        document.getElementById('gu-value').innerText = t('description.' + gu);
+        if(gu) {
+            document.getElementById('gu-value').innerText = t('description.' + gu);
+        }
+        
     };
 
     i18n.on('languageChanged', handleDropdownChange);
