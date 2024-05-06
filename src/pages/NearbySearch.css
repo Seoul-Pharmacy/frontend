@@ -183,11 +183,35 @@
     width: 100%;
     box-sizing: border-box;
 
+
+    /*현재영엉중버튼*/
+    #present-checkbox-wrapper {
+        padding-bottom: 10px;
+    }
+
     /*드롭다운*/
     .dropdown{
         position : relative;
         /*display : inline-block;*/
         padding-bottom: 10px;
+    }
+
+    /*캘린더 */
+    #calanger-wrapper {
+        width: 100%;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .calander-button-name {
+        position: absolute;
+        z-index: 100;
+        top: 7px;
+        left: 10px;
+    }
+
+    .react-datepicker-wrapper{
+        width: 100%;
     }
 
     .dropdown-select{
@@ -223,6 +247,8 @@
         position: absolute;
         right: 10px;
         top: 12px;
+        width: 12px;
+        height: 8px;
     }
 
     .location-icon {
@@ -230,11 +256,12 @@
         height: 17px;
         padding-left: 3px;
         padding-right: 7px;
-
     }
-    .arrow-icon {
-        width: 12px;
-        height: 8px;
+
+    .calander-icon {
+        width: 23px;
+        height: 17px;
+        padding-right: 7px;
     }
 
     #gu-value {
@@ -313,7 +340,7 @@
 
 #search-wrapper {
     display: flex;
-    height: 30vh;
+    height: calc(100% + 5vh);
     padding: 0 5vw;
     width: 100%;
     box-sizing: border-box;

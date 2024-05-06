@@ -17,6 +17,7 @@ import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
 import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
 import Time from '../images/NearbySearchPage/timeIcon.png';
 import Language from '../images/NearbySearchPage/languageIcon.png';
+import Calander from '../images/NearbySearchPage/calanderIcon.png';
 import {Button, Dropdown} from "react-bootstrap";
 
 export default function RegionSearch() {
@@ -190,17 +191,20 @@ export default function RegionSearch() {
 
                         </div>
 
-                        <div className="container">
-                            <div className="datepicker-container">
-                                <h3>{t('description.select-date')}</h3>
-                                <DatePicker
-                                    selected={selectedDate}
-                                    onChange={handleDateChange}
-                                    dateFormat="yyyy-MM-dd"
-                                    disabled={isOpen}
-                                />
+                        <div id="calanger-wrapper">
+                            <div className="calander-button-name">
+                                <img className="calander-icon" src={Calander} alt=""/>
+                                {t('description.select-date')}
                             </div>
+                            <DatePicker
+                                className="dropdown-select"
+                                selected={selectedDate}
+                                onChange={handleDateChange}
+                                dateFormat="yyyy-MM-dd"
+                                disabled={isOpen}
+                            />
                         </div>
+
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select" disabled={isOpen}>
                                 <img className="location-icon" src={Time} alt=""/>
