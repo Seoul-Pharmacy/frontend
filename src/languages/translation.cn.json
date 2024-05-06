@@ -15,11 +15,15 @@
     "language": "语言",
     
     "based-on-location": "提供基于位置的定制信息",
+    "based-on-region": "提供基于所选区域的信息",
+
+    "been-looking-for": "顾客您要找的药店，",
+    "everything": "都在这里！",
     
-    "nearby-result-explanation-text1": "我周围的 现在营业的",
-    "nearby-result-explanation-text2": "告诉您附近的药店!",
-    "region-result-explanation-text1": "",
-    "region-result-explanation-text2": "!",
+    "nearby-result-explanation-text1": "正在营业的",
+    "nearby-result-explanation-text2": "告诉您最近的药店！",
+    "region-result-explanation-text1": "选择条件，",
+    "region-result-explanation-text2": "找一下你想要的药店吧！",
 
     "from-me": "离我位置",
     "pharmacy-name": "药店名称",

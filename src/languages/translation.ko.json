@@ -15,11 +15,15 @@
     "language": "언어",
 
     "based-on-location": "위치기반 맞춤형 정보 제공",
+    "based-on-region": "선택 지역 기반 정보 제공",
+
+    "been-looking-for": "고객님이 찾던 약국,",
+    "everything": "전부 여기 있습니다!",
     
-    "nearby-result-explanation-text1": "내 주변에 있는, 지금 영업중인",
+    "nearby-result-explanation-text1": "지금 영업중인",
     "nearby-result-explanation-text2": "가까운 약국을 알려드려요!",
-    "region-result-explanation-text1": "",
-    "region-result-explanation-text2": "!",
+    "region-result-explanation-text1": "조건을 선택하여",
+    "region-result-explanation-text2": "원하는 약국을 찾아보세요!",
 
     "from-me": "내 위치에서 ",
     "pharmacy-name": "약국 이름",

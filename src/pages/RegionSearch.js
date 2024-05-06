@@ -139,7 +139,7 @@ export default function RegionSearch() {
     return(
         <>
             <Header />
-            <SearchDesign>선택 지역 기반 정보 제공</SearchDesign>
+            <SearchDesign>{t('description.based-on-region')}</SearchDesign>
             <div id="search-wrapper">
                 <div id="result-explanation-text">
                     <p id="result-explanation-inner-text1">{t('description.region-result-explanation-text1')}</p>

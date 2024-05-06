@@ -15,11 +15,15 @@
     "language": "言語",
 
     "based-on-location": "位置を足元して探した情報を知らせる",
+    "based-on-region": "選択地域基盤情報提供",
 
-    "nearby-result-explanation-text1": "私の周り、今運営中の",
-    "nearby-result-explanation-text2": "近い薬局を知らせます!",
-    "region-result-explanation-text1": "",
-    "region-result-explanation-text2": "!",
+    "been-looking-for": "お客様が探していた薬局、",
+    "everything": "全部ここにあります！",
+
+    "nearby-result-explanation-text1": "今営業中の、",
+    "nearby-result-explanation-text2": "最寄りの薬局をお知らせします！",
+    "region-result-explanation-text1": "条件を選択して、",
+    "region-result-explanation-text2": "ご希望の薬局を見つけてください！",
 
     "select-date": "月日選択",
 
