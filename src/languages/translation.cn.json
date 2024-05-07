@@ -4,11 +4,11 @@
     "groupName": "队名",
     "email": "邮件",
     "search": "搜索",
-    "find_near": "在我的位置附近找到",
-    "find_near_description": "查找接近当前位置的位置",
-    "find_by_region": "区域选择查找",
+    "find_near": "在近处寻找",
+    "find_near_description": "从当前位置寻觅近处。",
+    "find_by_region": "地域选择查找",
     "find_by_region_description": "选择想找的地区找",
-    "find_pharmacy_explanation": "使用您设置的位置查找符合您标准的药房。",
+    "find_pharmacy_explanation": "符合我设定的条件的",
     "find_pharmacy": "寻找药房",
     "select": "选择",
 
@@ -22,7 +22,7 @@
     
     "nearby-result-explanation-text1": "正在营业的",
     "nearby-result-explanation-text2": "告诉您最近的药店！",
-    "region-result-explanation-text1": "选择条件，",
+    "region-result-explanation-text1": "选择条件",
     "region-result-explanation-text2": "找一下你想要的药店吧！",
 
     "from-me": "离我位置",
