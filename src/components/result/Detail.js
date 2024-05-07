@@ -90,10 +90,10 @@ export default function Detail({ identifier }) {
 
                 <div className="result-details-text-item">{t('description.number')} | {pharmacy.main_number}</div>
                 <div className="result-details-text-item">
-                    {(pharmacy.speaking_english && pharmacy.speaking_chinese && pharmacy.speaking_japanese) ? <span>가능한 언어 | </span> : ""}
-                    {pharmacy.speaking_english ? <span>english</span> : ''}
-                    {pharmacy.speaking_chinese ? <span>中国人</span> : ''}
-                    {pharmacy.speaking_japanese ? <span>日本語</span> : ''}
+                    {(pharmacy.speaking_english || pharmacy.speaking_chinese || pharmacy.speaking_japanese) ? <span>가능한 언어 | </span> : ""}
+                    {pharmacy.speaking_english ? <span> english</span> : ''}
+                    {pharmacy.speaking_chinese ? <span> 中国人</span> : ''}
+                    {pharmacy.speaking_japanese ? <span> 日本語</span> : ''}
                 </div>
             </div>
         </article>
