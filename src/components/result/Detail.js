@@ -87,23 +87,23 @@ export default function Detail({ identifier }) {
                     className="result-details-text-item"
                     onClick={() => copyToClipboard(`${pharmacy.si} ${pharmacy.gu} ${pharmacy.road_name_address}`)}
                 >
-                    {t('description.address')} | {pharmacy.si} {pharmacy.gu} {pharmacy.road_name_address}
+                    {t('address')} | {pharmacy.si} {pharmacy.gu} {pharmacy.road_name_address}
                 </div>
 
                 <Dropdown>
                     <Dropdown.Toggle id="operating-hours-name" className="result-details-text-item" variant="success">
-                        {t('description.bussiness-hours')} |
+                        {t('bussiness-hours')} |
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu id="operating-hours-dropdown">
-                        <Dropdown.Item>{t('description.mon')}: {pharmacy.mon_open_time}~{pharmacy.mon_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('description.tue')}: {pharmacy.tue_open_time}~{pharmacy.tue_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('description.wed')}: {pharmacy.wed_open_time}~{pharmacy.wed_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('description.thu')}: {pharmacy.thu_open_time}~{pharmacy.thu_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('description.fri')}: {pharmacy.fri_open_time}~{pharmacy.fri_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('description.sat')}: {pharmacy.sat_open_time}~{pharmacy.sat_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('description.sun')}: {pharmacy.sun_open_time}~{pharmacy.sun_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('description.holiday')}: {pharmacy.holiday_open_time}~{pharmacy.holiday_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('mon')}: {pharmacy.mon_open_time}~{pharmacy.mon_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('tue')}: {pharmacy.tue_open_time}~{pharmacy.tue_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('wed')}: {pharmacy.wed_open_time}~{pharmacy.wed_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('thu')}: {pharmacy.thu_open_time}~{pharmacy.thu_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('fri')}: {pharmacy.fri_open_time}~{pharmacy.fri_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('sat')}: {pharmacy.sat_open_time}~{pharmacy.sat_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('sun')}: {pharmacy.sun_open_time}~{pharmacy.sun_close_time}</Dropdown.Item>
+                        <Dropdown.Item>{t('holiday')}: {pharmacy.holiday_open_time}~{pharmacy.holiday_close_time}</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
 

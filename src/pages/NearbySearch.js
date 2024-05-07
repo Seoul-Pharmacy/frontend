@@ -70,11 +70,11 @@ export default function NearbySearch() {
     return (
         <>
             <Header />
-            <SearchDesign>{t('description.based-on-location')}</SearchDesign>
+            <SearchDesign>{t('based-on-location')}</SearchDesign>
             <div id="search-wrapper">
                 <div id="result-explanation-text">
-                    <p id="result-explanation-inner-text1">{t('description.nearby-result-explanation-text1')}</p>
-                    <h1 id="result-explanation-inner-text2">{t('description.nearby-result-explanation-text2')}</h1>
+                    <p id="result-explanation-inner-text1">{t('nearby-result-explanation-text1')}</p>
+                    <h1 id="result-explanation-inner-text2">{t('nearby-result-explanation-text2')}</h1>
                 </div>
                 <div id="search-inner-wrapper">
                     <div id="search-condition-wrapper">
@@ -89,7 +89,7 @@ export default function NearbySearch() {
                         </div>
 
                         <h3 id="language-choice-text"><img id="language-icon" src={Language}
-                                                           alt=""/>{t('description.language')}</h3>
+                                                           alt=""/>{t('language')}</h3>
                         <div id="language-checkbox-wrapper">
                             <input
                                 id="speaking-japanese"
@@ -133,7 +133,7 @@ export default function NearbySearch() {
                         id="pharmacy-search-button"
                         onClick={() => fetchPharmacies(languageState, isOpen)}
                     >
-                        {t('description.search')}
+                        {t('search')}
                     </Button>{' '}
                 </div>
             </div>

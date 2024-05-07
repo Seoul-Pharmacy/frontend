@@ -33,9 +33,9 @@ export default function Main() {
             <div id="body-wrapper">
                 <div id="findPharmacy-wrapper">
                     <div id="findPharmacy-text1">
-                        {t('description.find_pharmacy_explanation')}
+                        {t('find_pharmacy_explanation')}
                     </div>
-                    <div id="findPharmacy-text2">{t('description.find_pharmacy')}
+                    <div id="findPharmacy-text2">{t('find_pharmacy')}
                     <img id="readingGlasses" src={Glasses} alt=""/></div>
                     <img className="locationMark" src={Mark} alt="location mark"/>
                 </div>
@@ -44,20 +44,20 @@ export default function Main() {
                         className="selectOptionButton" style={{
                         backgroundImage: `url(${Nearby})`
                     }}>
-                        <h3 className="selectOptionTitle">{t('description.find_near')}</h3>
-                        <p className="selectOptionDescription">{t('description.find_near_description')}</p>
+                        <h3 className="selectOptionTitle">{t('find_near')}</h3>
+                        <p className="selectOptionDescription">{t('find_near_description')}</p>
                         <button className="SelectOptionInnerButton" onClick={goToNearbySearch}>
-                            {t('description.select')}
+                            {t('select')}
                         </button>
                     </div>
                     <div
                         className="selectOptionButton" style={{
                         backgroundImage: `url(${Region})`
                     }}>
-                        <h3 className="selectOptionTitle">{t('description.find_by_region')}</h3>
-                        <p className="selectOptionDescription">{t('description.find_by_region_description')}</p>
+                        <h3 className="selectOptionTitle">{t('find_by_region')}</h3>
+                        <p className="selectOptionDescription">{t('find_by_region_description')}</p>
                         <button className="SelectOptionInnerButton" onClick={() => navigate('/regionsearch')}>
-                            {t('description.select')}
+                            {t('select')}
                         </button>
                     </div>
                 </section>

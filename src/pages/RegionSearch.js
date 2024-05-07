@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import i18n from 'i18next';
 import koTranslations from '../languages/translation.ko.json';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import regionApi from '../api/regionApi';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -18,7 +18,7 @@ import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
 import Time from '../images/NearbySearchPage/timeIcon.png';
 import Language from '../images/NearbySearchPage/languageIcon.png';
 import Calander from '../images/NearbySearchPage/calanderIcon.png';
-import {Button, Dropdown} from "react-bootstrap";
+import { Button, Dropdown } from "react-bootstrap";
 
 export default function RegionSearch() {
     const {t} = useTranslation();
@@ -61,11 +61,15 @@ export default function RegionSearch() {
         });
     }
 
+    function getKeyByValue(obj, value) {
+        return Object.keys(obj).find(key => obj[key] === value);
+    }
+
     const handleDropdownChange = () => {
         if (gu) {
-            document.getElementById('gu-value').innerText = t('description.' + gu);
+            const key = getKeyByValue(koTranslations, gu);
+            document.getElementById('gu-value').innerText = t(key);
         }
-
     };
 
     i18n.on('languageChanged', handleDropdownChange);
@@ -80,9 +84,9 @@ export default function RegionSearch() {
     const [gu, setGu] = useState(null);
     const clickGuDropdown = (event) => {
         let gu = event.target.id;
+        document.getElementById('gu-value').innerText = t(gu);
         let translatedGu = koTranslations[gu] || gu;
         setGu(translatedGu);
-        document.getElementById('gu-value').innerText = t('description.' + gu);
     };
 
     const [time, setTime] = useState(null);
@@ -140,73 +144,73 @@ export default function RegionSearch() {
     return (
         <>
             <Header/>
-            <SearchDesign>{t('description.based-on-region')}</SearchDesign>
+            <SearchDesign>{t('based-on-region')}</SearchDesign>
             <div id="search-wrapper">
                 <div id="result-explanation-text">
-                    <p id="result-explanation-inner-text1">{t('description.region-result-explanation-text1')}</p>
-                    <h1 id="result-explanation-inner-text2">{t('description.region-result-explanation-text2')}</h1>
+                    <p id="result-explanation-inner-text1">{t('region-result-explanation-text1')}</p>
+                    <h1 id="result-explanation-inner-text2">{t('region-result-explanation-text2')}</h1>
                 </div>
                 <div id="search-inner-wrapper">
                     <div id="search-condition-wrapper">
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
                                 <img className="location-icon" src={LocationIcon} alt=""/>
-                                {t('description.district/gu')}
+                                {t('district/gu')}
                                 <div id="gu-value"></div>
                                 <img className="arrow-icon" src={Arrow} alt=""/>
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
                                 <Dropdown.Item id="Jongro-gu"
-                                               onClick={clickGuDropdown}>{t('description.Jongro-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Jongro-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Jung-gu"
-                                               onClick={clickGuDropdown}>{t('description.Jung-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Jung-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Yongsan-gu"
-                                               onClick={clickGuDropdown}>{t('description.Yongsan-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Yongsan-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Sungdong-gu"
-                                               onClick={clickGuDropdown}>{t('description.Sungdong-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Sungdong-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Gwangjin-gu"
-                                               onClick={clickGuDropdown}>{t('description.Gwangjin-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Gwangjin-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Dongdaemun-gu"
-                                               onClick={clickGuDropdown}>{t('description.Dongdaemun-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Dongdaemun-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Jungrang-gu"
-                                               onClick={clickGuDropdown}>{t('description.Jungrang-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Jungrang-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Seongbuk-gu"
-                                               onClick={clickGuDropdown}>{t('description.Seongbuk-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Seongbuk-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Gangbuk-gu"
-                                               onClick={clickGuDropdown}>{t('description.Gangbuk-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Gangbuk-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Dobong-gu"
-                                               onClick={clickGuDropdown}>{t('description.Dobong-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Dobong-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Nowon-gu"
-                                               onClick={clickGuDropdown}>{t('description.Nowon-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Nowon-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Eunpyeong-gu"
-                                               onClick={clickGuDropdown}>{t('description.Eunpyeong-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Eunpyeong-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Seodaemun-gu"
-                                               onClick={clickGuDropdown}>{t('description.Seodaemun-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Seodaemun-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Mapo-gu"
-                                               onClick={clickGuDropdown}>{t('description.Mapo-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Mapo-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Yangcheon-gu"
-                                               onClick={clickGuDropdown}>{t('description.Yangcheon-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Yangcheon-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Gangseo-gu"
-                                               onClick={clickGuDropdown}>{t('description.Gangseo-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Gangseo-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Guro-gu"
-                                               onClick={clickGuDropdown}>{t('description.Guro-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Guro-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Geumcheon-gu"
-                                               onClick={clickGuDropdown}>{t('description.Geumcheon-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Geumcheon-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Yeongdeungpo-gu"
-                                               onClick={clickGuDropdown}>{t('description.Yeongdeungpo-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Yeongdeungpo-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Dongjak-gu"
-                                               onClick={clickGuDropdown}>{t('description.Dongjak-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Dongjak-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Gwanak-gu"
-                                               onClick={clickGuDropdown}>{t('description.Gwanak-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Gwanak-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Seocho-gu"
-                                               onClick={clickGuDropdown}>{t('description.Seocho-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Seocho-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Gangnam-gu"
-                                               onClick={clickGuDropdown}>{t('description.Gangnam-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Gangnam-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Songpa-gu"
-                                               onClick={clickGuDropdown}>{t('description.Songpa-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Songpa-gu')}</Dropdown.Item>
                                 <Dropdown.Item id="Gangdong-gu"
-                                               onClick={clickGuDropdown}>{t('description.Gangdong-gu')}</Dropdown.Item>
+                                               onClick={clickGuDropdown}>{t('Gangdong-gu')}</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                         <div id="present-checkbox-wrapper">
@@ -222,7 +226,7 @@ export default function RegionSearch() {
                         <div id="calanger-wrapper">
                             <div className="calander-button-name">
                                 <img className="calander-icon" src={Calander} alt=""/>
-                                {t('description.select-date')}
+                                {t('select-date')}
                             </div>
                             <DatePicker
                                 className="dropdown-select"
@@ -235,7 +239,7 @@ export default function RegionSearch() {
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select" disabled={isOpen}>
                                 <img className="location-icon" src={Time} alt=""/>
-                                {t('description.bussiness-hours')}
+                                {t('bussiness-hours')}
                                 <div id="time-value"></div>
                                 <img className="arrow-icon" src={Arrow} alt=""/>
                             </Dropdown.Toggle>
@@ -347,8 +351,7 @@ export default function RegionSearch() {
                                                onClick={clickTimeDropdown}>23:30~24:00</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                        <h3 id="language-choice-text"><img id="language-icon" src={Language}
-                                                           alt=""/>{t('description.language')}</h3>
+                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>{t('language')}</h3>
                         <div id="language-checkbox-wrapper">
                             <input
                                 id="speaking-japanese"
@@ -392,7 +395,7 @@ export default function RegionSearch() {
                         id="pharmacy-search-button"
                         onClick={onSearchClick}
                     >
-                        {t('description.search')}
+                        {t('search')}
                     </Button>{' '}
                 </div>
             </div>

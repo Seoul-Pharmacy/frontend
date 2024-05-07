@@ -18,24 +18,16 @@ i18n
         },
         resources: {
             en: {
-                translation: {
-                    description: TranslationEn
-                }
+                translation: TranslationEn
             },
             ko: {
-                translation: {
-                    description: TranslationKo
-                }
+                translation: TranslationKo
             },
             cn: {
-                translation: {
-                    description: TranslationCn
-                }
+                translation: TranslationCn
             },
             jp: {
-                translation: {
-                    description: TranslationJp
-                }
+                translation: TranslationJp
             },
         },
     });
