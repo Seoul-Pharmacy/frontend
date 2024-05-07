@@ -23,7 +23,7 @@
     position: relative;
     left: -4vw;
     letter-spacing: -0.5px;
-    font-family: "SUIT-SemiBold";
+    font-family: "SUIT-SemiBold", "Murecho-SemiBold";
     font-weight: 600;
     font-size: 20px;
     padding-top: 15px;
@@ -36,7 +36,7 @@
     left: -4vw;
     width: 100%;
     padding-top: 13px;
-    font-family: "SUIT-ExtraBold";
+    font-family: "SUIT-ExtraBold", "Murecho-ExtraBold";
     font-weight: 1000;
     font-size: 45px;
     color: black;
@@ -89,13 +89,13 @@ section {
     margin: 0;
     padding-top: 14%;
     font-size: 25px;
-    font-family: "SUIT-Bold";
+    font-family: "SUIT-Bold", "Murecho-Bold";
     text-align: left;
 }
 
 .selectOptionDescription {
     font-size: 15px;
-    font-family: "SUIT-Regular";
+    font-family: "SUIT-Regular", "Murecho-Regular";
     text-align: left;
 }
 
@@ -112,7 +112,7 @@ section {
     background-color: #d9d9d933;
     color: white;
     font-size: 20px;
-    font-family: "SUIT-Regular";
+    font-family: "SUIT-Regular", "Murecho-Regular";
     cursor: pointer;
     white-space: nowrap;
 }

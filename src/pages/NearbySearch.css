@@ -18,7 +18,7 @@
 }
 
 #nearby-description {
-    font-family: "SUIT-Light";
+    font-family: "SUIT-Light", "Murecho-Light";
     font-size: 20px;
     color: white;
     margin: 0;
@@ -26,7 +26,7 @@
 }
 
 #for-you {
-    font-family: "SUIT-Light";
+    font-family: "SUIT-Light", "Murecho-Light";
     font-size: 40px;
     line-height: 130%;
     color: white;
@@ -35,7 +35,7 @@
 }
 
 #is-here {
-    font-family: "SUIT-ExtraBold";
+    font-family: "SUIT-ExtraBold", "Murecho-ExtraBold";
     margin: 0;
 }
 
@@ -182,12 +182,14 @@
     padding: 0 5vw;
     width: 100%;
     box-sizing: border-box;
+    font-family: "SUIT-Medium", "Murecho-Regular";
 
     /*드롭다운*/
     .dropdown{
         position : relative;
         /*display : inline-block;*/
         padding-bottom: 10px;
+
     }
 
     .dropdown-select{
@@ -287,13 +289,11 @@
 #result-explanation-inner-text1 {
     color: #0045D1;
     font-size: 25px;
-    font-family: "SUIT-Medium";
-    font-weight: 500;
+    font-family: "SUIT-Medium", "Murecho-Medium";
 }
 
 #result-explanation-inner-text2 {
-    font-weight: 900;
-    font-family: "SUIT-ExtraBold";
+    font-family: "SUIT-ExtraBold", "Murecho-ExtraBOld";
     font-size: 40px;
 }
 
@@ -332,7 +332,7 @@
     height: 80px;
 
     font-size: 15px;
-    font-weight: 900;
+    font-family: "SUIT-ExtraBold", "Murecho-ExtraBold";
 
     background: #C6E7F9;
     color: black;

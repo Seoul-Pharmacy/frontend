@@ -41,3 +41,34 @@ code {
   font-family: "Suranna-Regular";
   src: url("./fonts/Suranna-Regular.ttf");
 }
+
+@font-face {
+  font-family: "Murecho-ExtraBold";
+  src: url("./fonts/Murecho-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: "Murecho-Bold";
+  src: url("./fonts/Murecho-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Murecho-SemiBold";
+  src: url("./fonts/Murecho-SemiBold.ttf");
+}
+
+
+@font-face {
+  font-family: "Murecho-Regular";
+  src: url("./fonts/Murecho-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Murecho-Medium";
+  src: url("./fonts/Murecho-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Murecho-Light";
+  src: url("./fonts/Murecho-Light.ttf");
+}
