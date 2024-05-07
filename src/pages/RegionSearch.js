@@ -37,9 +37,9 @@ export default function RegionSearch() {
     const [searchCriteria, setSearchCriteria] = useState({
         gu: null,
         languageState: {
-          japanese: false,
-          chinese: false,
-          english: false,
+            japanese: false,
+            chinese: false,
+            english: false,
         },
         selectedDate: null,
         time: null,
@@ -62,7 +62,7 @@ export default function RegionSearch() {
     }
 
     const handleDropdownChange = () => {
-        if(gu) {
+        if (gu) {
             document.getElementById('gu-value').innerText = t('description.' + gu);
         }
 
@@ -71,7 +71,7 @@ export default function RegionSearch() {
     i18n.on('languageChanged', handleDropdownChange);
 
     useEffect(() => {
-        const { gu, languageState, selectedDate, time, isOpen } = searchCriteria;
+        const {gu, languageState, selectedDate, time, isOpen} = searchCriteria;
         if (gu && (isOpen || (selectedDate && time))) {
             fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
         }
@@ -115,7 +115,7 @@ export default function RegionSearch() {
 
 
     const handleSearch = (gu, languageState, selectedDate, time, isOpen) => {
-        setSearchCriteria({ gu, languageState, selectedDate, time, isOpen });
+        setSearchCriteria({gu, languageState, selectedDate, time, isOpen});
         setCurrentPage(1);
     };
 
@@ -124,13 +124,13 @@ export default function RegionSearch() {
     };
 
     const onSearchClick = () => {
-        if(gu && (isOpen || (selectedDate && time)) ) {
+        if (gu && (isOpen || (selectedDate && time))) {
             handleSearch(gu, languageState, selectedDate, time, isOpen);
-        } else if(!gu) {
+        } else if (!gu) {
             alert('구를 선택하세요.');
-        } else if(selectedDate) {
+        } else if (selectedDate) {
             alert('시간을 선택하세요.');
-        } else if(time) {
+        } else if (time) {
             alert('날짜를 선택하세요.');
         } else {
             alert('현재 운영 중 여부 혹은 날짜와 시간을 선택하세요.');
@@ -139,7 +139,7 @@ export default function RegionSearch() {
 
     return (
         <>
-            <Header />
+            <Header/>
             <SearchDesign>{t('description.based-on-region')}</SearchDesign>
             <div id="search-wrapper">
                 <div id="result-explanation-text">
@@ -210,18 +210,13 @@ export default function RegionSearch() {
                             </Dropdown.Menu>
                         </Dropdown>
                         <div id="present-checkbox-wrapper">
-                            <input
-                                type="checkbox"
-                                name="present"
-                                checked={isOpen}
-                                onChange={handlePresentChange}
-                            />
-                            <label
-                                id="search-present-time-label"
-                                htmlFor="search-present-time">
-                                현재 운영중인 약국만 검색
-                            </label>
+                            <input type="checkbox" id="chk1"
+                                   name="present"
+                                   checked={isOpen}
+                                   onChange={handlePresentChange}/><label id="present-checkbox-label"
+                                                                          htmlFor="chk1"></label>
 
+                            <label id='present-checkbox-name' htmlFor="chk1">현재 영업중인 약국만 검색</label>
                         </div>
 
                         <div id="calanger-wrapper">

@@ -78,72 +78,67 @@ export default function NearbySearch() {
                 </div>
                 <div id="search-inner-wrapper">
                     <div id="search-condition-wrapper">
-                        <h3 id="choice-text">운영중 여부</h3>
-                            <div id="present-checkbox-wrapper">
-                                <input
-                                    type="checkbox"
-                                    id="search-present-time"
-                                    name="present"
-                                    checked={isOpen}
-                                    onChange={handleOpenChange}
-                                />
-                                <label
-                                    id="search-present-time-label" className="present-checkbox" 
-                                    htmlFor="search-present-time">
-                                    현재 운영중
-                                </label>
+                        <div id="present-checkbox-wrapper">
+                            <input type="checkbox" id="chk1"
+                                   name="present"
+                                   checked={isOpen}
+                                   onChange={handleOpenChange}/><label id="present-checkbox-label"
+                                                                          htmlFor="chk1"></label>
+
+                            <label id='present-checkbox-name' htmlFor="chk1">현재 영업중인 약국만 검색</label>
                         </div>
 
-                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>{t('description.language')}</h3>
+                        <h3 id="language-choice-text"><img id="language-icon" src={Language}
+                                                           alt=""/>{t('description.language')}</h3>
                         <div id="language-checkbox-wrapper">
-                        <input
-                            id="speaking-japanese"
-                            type="checkbox"
-                            checked={languageState.japanese}
-                            onChange={() => handleCheckboxChange('japanese')}
-                        />
-                        <label
-                            id="speaking-japanese-label"
-                            className="language-checkbox"
-                            htmlFor="speaking-japanese">
+                            <input
+                                id="speaking-japanese"
+                                type="checkbox"
+                                checked={languageState.japanese}
+                                onChange={() => handleCheckboxChange('japanese')}
+                            />
+                            <label
+                                id="speaking-japanese-label"
+                                className="language-checkbox"
+                                htmlFor="speaking-japanese">
                                 日本語
-                        </label>
-                        <input
-                            id="speaking-chinese"
-                            type="checkbox"
-                            checked={languageState.chinese}
-                            onChange={() => handleCheckboxChange('chinese')}
-                        />
-                        <label
-                            id="speaking-chinese-label" className="language-checkbox" htmlFor="speaking-chinese">
+                            </label>
+                            <input
+                                id="speaking-chinese"
+                                type="checkbox"
+                                checked={languageState.chinese}
+                                onChange={() => handleCheckboxChange('chinese')}
+                            />
+                            <label
+                                id="speaking-chinese-label" className="language-checkbox" htmlFor="speaking-chinese">
                                 中国人
-                        </label>
-                        <input
-                            id="speaking-english"
-                            type="checkbox"
-                            checked={languageState.english}
-                            onChange={() => handleCheckboxChange('english')}
-                        />
+                            </label>
+                            <input
+                                id="speaking-english"
+                                type="checkbox"
+                                checked={languageState.english}
+                                onChange={() => handleCheckboxChange('english')}
+                            />
                             <label
                                 id="speaking-english-label"
                                 className="language-checkbox"
                                 htmlFor="speaking-english">
-                                    English
+                                English
                             </label>
+                        </div>
                     </div>
-                </div>
 
-                <Button
-                    variant="primary"
-                    id="pharmacy-search-button"
-                    onClick={() => fetchPharmacies(languageState, isOpen)}
-                >
-                    {t('description.search')}
-                </Button>{' '}
+                    <Button
+                        variant="primary"
+                        id="pharmacy-search-button"
+                        onClick={() => fetchPharmacies(languageState, isOpen)}
+                    >
+                        {t('description.search')}
+                    </Button>{' '}
                 </div>
             </div>
             <NearbyResult result={pharmacies}/>
-            <Footer />
+            <Footer/>
         </>
     )
 }
