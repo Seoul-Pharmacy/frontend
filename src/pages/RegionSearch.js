@@ -70,9 +70,9 @@ export default function RegionSearch() {
     i18n.on('languageChanged', handleDropdownChange);
 
     useEffect(() => {
-        if (searchCriteria.gu) {
-          const { gu, languageState, selectedDate, time, isOpen } = searchCriteria;
-          fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
+        const { gu, languageState, selectedDate, time, isOpen } = searchCriteria;
+        if (gu && (isOpen || (selectedDate && time))) {
+            fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
         }
     }, [currentPage, searchCriteria]);
 
