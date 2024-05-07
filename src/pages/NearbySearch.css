@@ -35,7 +35,7 @@
 }
 
 #is-here {
-    font-family: "SUIT-ExtraBold", "Murecho-ExtraBold", "Noto-ExtraBold", sans-serif;
+    font-family: "SUIT-ExtraBold", "Murecho-Bold", "Noto-Bold", sans-serif;
     margin: 0;
 }
 
@@ -182,7 +182,7 @@
     padding: 0 5vw;
     width: 100%;
     box-sizing: border-box;
-    font-family: "SUIT-Medium", "Murecho-Regular", "Noto-Regular", sans-serif;
+    font-family: "SUIT-Medium", "Murecho-Light", "Noto-Light", sans-serif;
 
     /*드롭다운*/
     .dropdown{
@@ -293,7 +293,7 @@
 }
 
 #result-explanation-inner-text2 {
-    font-family: "SUIT-ExtraBold", "Murecho-ExtraBold", "Noto-ExtraBold", sans-serif;
+    font-family: "SUIT-ExtraBold", "Murecho-Bold", "Noto-Bold", sans-serif;
     font-size: 40px;
 }
 
@@ -332,7 +332,7 @@
     height: 80px;
 
     font-size: 15px;
-    font-family: "SUIT-ExtraBold", "Murecho-ExtraBold", "Noto-ExtraBold", sans-serif;
+    font-family: "SUIT-ExtraBold", "Murecho-Bold", "Noto-Bold", sans-serif;
 
     background: #C6E7F9;
     color: black;
