@@ -25,6 +25,9 @@
     "region-result-explanation-text1": "Choose the conditions,",
     "region-result-explanation-text2": "Find the pharmacy you want!",
 
+    "search-only-open": "Only currently open pharmacies",
+    "select-date": "Date Select",
+
     "from-me": "Distance from me: ",
     "pharmacy-name": "Pharmacy Name",
     "bussiness-hours": "Bussiness Hour",
@@ -38,8 +41,6 @@
     "sun": "Sunday",
     "holiday": "Holiday",
     "number": "Number",
-
-    "select-date": "Date Select",
 
     "district/gu": "district",
     "Jongro-gu": "Jongro-gu",

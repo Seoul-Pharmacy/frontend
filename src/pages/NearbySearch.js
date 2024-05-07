@@ -82,14 +82,12 @@ export default function NearbySearch() {
                             <input type="checkbox" id="chk1"
                                    name="present"
                                    checked={isOpen}
-                                   onChange={handleOpenChange}/><label id="present-checkbox-label"
-                                                                          htmlFor="chk1"></label>
+                                   onChange={handleOpenChange}/><label id="present-checkbox-label" htmlFor="chk1"></label>
 
-                            <label id='present-checkbox-name' htmlFor="chk1">현재 영업중인 약국만 검색</label>
+                            <label id='present-checkbox-name' htmlFor="chk1">{t('search-only-open')}</label>
                         </div>
 
-                        <h3 id="language-choice-text"><img id="language-icon" src={Language}
-                                                           alt=""/>{t('language')}</h3>
+                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>{t('language')}</h3>
                         <div id="language-checkbox-wrapper">
                             <input
                                 id="speaking-japanese"

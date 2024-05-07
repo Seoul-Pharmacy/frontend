@@ -24,6 +24,9 @@
     "nearby-result-explanation-text2": "告诉您最近的药店！",
     "region-result-explanation-text1": "选择条件",
     "region-result-explanation-text2": "找一下你想要的药店吧！",
+    
+    "search-only-open": "仅搜索当前正在营业的药店",
+    "select-date": "选择日期",
 
     "from-me": "离我位置",
     "pharmacy-name": "药店名称",
@@ -38,8 +41,6 @@
     "sun": "星期日",
     "holiday": "公休日",
     "number": "电话号码",
-    
-    "select-date": "选择日期",
 
     "district/gu": "县区",
     "Jongro-gu": "钟路区",

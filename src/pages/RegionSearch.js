@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import regionApi from '../api/regionApi';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import './RegionSearch.css';
 
 import Header from "../components/Header";
 import SearchDesign from "../components/SearchDesgin";
@@ -220,7 +219,7 @@ export default function RegionSearch() {
                                    onChange={handlePresentChange}/><label id="present-checkbox-label"
                                                                           htmlFor="chk1"></label>
 
-                            <label id='present-checkbox-name' htmlFor="chk1">현재 영업중인 약국만 검색</label>
+                            <label id='present-checkbox-name' htmlFor="chk1">{t('search-only-open')}</label>
                         </div>
 
                         <div id="calanger-wrapper">
