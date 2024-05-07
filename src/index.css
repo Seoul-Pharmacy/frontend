@@ -72,3 +72,34 @@ code {
   font-family: "Murecho-Light";
   src: url("./fonts/Murecho-Light.ttf");
 }
+
+@font-face {
+  font-family: "Noto-ExtraBold";
+  src: url("./fonts/NotoSansSC-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: "Noto-Bold";
+  src: url("./fonts/NotoSansSC-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Noto-SemiBold";
+  src: url("./fonts/NotoSansSC-SemiBold.ttf");
+}
+
+
+@font-face {
+  font-family: "Noto-Regular";
+  src: url("./fonts/NotoSansSC-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Noto-Medium";
+  src: url("./fonts/NotoSansSC-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Noto-Light";
+  src: url("./fonts/NotoSansSC-Light.ttf");
+}
