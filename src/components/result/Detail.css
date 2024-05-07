@@ -26,6 +26,8 @@
         color: #004770;
 
         padding-top: 20px;
+        
+        cursor: pointer;
     }
 
     .result-details-text-item {

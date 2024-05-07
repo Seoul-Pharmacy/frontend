@@ -11,6 +11,7 @@ export default function Detail({ identifier }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [hasIdentifier, setHasIdentifier] = useState(false);
+    const [copyMessage, setCopyMessage] = useState('');
 
     useEffect(() => {
         // `identifier`가 있는 경우에만 API 호출을 진행
@@ -37,6 +38,13 @@ export default function Detail({ identifier }) {
             setPharmacy(null);
         }
     }, [identifier]);
+
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text).then(() => {
+            setCopyMessage('copied');
+            setTimeout(() => setCopyMessage(''), 2000); // 2초 후에 메시지 초기화
+        });
+    };
 
     if (!hasIdentifier) {
         return;
@@ -68,8 +76,19 @@ export default function Detail({ identifier }) {
         <article id="result-details">
             <Map lat={parseFloat(pharmacy.latitude)} lng={parseFloat(pharmacy.longitude)}/>
             <div id="result-details-text-wrapper">
-                <h1 id="result-details-name" className="result-details-text-item">{pharmacy.name}</h1>
-                <div className="result-details-text-item">{t('description.address')} | {pharmacy.si} {pharmacy.gu} {pharmacy.road_name_address} </div>
+                <h1
+                    id="result-details-name"
+                    className="result-details-text-item"
+                    onClick={() => copyToClipboard(pharmacy.name)}
+                >
+                    {pharmacy.name}
+                </h1>
+                <div
+                    className="result-details-text-item"
+                    onClick={() => copyToClipboard(`${pharmacy.si} ${pharmacy.gu} ${pharmacy.road_name_address}`)}
+                >
+                    {t('description.address')} | {pharmacy.si} {pharmacy.gu} {pharmacy.road_name_address}
+                </div>
 
                 <Dropdown>
                     <Dropdown.Toggle id="operating-hours-name" className="result-details-text-item" variant="success">
