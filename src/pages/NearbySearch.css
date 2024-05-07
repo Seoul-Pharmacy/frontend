@@ -18,7 +18,7 @@
 }
 
 #nearby-description {
-    font-family: "SUIT-Light";
+    font-family: "SUIT-Light", "Murecho-Light", "Noto-Light", sans-serif;
     font-size: 20px;
     color: white;
     margin: 0;
@@ -26,7 +26,7 @@
 }
 
 #for-you {
-    font-family: "SUIT-Light";
+    font-family: "SUIT-Light", "Murecho-Light", "Noto-Light", sans-serif;
     font-size: 40px;
     line-height: 130%;
     color: white;
@@ -35,7 +35,7 @@
 }
 
 #is-here {
-    font-family: "SUIT-ExtraBold";
+    font-family: "SUIT-ExtraBold", "Murecho-ExtraBold", "Noto-ExtraBold", sans-serif;
     margin: 0;
 }
 
@@ -182,6 +182,7 @@
     padding: 0 5vw;
     width: 100%;
     box-sizing: border-box;
+    font-family: "SUIT-Medium", "Murecho-Regular", "Noto-Regular", sans-serif;
 
 
     /*현재영엉중버튼*/
@@ -256,6 +257,7 @@
         height: 17px;
         padding-left: 3px;
         padding-right: 7px;
+
     }
 
     .calander-icon {
@@ -312,13 +314,11 @@
 #result-explanation-inner-text1 {
     color: #0045D1;
     font-size: 25px;
-    font-family: "SUIT-Medium";
-    font-weight: 500;
+    font-family: "SUIT-Medium", "Murecho-Medium", "Noto-Medium", sans-serif;
 }
 
 #result-explanation-inner-text2 {
-    font-weight: 900;
-    font-family: "SUIT-ExtraBold";
+    font-family: "SUIT-ExtraBold", "Murecho-ExtraBold", "Noto-ExtraBold", sans-serif;
     font-size: 40px;
 }
 
@@ -357,7 +357,7 @@
     height: 80px;
 
     font-size: 15px;
-    font-weight: 900;
+    font-family: "SUIT-ExtraBold", "Murecho-ExtraBold", "Noto-ExtraBold", sans-serif;
 
     background: #C6E7F9;
     color: black;
@@ -485,9 +485,6 @@
 }
 
 
-
-
-
 /*약국 리스트*/
 #result-summarize-wrapper {
     width: 45%;
@@ -526,22 +523,6 @@
 
 #selected {
     background-color: #C6E7F9;
-}
-
-/*약국 디테일*/
-#result-details {
-    background-color: white;
-    width: 55%;
-    height: 100%;
-    min-height: 400px;
-    box-shadow: 0 0 5px 3px #DCDCDC;
-    border-radius: 20px 0 0 20px;
-
-    padding: 4% 4%;
-}
-
-#result-details-text-wrapper {
-    text-align: left;
 }
 
 

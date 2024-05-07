@@ -33,6 +33,19 @@ export default function RegionSearch() {
     const [totalItems, setTotalItems] = useState(0);
     const itemsPerPage = 5;
 
+    // 검색 필터 마지막 저장 값
+    const [searchCriteria, setSearchCriteria] = useState({
+        gu: null,
+        languageState: {
+          japanese: false,
+          chinese: false,
+          english: false,
+        },
+        selectedDate: null,
+        time: null,
+        isOpen: true,
+    });
+
     const fetchPharmacies = (gu, language, date, time, isOpen) => {
         regionApi(currentPage, gu, language.japanese, language.chinese, language.english, date, time, isOpen)
             .then(data => {
@@ -48,15 +61,21 @@ export default function RegionSearch() {
         });
     }
 
-    const handleDropdownChange = (lng) => {
-        document.getElementById('gu-value').innerText = t('description.' + gu);
+    const handleDropdownChange = () => {
+        if(gu) {
+            document.getElementById('gu-value').innerText = t('description.' + gu);
+        }
+
     };
 
     i18n.on('languageChanged', handleDropdownChange);
 
     useEffect(() => {
-        fetchPharmacies(gu, languageState);
-    }, [currentPage]);
+        const { gu, languageState, selectedDate, time, isOpen } = searchCriteria;
+        if (gu && (isOpen || (selectedDate && time))) {
+            fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
+        }
+    }, [currentPage, searchCriteria]);
 
     const [gu, setGu] = useState(null);
     const clickGuDropdown = (event) => {
@@ -95,19 +114,33 @@ export default function RegionSearch() {
     };
 
 
-    const handleSearch = () => {
-        fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
+    const handleSearch = (gu, languageState, selectedDate, time, isOpen) => {
+        setSearchCriteria({ gu, languageState, selectedDate, time, isOpen });
+        setCurrentPage(1);
     };
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
-        fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
+    };
+
+    const onSearchClick = () => {
+        if(gu && (isOpen || (selectedDate && time)) ) {
+            handleSearch(gu, languageState, selectedDate, time, isOpen);
+        } else if(!gu) {
+            alert('구를 선택하세요.');
+        } else if(selectedDate) {
+            alert('시간을 선택하세요.');
+        } else if(time) {
+            alert('날짜를 선택하세요.');
+        } else {
+            alert('현재 운영 중 여부 혹은 날짜와 시간을 선택하세요.');
+        }
     };
 
     return (
         <>
-            <Header/>
-            <SearchDesign>선택 지역 기반 정보 제공</SearchDesign>
+            <Header />
+            <SearchDesign>{t('description.based-on-region')}</SearchDesign>
             <div id="search-wrapper">
                 <div id="result-explanation-text">
                     <p id="result-explanation-inner-text1">{t('description.region-result-explanation-text1')}</p>
@@ -204,7 +237,6 @@ export default function RegionSearch() {
                                 disabled={isOpen}
                             />
                         </div>
-
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select" disabled={isOpen}>
                                 <img className="location-icon" src={Time} alt=""/>
@@ -363,7 +395,7 @@ export default function RegionSearch() {
                     <Button
                         variant="primary"
                         id="pharmacy-search-button"
-                        onClick={handleSearch}
+                        onClick={onSearchClick}
                     >
                         {t('description.search')}
                     </Button>{' '}

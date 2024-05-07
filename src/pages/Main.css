@@ -23,7 +23,7 @@
     position: relative;
     left: -4vw;
     letter-spacing: -0.5px;
-    font-family: "SUIT-SemiBold";
+    font-family: "SUIT-SemiBold", "Murecho-SemiBold", "Noto-SemiBold", sans-serif;
     font-weight: 600;
     font-size: 20px;
     padding-top: 15px;
@@ -36,9 +36,9 @@
     left: -4vw;
     width: 100%;
     padding-top: 13px;
-    font-family: "SUIT-ExtraBold";
+    font-family: "SUIT-ExtraBold", "Murecho-ExtraBold", "Noto-ExtraBold", sans-serif;
     font-weight: 1000;
-    font-size: 60px;
+    font-size: 45px;
     color: black;
     text-align: center;
 
@@ -59,8 +59,8 @@
     position: relative;
     left: -4vw;
     top: 30px;
-    width: 20vh;
-    height: 35vh;
+    width: 18vh;
+    height: 32vh;
 }
 
 
@@ -89,13 +89,13 @@ section {
     margin: 0;
     padding-top: 14%;
     font-size: 25px;
-    font-family: "SUIT-Bold";
+    font-family: "SUIT-Bold", "Murecho-Bold", "Noto-Bold", sans-serif;
     text-align: left;
 }
 
 .selectOptionDescription {
     font-size: 15px;
-    font-family: "SUIT-Regular";
+    font-family: "SUIT-Regular", "Murecho-Regular", "Noto-Regular", sans-serif;
     text-align: left;
 }
 
@@ -112,7 +112,7 @@ section {
     background-color: #d9d9d933;
     color: white;
     font-size: 20px;
-    font-family: "SUIT-Regular";
+    font-family: "SUIT-Regular", "Murecho-Regular", "Noto-Regular", sans-serif;
     cursor: pointer;
     white-space: nowrap;
 }

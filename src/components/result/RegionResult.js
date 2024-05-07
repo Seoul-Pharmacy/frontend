@@ -32,6 +32,9 @@ export default function RegionResult({ result }) {
                             si={pharmacy.si}
                             gu={pharmacy.gu}
                             road_name_address={pharmacy.road_name_address}
+                            speaking_english={pharmacy.speaking_english}
+                            speaking_chinese={pharmacy.speaking_chinese}
+                            speaking_japanese={pharmacy.speaking_japanese}
                         />
                     </li>
                 ))}

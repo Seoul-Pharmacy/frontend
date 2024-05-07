@@ -15,11 +15,15 @@
     "language": "English",
 
     "based-on-location": "Pharmacy informaton based on location",
+    "based-on-region": "Pharmacy informaton based on region",
 
-    "nearby-result-explanation-text1": "Pharmacies' which are open and close to you",
-    "nearby-result-explanation-text2": "These are the nearest pharmacies around you!",
-    "region-result-explanation-text1": "",
-    "region-result-explanation-text2": "!",
+    "been-looking-for": "Looking for Pharmacies?",
+    "everything": "here's everything!",
+
+    "nearby-result-explanation-text1": "Open and nearby pharmacies?",
+    "nearby-result-explanation-text2": "Nearest pharmacies around you!",
+    "region-result-explanation-text1": "Choose the conditions,",
+    "region-result-explanation-text2": "Find the pharmacy you want!",
 
     "from-me": "Distance from me: ",
     "pharmacy-name": "Pharmacy Name",
@@ -37,7 +41,7 @@
 
     "select-date": "Date Select",
 
-    "district/gu": "district/gu",
+    "district/gu": "district",
     "Jongro-gu": "Jongro-gu",
     "Jung-gu": "Jung-gu",
     "Yongsan-gu": "Yongsan-gu",

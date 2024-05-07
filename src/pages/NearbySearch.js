@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import useIsOpen from '../Hooks/useIsOpen';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import nearbyApi from '../api/nearbyApi';
@@ -10,10 +9,8 @@ import SearchDesign from "../components/SearchDesgin";
 import Footer from "../components/Footer";
 import NearbyResult from "../components/result/NearbyResult";
 
-import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
-import Time from '../images/NearbySearchPage/timeIcon.png';
 import Language from '../images/NearbySearchPage/languageIcon.png';
-import {Button, Dropdown} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 export default function NearbySearch() {
     const {t} = useTranslation();
@@ -33,9 +30,19 @@ export default function NearbySearch() {
         if (lat && lng) {
             nearbyApi(language.japanese, language.chinese, language.english , location, isOpen)
                 .then(data => {
-                    setPharmacies(data.results || []);
+                    const results = data?.results || [];
+                    setPharmacies(results);
+                    // 빈 배열인 경우 404
+                    if (results.length === 0) {
+                        alert('404: No pharmacies found.');
+                    }
                 }).catch(error => {
-                    console.error("Failed to fetch pharmacies:", error);
+                    console.error('Failed to fetch pharmacies:', error);
+                    if (error.message === '404') {
+                        alert('404: No pharmacies found.');
+                    } else {
+                        alert(`Error: ${error.message}`);
+                    }
                 });
         }
     };

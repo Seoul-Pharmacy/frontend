@@ -27,7 +27,7 @@ header > div {
     background-color: transparent;
     cursor: pointer;
     color: #004770;
-    font-family: "SUIT-Regular";
+    font-family: "SUIT-Regular", "Murecho-Regular";
     font-size: 22px;
     padding-left: 40px;
 }
