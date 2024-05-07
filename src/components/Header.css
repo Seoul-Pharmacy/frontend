@@ -9,7 +9,7 @@ header {
     box-sizing: border-box;
 }
 
-.header-content > a {
+#header-content > a {
     text-decoration: none;
     color: #004770;
     font-family: "SUIT-Regular";
@@ -78,29 +78,15 @@ header > div {
     .home-icon {
         display: none;
     }
-
-    .language-dropdown {
-        position: relative;
-        top: 7px;
-        font-size: 17px;
-        padding-left: 20px;
+    #header-content {
+        #language-dropdown {
+            position: relative;
+            top: 7px;
+            font-size: 17px;
+            margin-left: 20px;
+        }
     }
 
-    .dropdown-item-wrapper {
-        min-width: 90px;
-        margin: 0 0 0 -15px;
-    }
-
-    .dropdown-item {
-        padding: 8px 20px;
-    }
-
-    .dropdown-btn::after {
-        right: 8px;
-        top: 55%;
-        width: 6px;
-        height: 6px;
-    }
 
     .title {
         font-size: 26px;
@@ -118,28 +104,12 @@ header > div {
         display: none;
     }
 
-    .language-dropdown {
-        position: relative;
-        top: 7px;
-        font-size: 15px;
-        padding-left: 4vw;
-    }
-
-    .dropdown-item-wrapper {
-        min-width: 80px;
-        margin: 0 0 0 -15px;
-    }
-
-    .dropdown-item {
-        padding: 6px 0 6px 16px;
-    }
-
-    .dropdown-btn::after {
-        right: 15px;
-        width: 5px;
-        height: 5px;
-        border-right: 1px solid #004770;
-        border-bottom: 1px solid #004770;
+    #header-content {
+        #language-dropdown {
+            position: static;
+            font-size: 15px;
+            margin-left: 4vw;
+        }
     }
 
     .title {
