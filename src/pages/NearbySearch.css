@@ -214,8 +214,6 @@
 
         #present-checkbox-label::before {
             content: "";
-            font-size: 13px;
-            font-family: Arial, Helvetica, sans-serif;
             position: absolute;
             left: 35px;
             top: 50%;
@@ -310,12 +308,12 @@
         align-items: center;
         -ms-text-align-last: center;
         -moz-text-align-last: center;
+        text-align-last: center;
 
         position: relative;
         cursor: pointer;
         width: 100%;
         height: 33px;
-
 
         border: 0;
         color: black;
@@ -451,7 +449,7 @@
     width: 25%;
     height: 80px;
 
-    font-size: 15px;
+    font-size: 18px;
     font-family: "SUIT-ExtraBold", "Murecho-Bold", "Noto-Bold", sans-serif;
 
     background: #C6E7F9;
@@ -533,6 +531,9 @@
     width: 33%;
     height: 30px;
     border-radius: 13px;
+
+    font-size: 15px;
+    font-family: "SUIT-SemiBold", "Murecho-Medium", "Noto-Medium", sans-serif;
 }
 
 .language-checkbox:hover {
@@ -554,9 +555,17 @@
         margin: 0;
     }
 
+    #result-explanation-inner-text1 {
+        font-size: 25px;
+    }
+    
+    #result-explanation-inner-text2 {
+        font-size: 35px;
+    }
+
 }
 
-/*검색 모바일*/
+/*모바일*/
 @media (max-width: 480px) {
 
     #search-wrapper {
@@ -567,8 +576,24 @@
         width: 100%;
     }
 
+    #result-explanation-inner-text1 {
+        font-size: 18px;
+    }
+    
+    #result-explanation-inner-text2 {
+        font-size: 28px;
+    }
+
     #search-inner-wrapper {
         width: 100%;
+    }
+
+    #present-checkbox-name {
+        font-size: 10px;
+    }
+
+    .language-checkbox {
+        font-size: 10px;
     }
 
 }
