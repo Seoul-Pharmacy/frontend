@@ -216,19 +216,21 @@ export default function RegionSearch() {
                             <input type="checkbox" id="chk1"
                                    name="present"
                                    checked={isOpen}
-                                   onChange={handlePresentChange}/><label id="present-checkbox-label"
-                                                                          htmlFor="chk1"></label>
+                                   onChange={handlePresentChange}/>
+                                <label
+                                    id="present-checkbox-label" 
+                                    htmlFor="chk1" />
 
                             <label id='present-checkbox-name' htmlFor="chk1">{t('search-only-open')}</label>
                         </div>
 
                         <div id="calanger-wrapper">
-                            <div className="calander-button-name">
+                            <div className={!isOpen ? "calander-button-name" : "disabled-calander-button-name"}>
                                 <img className="calander-icon" src={Calander} alt=""/>
                                 {t('select-date')}
                             </div>
                             <DatePicker
-                                className="dropdown-select"
+                                className="calander-select"
                                 selected={selectedDate}
                                 onChange={handleDateChange}
                                 dateFormat="yyyy-MM-dd"
@@ -237,7 +239,7 @@ export default function RegionSearch() {
                         </div>
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select" disabled={isOpen}>
-                                <img className="location-icon" src={Time} alt=""/>
+                                <img className="time-icon" src={Time} alt=""/>
                                 {t('bussiness-hours')}
                                 <div id="time-value"></div>
                                 <img className="arrow-icon" src={Arrow} alt=""/>

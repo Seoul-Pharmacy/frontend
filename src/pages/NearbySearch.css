@@ -283,15 +283,28 @@
     .calander-button-name {
         position: absolute;
         z-index: 100;
-        top: 7px;
+        top: 8px;
         left: 10px;
+    }
+
+    .disabled-calander-button-name {
+        position: absolute;
+        z-index: 100;
+        top: 8px;
+        left: 10px;
+        color: #878787;
+    }
+
+    .calander-select:disabled {
+        box-shadow: 0 0 5px 3px #E8E8E8;
     }
 
     .react-datepicker-wrapper {
         width: 100%;
     }
 
-    .dropdown-select {
+    .dropdown-select,
+    .calander-select{
         display: flex;
         text-align: center;
         align-items: center;
@@ -329,17 +342,23 @@
     }
 
     .location-icon {
-        width: 25px;
+        width: 26px;
         height: 17px;
         padding-left: 3px;
         padding-right: 7px;
-
     }
 
     .calander-icon {
         width: 23px;
         height: 17px;
         padding-right: 7px;
+    }
+
+    .time-icon {
+        width: 25px;
+        height: 17px;
+        padding-left: 3px;
+        padding-right: 5px;
     }
 
     #gu-value {
