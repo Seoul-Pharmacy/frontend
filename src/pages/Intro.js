@@ -40,6 +40,7 @@ export default function Intro() {
                                 }}
                                 onClick={() => {
                                     i18n.changeLanguage(lng);
+                                    localStorage.setItem('language', lng);
                                     navigate('/main');
                                 }}>
                                 {lngs[lng].nativeName}

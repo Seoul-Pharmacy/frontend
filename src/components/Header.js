@@ -14,7 +14,7 @@ const lngs = {
 export default function Header() {
     const { i18n, ready } = useTranslation();
     // const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [selectedLang, setSelectedLang] = useState(i18n.resolvedLanguage);
+    const [selectedLang, setSelectedLang] = useState(() => localStorage.getItem('language') || i18n.resolvedLanguage);
 
     // 컴포넌트가 로드될 때 로컬 스토리지에서 언어 설정을 불러옴
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Header() {
         i18n.changeLanguage(lang);
         setSelectedLang(lang);
         // 로컬 스토리지에 저장
-        localStorage.setItem('language', lang);
+        localStorage.setItem('preferredLanguage', lang);
         // setDropdownOpen(false);
     };
 
