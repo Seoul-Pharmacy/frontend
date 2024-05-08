@@ -14,21 +14,23 @@ const lngs = {
 export default function Header() {
     const { i18n, ready } = useTranslation();
     // const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [selectedLang, setSelectedLang] = useState(() => localStorage.getItem('language') || i18n.resolvedLanguage);
+    const [selectedLang, setSelectedLang] = useState(() => localStorage.getItem('language'));
 
     // 컴포넌트가 로드될 때 로컬 스토리지에서 언어 설정을 불러옴
     useEffect(() => {
-        const savedLang = localStorage.getItem('language') || i18n.resolvedLanguage;
-        i18n.changeLanguage(savedLang);
-        setSelectedLang(savedLang);
-    }, []);
+        if (ready) {
+            const savedLang = localStorage.getItem('language');
+            i18n.changeLanguage(savedLang);
+            setSelectedLang(savedLang);
+        }
+    }, [ready]);
 
     // const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
     const handleSelectLang = (lang) => {
         i18n.changeLanguage(lang);
         setSelectedLang(lang);
         // 로컬 스토리지에 저장
-        localStorage.setItem('preferredLanguage', lang);
+        localStorage.setItem('language', lang);
         // setDropdownOpen(false);
     };
 
