@@ -11,7 +11,6 @@ export default function Detail({ identifier }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [hasIdentifier, setHasIdentifier] = useState(false);
-    const [copyMessage, setCopyMessage] = useState('');
 
     useEffect(() => {
         // `identifier`가 있는 경우에만 API 호출을 진행
@@ -40,10 +39,7 @@ export default function Detail({ identifier }) {
     }, [identifier]);
 
     const copyToClipboard = (text) => {
-        navigator.clipboard.writeText(text).then(() => {
-            setCopyMessage('copied');
-            setTimeout(() => setCopyMessage(''), 2000); // 2초 후에 메시지 초기화
-        });
+        navigator.clipboard.writeText(text);
     };
 
     if (!hasIdentifier) {
