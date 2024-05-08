@@ -24,7 +24,7 @@ export default function Intro() {
             <div className="intro">
                 <div className="intro-text">
                     <h1>What is PharmaSeoul?</h1>
-                    <p>Guide of the location of nearby pharmacies that are currently open.</p>
+                    <p>Guide of the location of nearby pharmacies that are currently open in Seoul.</p>
                 </div>
             </div>
             <div className="language-body">
