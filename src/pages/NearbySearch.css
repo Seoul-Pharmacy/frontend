@@ -425,7 +425,10 @@
     text-align: left;
     width: 50%;
     padding: 2.5%;
+    margin: 0 2.5%;
     box-sizing: border-box;
+    border: solid 2px #004770;
+    border-radius: 10px;
 }
 
 #search-condition-wrapper {
@@ -548,6 +551,7 @@
 
     #search-inner-wrapper {
         width: 100%;
+        margin: 0;
     }
 
 }
