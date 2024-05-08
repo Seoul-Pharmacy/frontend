@@ -30,13 +30,13 @@ export default function Footer() {
                 <a
                     href={FOOTER_TEXT.kakao}>
                     <img className="contact-button"
-                         src={kakaoIMG}/>
+                         src={kakaoIMG} alt="kakao"/>
                 </a>
 
                 <a
                     href={FOOTER_TEXT.insta}>
                     <img className="contact-button"
-                         src={instaIMG}/>
+                         src={instaIMG} alt="insta"/>
                 </a>
             </div>
         </footer>
