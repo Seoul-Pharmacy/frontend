@@ -16,7 +16,6 @@ export default function Map({ lat, lng }) {
       center,
       zoom: 20,
     })
-    
   }, [lat, lng]);
 
   return (

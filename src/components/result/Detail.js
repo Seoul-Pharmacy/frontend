@@ -1,9 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import apiDetail from '../../api/apiDetail';
+import { Wrapper, Status } from '@googlemaps/react-wrapper';
 import Map from "../map/Map";
 import './Detail.css';
 import {Dropdown} from "react-bootstrap";
+
+// 로딩 상태 처리 함수
+const render = (status) => {
+    if (status === Status.LOADING) return <div>Loading...</div>;
+    if (status === Status.FAILURE) return <div>Error loading map</div>;
+    return null;
+  };
 
 export default function Detail({ identifier }) {
     const { t } = useTranslation();
@@ -70,7 +78,9 @@ export default function Detail({ identifier }) {
 
     return (
         <article id="result-details">
-            <Map lat={parseFloat(pharmacy.latitude)} lng={parseFloat(pharmacy.longitude)}/>
+            <Wrapper apiKey="" render={render}>
+                <Map lat={parseFloat(pharmacy.latitude)} lng={parseFloat(pharmacy.longitude)}/>
+            </Wrapper>
             <div id="result-details-text-wrapper">
                 <h1
                     id="result-details-name"
