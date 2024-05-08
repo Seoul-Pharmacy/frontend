@@ -213,7 +213,7 @@
         }
 
         #present-checkbox-label::before {
-            content: "OFF";
+            content: "";
             font-size: 13px;
             font-family: Arial, Helvetica, sans-serif;
             position: absolute;
@@ -249,7 +249,7 @@
         }
 
         #chk1:checked + #present-checkbox-label {
-            background: #004770;
+            background: #00D175;
         }
 
         #chk1:checked + #present-checkbox-label::after {
@@ -257,7 +257,7 @@
         }
 
         #chk1:checked + #present-checkbox-label::before {
-            content: "ON";
+            content: "";
             color: #fff;
             left: 10px; /* Adjusted left position */
             font-size: 13px;
