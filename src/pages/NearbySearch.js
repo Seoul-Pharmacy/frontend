@@ -34,12 +34,14 @@ export default function NearbySearch() {
                     setPharmacies(results);
                     // 빈 배열인 경우 404
                     if (results.length === 0) {
-                        alert('404: No pharmacies found.');
+                        throw new Error('404: No pharmacies found.');
                     }
                 }).catch(error => {
                     console.error('Failed to fetch pharmacies:', error);
-                    if (error.message === '404') {
-                        alert('404: No pharmacies found.');
+                    if (error.message.includes('ERR_CONNECTION_REFUSED')) {
+                        alert('Connection Refused: Unable to reach the server.');
+                    } else if (error.message === '404') {
+                        alert('404: '+t('no-pharmacies-match'));
                     } else {
                         alert(`Error: ${error.message}`);
                     }
@@ -49,7 +51,7 @@ export default function NearbySearch() {
 
     useEffect(() => {
         fetchPharmacies(languageState, isOpen);
-    }, [lat, lng]);
+    }, []);
 
     const handleOpenChange = (event) => {
         const { checked } = event.target;

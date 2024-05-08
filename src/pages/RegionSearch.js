@@ -53,7 +53,7 @@ export default function RegionSearch() {
             }).catch(error => {
             console.error('Failed to fetch pharmacies:', error);
             if (error.message === '404') {
-                alert('404: No pharmacies found.');
+                alert('404'+t('no-pharmacies-match'));
             } else {
                 alert(`Error: ${error.message}`);
             }

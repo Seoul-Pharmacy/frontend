@@ -28,6 +28,8 @@
     "search-only-open": "Only currently open pharmacies",
     "select-date": "Date Select",
 
+    "no-pharmacies-match": "There is no pharmacy that meets the conditions.",
+
     "from-me": "Distance from me: ",
     "pharmacy-name": "Pharmacy Name",
     "bussiness-hours": "Bussiness Hour",

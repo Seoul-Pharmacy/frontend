@@ -28,6 +28,8 @@
     "search-only-open": "現在営業中の薬局だけを検索",
     "select-date": "月日選択",
 
+    "no-pharmacies-match": "条件に合う薬局がありません。",
+
     "from-me": "私から",
     "pharmacy-name": "薬局名",
     "bussiness-hours": "運営時間",
