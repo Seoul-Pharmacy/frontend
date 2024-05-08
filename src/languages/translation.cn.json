@@ -28,6 +28,11 @@
     "search-only-open": "仅搜索当前正在营业的药店",
     "select-date": "选择日期",
 
+    "select-a-region": "请选择地区。",
+    "choose-a-time": "请选择时间。",
+    "select-a-date": "请选择日期。",
+    "select-region-or-date": "选择当前是否运行，或者选择日期和时间。",
+
     "no-pharmacies-match": "没有符合条件的药店。",
 
     "from-me": "离我位置",

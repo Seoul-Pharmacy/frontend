@@ -28,6 +28,11 @@
     "search-only-open": "現在営業中の薬局だけを検索",
     "select-date": "月日選択",
 
+    "select-a-region": "地域を選択してください。",
+    "choose-a-time": "時間を選択してください。",
+    "select-a-date": "日付を選択してください。",
+    "select-region-or-date": "現在の運用中かどうか、または日付と時間を選択してください。",
+
     "no-pharmacies-match": "条件に合う薬局がありません。",
 
     "from-me": "私から",

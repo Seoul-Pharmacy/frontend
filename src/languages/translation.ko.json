@@ -28,6 +28,11 @@
     "search-only-open": "현재 운영중인 약국만 검색",
     "select-date": "날짜 선택",
 
+    "select-a-region": "구를 선택해주세요.",
+    "choose-a-time": "시간을 선택해주세요.",
+    "select-a-date": "날짜를 선택해주세요.",
+    "select-region-or-date": "현재 운영 중 여부 혹은 날짜와 시간을 선택해주세요.",
+
     "no-pharmacies-match": "조건에 맞는 약국이 없습니다.",
 
     "from-me": "내 위치에서 ",

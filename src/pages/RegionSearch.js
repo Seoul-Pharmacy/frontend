@@ -130,13 +130,13 @@ export default function RegionSearch() {
         if (gu && (isOpen || (selectedDate && time))) {
             handleSearch(gu, languageState, selectedDate, time, isOpen);
         } else if (!gu) {
-            alert('구를 선택하세요.');
+            alert(t('select-a-region'));
         } else if (selectedDate) {
-            alert('시간을 선택하세요.');
+            alert(t('choose-a-time'));
         } else if (time) {
-            alert('날짜를 선택하세요.');
+            alert(t('select-a-date'));
         } else {
-            alert('현재 운영 중 여부 혹은 날짜와 시간을 선택하세요.');
+            alert(t('select-region-or-date'));
         }
     };
 

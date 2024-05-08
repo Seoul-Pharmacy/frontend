@@ -28,6 +28,11 @@
     "search-only-open": "Only currently open pharmacies",
     "select-date": "Date Select",
 
+    "select-a-region": "Please select a region.",
+    "choose-a-time": "Please choose a time.",
+    "select-a-date": "Please select a date.",
+    "select-region-or-date": "Please choose whether it is operating or the date and time.",
+
     "no-pharmacies-match": "There is no pharmacy that meets the conditions.",
 
     "from-me": "Distance from me: ",
