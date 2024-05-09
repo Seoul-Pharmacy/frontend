@@ -78,7 +78,7 @@ export default function Detail({ identifier }) {
 
     return (
         <article id="result-details">
-            <Wrapper apiKey="" render={render}>
+            <Wrapper apiKey="AIzaSyArq7cjK5aIdaXx4TmX4RApHaNo8Mc8RbQ" render={render}>
                 <Map lat={parseFloat(pharmacy.latitude)} lng={parseFloat(pharmacy.longitude)}/>
             </Wrapper>
             <div id="result-details-text-wrapper">
