@@ -19,16 +19,56 @@ import Language from '../images/NearbySearchPage/languageIcon.png';
 import Calander from '../images/NearbySearchPage/calanderIcon.png';
 import { Button, Dropdown } from "react-bootstrap";
 
+// 구 리스트 추출
+const getGuOptions = (clickHandler, t) => {
+    const guList = [
+        'Jongro-gu', 'Jung-gu', 'Yongsan-gu', 'Sungdong-gu', 'Gwangjin-gu',
+        'Dongdaemun-gu', 'Jungrang-gu', 'Seongbuk-gu', 'Gangbuk-gu', 'Dobong-gu',
+        'Nowon-gu', 'Eunpyeong-gu', 'Seodaemun-gu', 'Mapo-gu', 'Yangcheon-gu',
+        'Gangseo-gu', 'Guro-gu', 'Geumcheon-gu', 'Yeongdeungpo-gu', 'Dongjak-gu',
+        'Gwanak-gu', 'Seocho-gu', 'Gangnam-gu', 'Songpa-gu', 'Gangdong-gu'
+    ];
+
+    return guList.map((gu) => (
+        <Dropdown.Item key={gu} id={gu} onClick={clickHandler}>
+            {t(gu)}
+        </Dropdown.Item>
+    ));
+};
+
+const timeRanges = [
+    '00:00~00:30', '00:30~01:00', '01:00~01:30', '01:30~02:00',
+    '02:00~02:30', '02:30~03:00', '03:00~03:30', '03:30~04:00',
+    '04:00~04:30', '04:30~05:00', '05:00~05:30', '05:30~06:00',
+    '06:00~06:30', '06:30~07:00', '07:00~07:30', '07:30~08:00',
+    '08:00~08:30', '08:30~09:00', '09:00~09:30', '09:30~10:00',
+    '10:00~10:30', '10:30~11:00', '11:00~11:30', '11:30~12:00',
+    '12:00~12:30', '12:30~13:00', '13:00~13:30', '13:30~14:00',
+    '14:00~14:30', '14:30~15:00', '15:00~15:30', '15:30~16:00',
+    '16:00~16:30', '16:30~17:00', '17:00~17:30', '17:30~18:00',
+    '18:00~18:30', '18:30~19:00', '19:00~19:30', '19:30~20:00',
+    '20:00~20:30', '20:30~21:00', '21:00~21:30', '21:30~22:00',
+    '22:00~22:30', '22:30~23:00', '23:00~23:30', '23:30~24:00'
+];
+
+const languages = {
+    japanese: '日本語',
+    chinese: '中国人',
+    english: 'English'
+};
+
 export default function RegionSearch() {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const [languageState, setLanguageState] = useState({
         japanese: false,
         chinese: false,
         english: false
     });
+    const [gu, setGu] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [time, setTime] = useState(null);
     const [pharmacies, setPharmacies] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
     const [totalItems, setTotalItems] = useState(0);
     const itemsPerPage = 5;
 
@@ -51,13 +91,13 @@ export default function RegionSearch() {
                 setPharmacies(data.results || []);
                 setTotalItems(data.count || 0);
             }).catch(error => {
-            console.error('Failed to fetch pharmacies:', error);
-            if (error.message === '404') {
-                alert('404'+t('no-pharmacies-match'));
-            } else {
-                alert(`Error: ${error.message}`);
-            }
-        });
+                console.error('Failed to fetch pharmacies:', error);
+                if (error.message === '404') {
+                    alert('404: ' + t('no-pharmacies-match'));
+                } else {
+                    alert(`Error: ${error.message}`);
+                }
+            });
     }
 
     function getKeyByValue(obj, value) {
@@ -74,13 +114,12 @@ export default function RegionSearch() {
     i18n.on('languageChanged', handleDropdownChange);
 
     useEffect(() => {
-        const {gu, languageState, selectedDate, time, isOpen} = searchCriteria;
+        const { gu, languageState, selectedDate, time, isOpen } = searchCriteria;
         if (gu && (isOpen || (selectedDate && time))) {
             fetchPharmacies(gu, languageState, selectedDate, time, isOpen);
         }
     }, [currentPage, searchCriteria]);
 
-    const [gu, setGu] = useState(null);
     const clickGuDropdown = (event) => {
         let gu = event.target.id;
         document.getElementById('gu-value').innerText = t(gu);
@@ -88,7 +127,6 @@ export default function RegionSearch() {
         setGu(translatedGu);
     };
 
-    const [time, setTime] = useState(null);
     const clickTimeDropdown = (event) => {
         let time = event.target.textContent;
         setTime(time);
@@ -118,7 +156,7 @@ export default function RegionSearch() {
 
 
     const handleSearch = (gu, languageState, selectedDate, time, isOpen) => {
-        setSearchCriteria({gu, languageState, selectedDate, time, isOpen});
+        setSearchCriteria({ gu, languageState, selectedDate, time, isOpen });
         setCurrentPage(1);
     };
 
@@ -142,7 +180,7 @@ export default function RegionSearch() {
 
     return (
         <>
-            <Header/>
+            <Header />
             <SearchDesign>{t('based-on-region')}</SearchDesign>
             <div id="search-wrapper">
                 <div id="result-explanation-text">
@@ -153,80 +191,25 @@ export default function RegionSearch() {
                     <div id="search-condition-wrapper">
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
-                                <img className="location-icon" src={LocationIcon} alt=""/>
+                                <img className="location-icon" src={LocationIcon} alt="" />
                                 {t('district/gu')}
                                 <div id="gu-value"></div>
-                                <img className="arrow-icon" src={Arrow} alt=""/>
+                                <img className="arrow-icon" src={Arrow} alt="" />
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item id="Jongro-gu"
-                                               onClick={clickGuDropdown}>{t('Jongro-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Jung-gu"
-                                               onClick={clickGuDropdown}>{t('Jung-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Yongsan-gu"
-                                               onClick={clickGuDropdown}>{t('Yongsan-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Sungdong-gu"
-                                               onClick={clickGuDropdown}>{t('Sungdong-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Gwangjin-gu"
-                                               onClick={clickGuDropdown}>{t('Gwangjin-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Dongdaemun-gu"
-                                               onClick={clickGuDropdown}>{t('Dongdaemun-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Jungrang-gu"
-                                               onClick={clickGuDropdown}>{t('Jungrang-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Seongbuk-gu"
-                                               onClick={clickGuDropdown}>{t('Seongbuk-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Gangbuk-gu"
-                                               onClick={clickGuDropdown}>{t('Gangbuk-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Dobong-gu"
-                                               onClick={clickGuDropdown}>{t('Dobong-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Nowon-gu"
-                                               onClick={clickGuDropdown}>{t('Nowon-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Eunpyeong-gu"
-                                               onClick={clickGuDropdown}>{t('Eunpyeong-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Seodaemun-gu"
-                                               onClick={clickGuDropdown}>{t('Seodaemun-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Mapo-gu"
-                                               onClick={clickGuDropdown}>{t('Mapo-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Yangcheon-gu"
-                                               onClick={clickGuDropdown}>{t('Yangcheon-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Gangseo-gu"
-                                               onClick={clickGuDropdown}>{t('Gangseo-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Guro-gu"
-                                               onClick={clickGuDropdown}>{t('Guro-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Geumcheon-gu"
-                                               onClick={clickGuDropdown}>{t('Geumcheon-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Yeongdeungpo-gu"
-                                               onClick={clickGuDropdown}>{t('Yeongdeungpo-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Dongjak-gu"
-                                               onClick={clickGuDropdown}>{t('Dongjak-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Gwanak-gu"
-                                               onClick={clickGuDropdown}>{t('Gwanak-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Seocho-gu"
-                                               onClick={clickGuDropdown}>{t('Seocho-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Gangnam-gu"
-                                               onClick={clickGuDropdown}>{t('Gangnam-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Songpa-gu"
-                                               onClick={clickGuDropdown}>{t('Songpa-gu')}</Dropdown.Item>
-                                <Dropdown.Item id="Gangdong-gu"
-                                               onClick={clickGuDropdown}>{t('Gangdong-gu')}</Dropdown.Item>
+                                {getGuOptions(clickGuDropdown, t)}
                             </Dropdown.Menu>
                         </Dropdown>
                         <div id="present-checkbox-wrapper">
-                            <input type="checkbox" id="chk1"
-                                   name="present"
-                                   checked={isOpen}
-                                   onChange={handlePresentChange}/>
-                                <label
-                                    id="present-checkbox-label" 
-                                    htmlFor="chk1" />
-
+                            <input type="checkbox" id="chk1" name="present" checked={isOpen} onChange={handlePresentChange} />
+                            <label id="present-checkbox-label" htmlFor="chk1" />
                             <label id='present-checkbox-name' htmlFor="chk1">{t('search-only-open')}</label>
                         </div>
 
                         <div id="calanger-wrapper">
                             <div className={!isOpen ? "calander-button-name" : "disabled-calander-button-name"}>
-                                <img className="calander-icon" src={Calander} alt=""/>
+                                <img className="calander-icon" src={Calander} alt="" />
                                 {t('select-date')}
                             </div>
                             <DatePicker
@@ -239,155 +222,38 @@ export default function RegionSearch() {
                         </div>
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select" disabled={isOpen}>
-                                <img className="time-icon" src={Time} alt=""/>
+                                <img className="time-icon" src={Time} alt="" />
                                 {t('bussiness-hours')}
                                 <div id="time-value"></div>
-                                <img className="arrow-icon" src={Arrow} alt=""/>
+                                <img className="arrow-icon" src={Arrow} alt="" />
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>00:00~00:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>00:30~01:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>01:00~01:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>01:30~01:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>02:00~02:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>02:30~03:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>03:00~03:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>03:30~04:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>04:00~04:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>04:30~05:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>05:00~05:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>05:30~06:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>06:00~06:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>06:30~07:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>07:00~07:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>07:30~07:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>07:00~07:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>07:30~08:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>08:00~08:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>08:30~09:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>09:00~09:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>09:30~10:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>10:00~10:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>10:30~11:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>11:00~11:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>11:30~12:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>12:00~12:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>12:30~13:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>13:00~13:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>13:30~14:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>14:00~14:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>14:30~15:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>15:00~15:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>15:30~16:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>16:00~16:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>16:30~17:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>17:00~17:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>17:30~17:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>17:00~17:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>17:30~18:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>18:00~18:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>18:30~19:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>19:00~19:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>19:30~20:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>20:00~20:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>20:30~21:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>21:00~21:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>21:30~21:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>22:00~22:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>22:30~23:00</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>23:00~23:30</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item"
-                                               onClick={clickTimeDropdown}>23:30~24:00</Dropdown.Item>
+                                {timeRanges.map((timeRange) => (
+                                    <Dropdown.Item key={timeRange} className="dropdown-item" onClick={clickTimeDropdown}>
+                                        {timeRange}
+                                    </Dropdown.Item>
+                                ))}
                             </Dropdown.Menu>
                         </Dropdown>
-                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>{t('language')}</h3>
+                        <h3 id="language-choice-text"><img id="language-icon" src={Language} alt="" />{t('language')}</h3>
                         <div id="language-checkbox-wrapper">
-                            <input
-                                id="speaking-japanese"
-                                type="checkbox"
-                                checked={languageState.japanese}
-                                onChange={() => handleLanguageChange('japanese')}
-                            />
-                            <label
-                                id="speaking-japanese-label"
-                                className="language-checkbox"
-                                htmlFor="speaking-japanese">
-                                日本語
-                            </label>
-                            <input
-                                id="speaking-chinese"
-                                type="checkbox"
-                                checked={languageState.chinese}
-                                onChange={() => handleLanguageChange('chinese')}
-                            />
-                            <label
-                                id="speaking-chinese-label" className="language-checkbox" htmlFor="speaking-chinese">
-                                中国人
-                            </label>
-                            <input
-                                id="speaking-english"
-                                type="checkbox"
-                                checked={languageState.english}
-                                onChange={() => handleLanguageChange('english')}
-                            />
-                            <label
-                                id="speaking-english-label"
-                                className="language-checkbox"
-                                htmlFor="speaking-english">
-                                English
-                            </label>
+                            {Object.entries(languages).map(([key, name]) => (
+                                <React.Fragment key={key}>
+                                    <input
+                                        id={`speaking-${key}`}
+                                        type="checkbox"
+                                        checked={languageState[key]}
+                                        onChange={() => handleLanguageChange(key)}
+                                    />
+                                    <label
+                                        id={`speaking-${key}-label`}
+                                        className="language-checkbox"
+                                        htmlFor={`speaking-${key}`}>
+                                        {name}
+                                    </label>
+                                </React.Fragment>
+                            ))}
                         </div>
                     </div>
 
@@ -400,14 +266,14 @@ export default function RegionSearch() {
                     </Button>{' '}
                 </div>
             </div>
-            <RegionResult result={pharmacies}/>
+            <RegionResult result={pharmacies} />
             <Pagination
                 totalItems={totalItems}
                 paginate={handlePageChange}
                 currentPage={currentPage}
                 itemsPerPage={itemsPerPage}
             />
-            <Footer/>
+            <Footer />
         </>
     );
 }

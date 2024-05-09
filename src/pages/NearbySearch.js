@@ -12,6 +12,12 @@ import NearbyResult from "../components/result/NearbyResult";
 import Language from '../images/NearbySearchPage/languageIcon.png';
 import { Button } from "react-bootstrap";
 
+const languages = {
+    japanese: '日本語',
+    chinese: '中国人',
+    english: 'English'
+};
+
 export default function NearbySearch() {
     const {t} = useTranslation();
     const [isOpen, setIsOpen] = useState(true);
@@ -56,7 +62,7 @@ export default function NearbySearch() {
         }
     };
 
-    const handleCheckboxChange = (language) => {
+    const handleLanguageChange = (language) => {
         setLanguageState((prevState) => ({
             ...prevState,
             [language]: !prevState[language]
@@ -85,40 +91,22 @@ export default function NearbySearch() {
 
                         <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>{t('language')}</h3>
                         <div id="language-checkbox-wrapper">
-                            <input
-                                id="speaking-japanese"
-                                type="checkbox"
-                                checked={languageState.japanese}
-                                onChange={() => handleCheckboxChange('japanese')}
-                            />
-                            <label
-                                id="speaking-japanese-label"
-                                className="language-checkbox"
-                                htmlFor="speaking-japanese">
-                                日本語
-                            </label>
-                            <input
-                                id="speaking-chinese"
-                                type="checkbox"
-                                checked={languageState.chinese}
-                                onChange={() => handleCheckboxChange('chinese')}
-                            />
-                            <label
-                                id="speaking-chinese-label" className="language-checkbox" htmlFor="speaking-chinese">
-                                中国人
-                            </label>
-                            <input
-                                id="speaking-english"
-                                type="checkbox"
-                                checked={languageState.english}
-                                onChange={() => handleCheckboxChange('english')}
-                            />
-                            <label
-                                id="speaking-english-label"
-                                className="language-checkbox"
-                                htmlFor="speaking-english">
-                                English
-                            </label>
+                            {Object.entries(languages).map(([key, name]) => (
+                                <React.Fragment key={key}>
+                                    <input
+                                        id={`speaking-${key}`}
+                                        type="checkbox"
+                                        checked={languageState[key]}
+                                        onChange={() => handleLanguageChange(key)}
+                                    />
+                                    <label
+                                        id={`speaking-${key}-label`}
+                                        className="language-checkbox"
+                                        htmlFor={`speaking-${key}`}>
+                                        {name}
+                                    </label>
+                                </React.Fragment>
+                            ))}
                         </div>
                     </div>
 
