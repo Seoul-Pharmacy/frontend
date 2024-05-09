@@ -20,8 +20,9 @@ header > div {
     justify-content: flex-start;
 }
 
-#header-content {
-    #language-dropdown {
+
+#language-dropdown {
+    #language-dropdown-button {
         position: relative;
         top: 10px;
         border: none;
@@ -78,14 +79,14 @@ header > div {
     .home-icon {
         display: none;
     }
-    #header-content {
-        #language-dropdown {
-            position: relative;
-            top: 7px;
-            font-size: 17px;
-            margin-left: 20px;
-        }
+
+    #language-dropdown-button {
+        position: relative;
+        top: 7px;
+        font-size: 17px;
+        margin-left: 20px;
     }
+
 
 
     .title {
@@ -104,13 +105,12 @@ header > div {
         display: none;
     }
 
-    #header-content {
-        #language-dropdown {
-            position: static;
-            font-size: 15px;
-            margin-left: 4vw;
-        }
+    #language-dropdown-button {
+        position: static;
+        font-size: 15px;
+        margin-left: 4vw;
     }
+
 
     .title {
         font-size: 20px;

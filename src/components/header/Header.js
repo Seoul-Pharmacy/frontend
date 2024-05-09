@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import './Header.css';
 import homeIcon from '../../images/homeIcon.png';
@@ -12,7 +12,7 @@ const lngs = {
 };
 
 export default function Header() {
-    const { i18n, ready } = useTranslation();
+    const {i18n, ready} = useTranslation();
     // const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selectedLang, setSelectedLang] = useState(() => localStorage.getItem('language'));
 
@@ -42,17 +42,18 @@ export default function Header() {
         <>
             <header>
                 <div id="header-content">
-                    <a href="/main/Main">
+                    <a href="/main">
                         <img className="home-icon" src={homeIcon} alt="home"/>
                     </a>
-                    <Dropdown>
-                        <Dropdown.Toggle variant="success" id="language-dropdown">
+                    <Dropdown id="language-dropdown">
+                        <Dropdown.Toggle variant="success" id="language-dropdown-button">
                             {lngs[selectedLang].nativeName}
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
                             {Object.keys(lngs).map((lng) => (
-                                <Dropdown.Item key={lng} className="dropdown-item" onClick={() => handleSelectLang(lng)}>
+                                <Dropdown.Item key={lng} className="dropdown-item"
+                                               onClick={() => handleSelectLang(lng)}>
                                     {lngs[lng].nativeName}
                                 </Dropdown.Item>
                             ))}
