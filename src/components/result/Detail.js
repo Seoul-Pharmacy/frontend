@@ -6,6 +6,8 @@ import Map from "../map/Map";
 import './Detail.css';
 import {Dropdown} from "react-bootstrap";
 
+const apiKey = process.env.REACT_APP_API_KEY;
+
 // 로딩 상태 처리 함수
 const render = (status) => {
     if (status === Status.LOADING) return <div>Loading...</div>;
@@ -78,7 +80,7 @@ export default function Detail({ identifier }) {
 
     return (
         <article id="result-details">
-            <Wrapper apiKey="AIzaSyArq7cjK5aIdaXx4TmX4RApHaNo8Mc8RbQ" render={render}>
+            <Wrapper apiKey={`${apiKey}`} render={render}>
                 <Map lat={parseFloat(pharmacy.latitude)} lng={parseFloat(pharmacy.longitude)}/>
             </Wrapper>
             <div id="result-details-text-wrapper">
