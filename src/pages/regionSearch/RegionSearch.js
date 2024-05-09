@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import i18n from 'i18next';
-import koTranslations from '../languages/translation.ko.json';
+import koTranslations from '../../languages/translation.ko.json';
 import { useTranslation } from 'react-i18next';
-import regionApi from '../api/regionApi';
+import regionApi from '../../api/regionApi';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import Header from "../components/Header";
-import SearchDesign from "../components/SearchDesgin";
-import RegionResult from '../components/result/RegionResult';
-import Pagination from '../components/Pagination';
-import Footer from "../components/Footer";
+import Header from "../../components/header/Header";
+import SearchDesign from "../../components/SearchDesgin";
+import RegionResult from '../../components/result/RegionResult';
+import Pagination from '../../components/pagination/Pagination';
+import Footer from "../../components/footer/Footer";
 
-import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
-import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
-import Time from '../images/NearbySearchPage/timeIcon.png';
-import Language from '../images/NearbySearchPage/languageIcon.png';
-import Calender from '../images/NearbySearchPage/calenderIcon.png';
+import LocationIcon from '../../images/NearbySearchPage/locationIcon.png';
+import Arrow from '../../images/NearbySearchPage/dropDownArrow.png';
+import Time from '../../images/NearbySearchPage/timeIcon.png';
+import Language from '../../images/NearbySearchPage/languageIcon.png';
+import Calender from '../../images/NearbySearchPage/calenderIcon.png';
 import { Button, Dropdown } from "react-bootstrap";
 
 // 구 리스트 추출
@@ -207,8 +207,8 @@ export default function RegionSearch() {
                             <label id='present-checkbox-name' htmlFor="chk1">{t('search-only-open')}</label>
                         </div>
 
-                        <div id="calender-wrapper">
-                            <div className={!isOpen ? "calender-button-name" : "disabled-calender-button-name"}>
+                        <div id={!isOpen ? "calender-wrapper" : "disabled-calender-wrapper"}>
+                            <div className="calender-button-name">
                                 <img className="calender-icon" src={Calender} alt="" />
                                 {t('select-date')}
                             </div>
@@ -220,7 +220,7 @@ export default function RegionSearch() {
                                 disabled={isOpen}
                             />
                         </div>
-                        <Dropdown>
+                        <Dropdown id={!isOpen ? "time-dropdown-wrapper" : "disabled-time-dropdown-wrapper"}>
                             <Dropdown.Toggle id="dropdown-basic" className="dropdown-select" disabled={isOpen}>
                                 <img className="time-icon" src={Time} alt="" />
                                 {t('bussiness-hours')}
