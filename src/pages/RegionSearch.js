@@ -16,7 +16,7 @@ import LocationIcon from '../images/NearbySearchPage/locationIcon.png';
 import Arrow from '../images/NearbySearchPage/dropDownArrow.png';
 import Time from '../images/NearbySearchPage/timeIcon.png';
 import Language from '../images/NearbySearchPage/languageIcon.png';
-import Calander from '../images/NearbySearchPage/calanderIcon.png';
+import Calender from '../images/NearbySearchPage/calenderIcon.png';
 import { Button, Dropdown } from "react-bootstrap";
 
 // 구 리스트 추출
@@ -207,13 +207,13 @@ export default function RegionSearch() {
                             <label id='present-checkbox-name' htmlFor="chk1">{t('search-only-open')}</label>
                         </div>
 
-                        <div id="calanger-wrapper">
-                            <div className={!isOpen ? "calander-button-name" : "disabled-calander-button-name"}>
-                                <img className="calander-icon" src={Calander} alt="" />
+                        <div id="calender-wrapper">
+                            <div className={!isOpen ? "calender-button-name" : "disabled-calender-button-name"}>
+                                <img className="calender-icon" src={Calender} alt="" />
                                 {t('select-date')}
                             </div>
                             <DatePicker
-                                className="calander-select"
+                                className="calender-select"
                                 selected={selectedDate}
                                 onChange={handleDateChange}
                                 dateFormat="yyyy-MM-dd"

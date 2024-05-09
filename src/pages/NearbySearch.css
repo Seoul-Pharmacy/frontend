@@ -272,20 +272,20 @@
 
     /*캘린더 */
 
-    #calanger-wrapper {
+    #calender-wrapper {
         width: 100%;
         position: relative;
         padding-bottom: 10px;
     }
 
-    .calander-button-name {
+    .calender-button-name {
         position: absolute;
         z-index: 100;
         top: 8px;
         left: 10px;
     }
 
-    .disabled-calander-button-name {
+    .disabled-calender-button-name {
         position: absolute;
         z-index: 100;
         top: 8px;
@@ -293,7 +293,7 @@
         color: #878787;
     }
 
-    .calander-select:disabled {
+    .calender-select:disabled {
         box-shadow: 0 0 5px 3px #E8E8E8;
     }
 
@@ -302,7 +302,7 @@
     }
 
     .dropdown-select,
-    .calander-select{
+    .calender-select{
         display: flex;
         text-align: center;
         align-items: center;
@@ -317,9 +317,8 @@
 
         border: 0;
         color: black;
-        /*background: #FFFFFF;*/
         background-color: white;
-        border-radius: 33.5px;
+        border-radius: 33px;
         box-shadow: 0 0 5px 3px #DCDCDC;
     }
 
@@ -346,7 +345,7 @@
         padding-right: 7px;
     }
 
-    .calander-icon {
+    .calender-icon {
         width: 23px;
         height: 17px;
         padding-right: 7px;
@@ -455,7 +454,7 @@
     background: #C6E7F9;
     color: black;
     border: 0;
-    box-shadow: 0px 4px 16.4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin-right: 2.5%;
     margin-left: 2.5%;
