@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import './Header.css';
-import homeIcon from '../images/homeIcon.png';
+import homeIcon from '../../images/homeIcon.png';
 import {Dropdown} from "react-bootstrap";
 
 const lngs = {
@@ -42,7 +42,7 @@ export default function Header() {
         <>
             <header>
                 <div id="header-content">
-                    <a href="/main">
+                    <a href="/main/Main">
                         <img className="home-icon" src={homeIcon} alt="home"/>
                     </a>
                     <Dropdown>
@@ -58,7 +58,7 @@ export default function Header() {
                             ))}
                         </Dropdown.Menu>
                     </Dropdown>
-                    <a className="title" href="/main">pharmaseoul</a>
+                    <a className="title" href="/main/Main">pharmaseoul</a>
                 </div>
             </header>
         </>

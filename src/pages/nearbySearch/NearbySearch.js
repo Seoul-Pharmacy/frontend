@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import nearbyApi from '../api/nearbyApi';
+import nearbyApi from '../../api/nearbyApi';
 import './NearbySearch.css';
 
-import Header from "../components/Header";
-import SearchDesign from "../components/SearchDesgin";
-import Footer from "../components/Footer";
-import NearbyResult from "../components/result/NearbyResult";
+import Header from "../../components/header/Header";
+import SearchDesign from "../../components/SearchDesgin";
+import Footer from "../../components/footer/Footer";
+import NearbyResult from "../../components/result/NearbyResult";
 
-import Language from '../images/NearbySearchPage/languageIcon.png';
+import Language from '../../images/NearbySearchPage/languageIcon.png';
 import { Button } from "react-bootstrap";
 
 const languages = {

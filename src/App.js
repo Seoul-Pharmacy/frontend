@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 
 import './App.css';
-import Intro from './pages/Intro.js'
-import Main from './pages/Main.js';
-import NearbySearch from './pages/NearbySearch.js';
-import RegionSearch from './pages/RegionSearch.js'
+import Intro from './pages/intro/Intro.js'
+import Main from './pages/main/Main.js';
+import NearbySearch from './pages/nearbySearch/NearbySearch.js';
+import RegionSearch from './pages/regionSearch/RegionSearch.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

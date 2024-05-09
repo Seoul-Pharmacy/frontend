@@ -2,8 +2,8 @@ import {useTranslation} from 'react-i18next';
 import './Footer.css';
 import React from "react";
 
-import kakaoIMG from '../images/footer/kakao.png';
-import instaIMG from '../images/footer/insta.png';
+import kakaoIMG from '../../images/footer/kakao.png';
+import instaIMG from '../../images/footer/insta.png';
 
 const FOOTER_TEXT = {
     "owner": "윤찬호",

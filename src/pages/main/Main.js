@@ -1,17 +1,17 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
-import useUserLocation from '../Hooks/useUserLocation.js';
+import useUserLocation from '../../Hooks/useUserLocation.js';
 
 import './Main.css';
 
-import Header from '../components/Header.js';
-import Footer from '../components/Footer.js';
+import Header from '../../components/header/Header.js';
+import Footer from '../../components/footer/Footer.js';
 
-import Nearby from '../images/nearby.png';
-import Region from '../images/region.png';
-import Glasses from '../images/readingGlassesIcon.png';
-import Mark from '../images/locationMarkIcon.png';
+import Nearby from '../../images/nearby.png';
+import Region from '../../images/region.png';
+import Glasses from '../../images/readingGlassesIcon.png';
+import Mark from '../../images/locationMarkIcon.png';
 
 
 export default function Main() {
