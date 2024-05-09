@@ -58,7 +58,7 @@ export default function Header() {
                             ))}
                         </Dropdown.Menu>
                     </Dropdown>
-                    <a className="title" href="/main/Main">pharmaseoul</a>
+                    <a className="title" href="/main">pharmaseoul</a>
                 </div>
             </header>
         </>

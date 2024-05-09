@@ -190,7 +190,7 @@ export default function RegionSearch() {
                 <div id="search-inner-wrapper">
                     <div id="search-condition-wrapper">
                         <Dropdown>
-                            <Dropdown.Toggle id="dropdown-basic" className="dropdown-select">
+                            <Dropdown.Toggle id="gu-dropdown-button" className="dropdown-select">
                                 <img className="location-icon" src={LocationIcon} alt="" />
                                 {t('district/gu')}
                                 <div id="gu-value"></div>
@@ -221,7 +221,7 @@ export default function RegionSearch() {
                             />
                         </div>
                         <Dropdown id={!isOpen ? "time-dropdown-wrapper" : "disabled-time-dropdown-wrapper"}>
-                            <Dropdown.Toggle id="dropdown-basic" className="dropdown-select" disabled={isOpen}>
+                            <Dropdown.Toggle id="time-dropdown-button" className="dropdown-select" disabled={isOpen}>
                                 <img className="time-icon" src={Time} alt="" />
                                 {t('bussiness-hours')}
                                 <div id="time-value"></div>

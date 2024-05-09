@@ -1,3 +1,59 @@
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+    color: black;
+    background-color: white;
+
+}
+/*아이콘*/
+.arrow-icon {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    width: 12px;
+    height: 8px;
+}
+
+.location-icon {
+    width: 26px;
+    height: 17px;
+    padding-left: 3px;
+    padding-right: 7px;
+}
+
+.calender-icon {
+    width: 23px;
+    height: 17px;
+    padding-right: 7px;
+}
+
+.time-icon {
+    width: 25px;
+    height: 17px;
+    padding-left: 3px;
+    padding-right: 5px;
+}
+
+/*스크롤바*/
+.scrollBar {
+    width: 200px;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.dropdown-menu::-webkit-scrollbar {
+    width: 5px; /* 스크롤바의 너비 */
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: lightgray; /* 스크롤바의 색상 */
+
+    border-radius: 10px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: white;
+}
+
 /*헤더*/
 .nearby-search-design {
     display: flex;
@@ -177,135 +233,52 @@
 /*검색창*/
 #search-wrapper {
     display: flex;
-    height: 30vh;
-    padding: 0 5vw;
+    height: calc(100% + 5vh);
+    padding: 5vh 5vw;
     width: 100%;
-    box-sizing: border-box;
     font-family: "SUIT-Medium", "Murecho-Light", "Noto-Light", sans-serif;
+}
 
+/*검색창 설명란*/
+#result-explanation-text {
+    text-align: left;
+    width: 50%;
+}
 
-    /*현재영엉중버튼*/
+#result-explanation-inner-text1 {
+    color: #0045D1;
+    font-size: 25px;
+    font-family: "SUIT-Medium", "Murecho-Medium", "Noto-Medium", sans-serif;
+}
 
-    #present-checkbox-wrapper {
-        display: flex;
-        font-size: 15px;
-        justify-content: left;
+#result-explanation-inner-text2 {
+    font-family: "SUIT-ExtraBold", "Murecho-Bold", "Noto-Bold", sans-serif;
+    font-size: 40px;
+}
 
-        padding-bottom: 10px;
+/*검색 조건 창*/
+#search-inner-wrapper {
+    display: flex;
+    position: relative;
+    text-align: left;
+    width: 50%;
+    padding: 2.5%;
+    margin: 0 2.5%;
+    box-sizing: border-box;
+    border: solid 2px #004770;
+    border-radius: 10px;
+}
 
-        input[type="checkbox"] {
-            appearance: none;
-            margin: 0;
-        }
+#search-condition-wrapper {
+    width: 70%;
+}
 
-        #present-checkbox-name {
-            padding-left: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/*드롭다운*/
+.dropdown {
+    position: relative;
+    padding-bottom: 10px;
 
-
-        input[type="checkbox"] {
-            appearance: none;
-            margin: 0;
-        }
-
-        #present-checkbox-label::before {
-            content: "";
-            position: absolute;
-            left: 35px;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: all 0.4s;
-            color: white;
-        }
-
-        #present-checkbox-label {
-            display: block;
-            position: relative;
-            width: 66px; /* Adjusted width */
-            height: 33px; /* Adjusted height */
-            background: #d3d3d3;
-            border-radius: 60px;
-            transition: background 0.4s;
-        }
-
-        #present-checkbox-label::after {
-            content: "";
-            position: absolute;
-            left: 2px; /* Adjusted left position */
-            top: 50%;
-            width: 29px; /* Adjusted width */
-            height: 29px; /* Adjusted height */
-            border-radius: 100%;
-            background-color: #fff;
-            transform: translateY(-50%);
-            box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s;
-        }
-
-        #chk1:checked + #present-checkbox-label {
-            background: #00D175;
-        }
-
-        #chk1:checked + #present-checkbox-label::after {
-            left: calc(100% - 31px); /* Adjusted left position */
-        }
-
-        #chk1:checked + #present-checkbox-label::before {
-            content: "";
-            color: #fff;
-            left: 10px; /* Adjusted left position */
-            font-size: 13px;
-        }
-    }
-
-    /*드롭다운*/
-
-    .dropdown {
-        position: relative;
-        /*display : inline-block;*/
-        padding-bottom: 10px;
-    }
-
-    /*캘린더 */
-
-    #calender-wrapper {
-        width: 100%;
-        position: relative;
-        padding-bottom: 10px;
-    }
-
-    #disabled-calender-wrapper {
-        display: none;
-    }
-
-    .calender-button-name {
-        position: absolute;
-        z-index: 100;
-        top: 8px;
-        left: 10px;
-    }
-
-    .disabled-calender-button-name {
-        position: absolute;
-        z-index: 100;
-        top: 8px;
-        left: 10px;
-        color: #878787;
-    }
-
-    .calender-select:disabled {
-        box-shadow: 0 0 5px 3px #E8E8E8;
-    }
-
-    .react-datepicker-wrapper {
-        width: 100%;
-    }
-
-    .dropdown-select,
-    .calender-select {
+    .dropdown-select {
         display: flex;
         text-align: center;
         align-items: center;
@@ -325,127 +298,160 @@
         box-shadow: 0 0 5px 3px #DCDCDC;
     }
 
+    /*선택 리스트*/
+
     .dropdown-menu {
         width: 100%;
         height: 200px;
         text-align: center;
         overflow: auto;
-        /*border-radius: 4px;*/
-    }
-
-    .arrow-icon {
-        position: absolute;
-        right: 10px;
-        top: 12px;
-        width: 12px;
-        height: 8px;
-    }
-
-    .location-icon {
-        width: 26px;
-        height: 17px;
-        padding-left: 3px;
-        padding-right: 7px;
-    }
-
-    .calender-icon {
-        width: 23px;
-        height: 17px;
-        padding-right: 7px;
-    }
-
-    .time-icon {
-        width: 25px;
-        height: 17px;
-        padding-left: 3px;
-        padding-right: 5px;
-    }
-
-    #gu-value {
-        position: absolute;
-        width: 100%;
-    }
-
-    #time-value {
-        position: absolute;
-        width: 100%;
-    }
-
-    /* 임의의 영역 생성 */
-
-    .scrollBar {
-        width: 200px;
-        height: 200px;
-        overflow-y: scroll;
-    }
-
-    /* 아래의 모든 코드는 영역::코드로 사용 */
-
-    .dropdown-menu::-webkit-scrollbar {
-        width: 5px; /* 스크롤바의 너비 */
-    }
-
-    .dropdown-menu::-webkit-scrollbar-thumb {
-        height: 30%; /* 스크롤바의 길이 */
-        background: lightgray; /* 스크롤바의 색상 */
-
-        border-radius: 10px;
-    }
-
-    .dropdown-menu::-webkit-scrollbar-track {
-        background: white;
-    }
-
-    #disabled-time-dropdown-wrapper {
-        display: none;
     }
 }
 
-/*캘린더*/
-.react-datepicker__header {
+#time-dropdown-button:hover, #time-dropdown-button:checked {
+    color: black;
     background-color: white;
-    color: #fff;
 }
 
-#result-explanation-text {
-    text-align: left;
-    width: 50%;
+#gu-dropdown-button:hover, #gu-dropdown-button:checked{
+    color: black;
+    background-color: white;
 }
 
-#result-explanation-inner-text1 {
-    color: #0045D1;
-    font-size: 25px;
-    font-family: "SUIT-Medium", "Murecho-Medium", "Noto-Medium", sans-serif;
-}
-
-#result-explanation-inner-text2 {
-    font-family: "SUIT-ExtraBold", "Murecho-Bold", "Noto-Bold", sans-serif;
-    font-size: 40px;
-}
-
-#search-inner-wrapper {
-    display: flex;
-    position: relative;
-    text-align: left;
-    width: 50%;
-    padding: 2.5%;
-    margin: 0 2.5%;
-    box-sizing: border-box;
-    border: solid 2px #004770;
-    border-radius: 10px;
-}
-
-#search-condition-wrapper {
-    width: 70%;
-}
-
-
-#search-wrapper {
-    display: flex;
-    height: calc(100% + 5vh);
-    padding: 5vh 5vw;
+#gu-value {
+    position: absolute;
     width: 100%;
-    box-sizing: border-box;
+}
+
+#time-value {
+    position: absolute;
+    width: 100%;
+}
+
+
+/*현재영엉중버튼*/
+#present-checkbox-wrapper {
+    font-size: 15px;
+
+    display: flex;
+    justify-content: left;
+
+    padding-bottom: 10px;
+
+    input[type="checkbox"] {
+        appearance: none;
+        margin: 0;
+    }
+
+    #present-checkbox-name {
+        padding-left: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #present-checkbox-label {
+        display: block;
+        position: relative;
+        width: 66px; /* Adjusted width */
+        height: 33px; /* Adjusted height */
+        background: #d3d3d3;
+        border-radius: 60px;
+        transition: background 0.4s;
+    }
+
+    #present-checkbox-label::before {
+        content: "";
+        position: absolute;
+        left: 35px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.4s;
+        color: white;
+    }
+
+    #present-checkbox-label::after {
+        content: "";
+        position: absolute;
+        left: 2px; /* Adjusted left position */
+        top: 50%;
+        width: 29px; /* Adjusted width */
+        height: 29px; /* Adjusted height */
+        border-radius: 100%;
+        background-color: #fff;
+        transform: translateY(-50%);
+        box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s;
+    }
+
+    #chk1:checked + #present-checkbox-label {
+        background: #00D175;
+    }
+
+    #chk1:checked + #present-checkbox-label::after {
+        left: calc(100% - 31px); /* Adjusted left position */
+    }
+
+    #chk1:checked + #present-checkbox-label::before {
+        content: "";
+        color: #fff;
+        left: 10px; /* Adjusted left position */
+        font-size: 13px;
+    }
+}
+
+
+/*캘린더 */
+#calender-wrapper {
+    width: 100%;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#disabled-calender-wrapper {
+    display: none;
+}
+
+.calender-button-name {
+    position: absolute;
+    z-index: 100;
+    top: 8px;
+    left: 10px;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.calender-select {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+    text-align-last: center;
+
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 33px;
+
+    border: 0;
+    color: black;
+    background-color: white;
+    border-radius: 33px;
+    box-shadow: 0 0 5px 3px #DCDCDC;
+}
+
+/*.react-datepicker__header {*/
+/*    background-color: white;*/
+/*    color: #fff;*/
+/*}*/
+
+
+/*시간드롭다운*/
+#disabled-time-dropdown-wrapper {
+    display: none;
 }
 
 
@@ -478,25 +484,7 @@
     padding-right: 5px;
 }
 
-/*#choice-text {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*}*/
-
-/*input[type="checkbox"] {*/
-/*    -webkit-appearance: none;*/
-/*    -moz-appearance: none;*/
-/*    appearance: none;*/
-/*    margin: 0;*/
-/*    !*width: 50px;*!*/
-/*    !*height: 20px;*!*/
-/*    !*background-color: #ffffff; !* 체크박스의 배경 색상 설정 *!*!*/
-/*    !*border: 1px solid #cccccc; !* 체크박스의 테두리 설정 *!*!*/
-/*    !*border-radius: 3px; !* 체크박스 모서리 둥글게 설정 *!*!*/
-/*}*/
-
-
-
+/*언어선택*/
 #language-checkbox-wrapper {
     display: flex;
     justify-content: center;
@@ -504,25 +492,17 @@
 
     /*언어체크박스*/
 
-    input[type="checkbox"] {
-        display: none;
-    }
-
     input[type="checkbox"]:checked + label {
         background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
         color: white;
     }
 
     input[type="checkbox"] {
+        display: none;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
         margin: 0;
-        /*width: 50px;*/
-        /*height: 20px;*/
-        /*background-color: #ffffff; !* 체크박스의 배경 색상 설정 *!*/
-        /*border: 1px solid #cccccc; !* 체크박스의 테두리 설정 *!*/
-        /*border-radius: 3px; !* 체크박스 모서리 둥글게 설정 *!*/
     }
 }
 
@@ -566,7 +546,7 @@
     #result-explanation-inner-text1 {
         font-size: 25px;
     }
-    
+
     #result-explanation-inner-text2 {
         font-size: 35px;
     }
@@ -587,7 +567,7 @@
     #result-explanation-inner-text1 {
         font-size: 18px;
     }
-    
+
     #result-explanation-inner-text2 {
         font-size: 28px;
     }
