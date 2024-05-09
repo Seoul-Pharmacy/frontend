@@ -274,38 +274,74 @@
 }
 
 /*드롭다운*/
-.dropdown {
+#gu-dropdown-wrapper {
     position: relative;
     padding-bottom: 10px;
+}
 
-    .dropdown-select {
-        display: flex;
-        text-align: center;
-        align-items: center;
-        -ms-text-align-last: center;
-        -moz-text-align-last: center;
-        text-align-last: center;
+#time-dropdown-wrapper {
+    position: relative;
+    padding-bottom: 10px;
+}
 
-        position: relative;
-        cursor: pointer;
-        width: 100%;
-        height: 33px;
+#disabled-time-dropdown-wrapper {
+    display: none;
+}
 
-        border: 0;
-        color: black;
-        background-color: white;
-        border-radius: 33px;
-        box-shadow: 0 0 5px 3px #DCDCDC;
-    }
+/*드롭다운버튼*/
+#time-dropdown-button {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+    text-align-last: center;
 
-    /*선택 리스트*/
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 33px;
 
-    .dropdown-menu {
-        width: 100%;
-        height: 200px;
-        text-align: center;
-        overflow: auto;
-    }
+    border: 0;
+    color: black;
+    background-color: white;
+    border-radius: 33px;
+    box-shadow: 0 0 5px 3px #DCDCDC;
+}
+
+#gu-dropdown-button {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+    text-align-last: center;
+
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 33px;
+
+    border: 0;
+    color: black;
+    background-color: white;
+    border-radius: 33px;
+    box-shadow: 0 0 5px 3px #DCDCDC;
+}
+
+/*선택 리스트*/
+
+#gu-dropdown-menu {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    overflow: auto;
+}
+#time-dropdown-menu {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    overflow: auto;
 }
 
 #time-dropdown-button:hover, #time-dropdown-button:checked {
@@ -441,17 +477,6 @@
     background-color: white;
     border-radius: 33px;
     box-shadow: 0 0 5px 3px #DCDCDC;
-}
-
-/*.react-datepicker__header {*/
-/*    background-color: white;*/
-/*    color: #fff;*/
-/*}*/
-
-
-/*시간드롭다운*/
-#disabled-time-dropdown-wrapper {
-    display: none;
 }
 
 

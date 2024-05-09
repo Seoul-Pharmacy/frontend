@@ -189,15 +189,15 @@ export default function RegionSearch() {
                 </div>
                 <div id="search-inner-wrapper">
                     <div id="search-condition-wrapper">
-                        <Dropdown>
-                            <Dropdown.Toggle id="gu-dropdown-button" className="dropdown-select">
+                        <Dropdown id="gu-dropdown-wrapper">
+                            <Dropdown.Toggle id="gu-dropdown-button">
                                 <img className="location-icon" src={LocationIcon} alt="" />
                                 {t('district/gu')}
                                 <div id="gu-value"></div>
                                 <img className="arrow-icon" src={Arrow} alt="" />
                             </Dropdown.Toggle>
 
-                            <Dropdown.Menu>
+                            <Dropdown.Menu id="gu-dropdown-menu">
                                 {getGuOptions(clickGuDropdown, t)}
                             </Dropdown.Menu>
                         </Dropdown>
@@ -220,7 +220,7 @@ export default function RegionSearch() {
                                 disabled={isOpen}
                             />
                         </div>
-                        <Dropdown id={!isOpen ? "time-dropdown-wrapper" : "disabled-time-dropdown-wrapper"}>
+                        <Dropdown id={!isOpen ? "time-dropdown-wrapper" : "disabled-time-dropdown-wrapper"} >
                             <Dropdown.Toggle id="time-dropdown-button" className="dropdown-select" disabled={isOpen}>
                                 <img className="time-icon" src={Time} alt="" />
                                 {t('bussiness-hours')}
@@ -228,7 +228,7 @@ export default function RegionSearch() {
                                 <img className="arrow-icon" src={Arrow} alt="" />
                             </Dropdown.Toggle>
 
-                            <Dropdown.Menu>
+                            <Dropdown.Menu id="time-dropdown-menu">
                                 {timeRanges.map((timeRange) => (
                                     <Dropdown.Item key={timeRange} className="dropdown-item" onClick={clickTimeDropdown}>
                                         {timeRange}
