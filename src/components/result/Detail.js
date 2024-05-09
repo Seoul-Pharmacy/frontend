@@ -8,6 +8,8 @@ import {Dropdown} from "react-bootstrap";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun', 'holiday'];
+
 // 로딩 상태 처리 함수
 const render = (status) => {
     if (status === Status.LOADING) return <div>Loading...</div>;
@@ -104,14 +106,9 @@ export default function Detail({ identifier }) {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu id="operating-hours-dropdown">
-                        <Dropdown.Item>{t('mon')}: {pharmacy.mon_open_time}~{pharmacy.mon_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('tue')}: {pharmacy.tue_open_time}~{pharmacy.tue_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('wed')}: {pharmacy.wed_open_time}~{pharmacy.wed_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('thu')}: {pharmacy.thu_open_time}~{pharmacy.thu_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('fri')}: {pharmacy.fri_open_time}~{pharmacy.fri_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('sat')}: {pharmacy.sat_open_time}~{pharmacy.sat_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('sun')}: {pharmacy.sun_open_time}~{pharmacy.sun_close_time}</Dropdown.Item>
-                        <Dropdown.Item>{t('holiday')}: {pharmacy.holiday_open_time}~{pharmacy.holiday_close_time}</Dropdown.Item>
+                        {days.map((day) => (
+                            <Dropdown.Item>{t(day)}: {pharmacy[`${day}_open_time`]}~{pharmacy[`${day}_close_time`]}</Dropdown.Item>
+                        ))}
                     </Dropdown.Menu>
                 </Dropdown>
 
