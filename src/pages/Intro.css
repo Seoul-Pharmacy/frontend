@@ -108,6 +108,9 @@
 
 /*모바일*/
 @media (max-width: 480px) {
+    .intro {
+        height: 60vh;
+    }
     .language-body-button {
         gap: 0.5vw;
     }
