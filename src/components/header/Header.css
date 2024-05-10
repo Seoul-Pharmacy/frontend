@@ -22,18 +22,6 @@ header > div {
 
 
 #language-dropdown {
-    #language-dropdown-button {
-        position: relative;
-        top: 10px;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        color: #004770;
-        font-family: "SUIT-Regular", "Murecho-Light";
-        font-size: 22px;
-        margin-left: 40px;
-    }
-
     .dropdown-menu {
         font-size: 15px;
         position: absolute;
@@ -45,6 +33,19 @@ header > div {
         border-radius: 12px;
     }
 }
+
+#language-dropdown-button {
+    position: relative;
+    top: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #004770;
+    font-family: "SUIT-Regular", "Murecho-Light";
+    font-size: 22px;
+    margin-left: 40px;
+}
+
 
 .dropdown-item:hover {
     background-color: #004770;
