@@ -202,9 +202,9 @@ export default function RegionSearch() {
                             </Dropdown.Menu>
                         </Dropdown>
                         <div id="present-checkbox-wrapper">
-                            <input type="checkbox" id="chk1" name="present" checked={isOpen} onChange={handlePresentChange} />
-                            <label id="present-checkbox-label" htmlFor="chk1" />
-                            <label id='present-checkbox-name' htmlFor="chk1">{t('search-only-open')}</label>
+                            <input type="checkbox" id="present-checkbox" name="present" checked={isOpen} onChange={handlePresentChange} />
+                            <label id="present-checkbox-label" htmlFor="present-checkbox" />
+                            <label id='present-checkbox-name' htmlFor="present-checkbox">{t('search-only-open')}</label>
                         </div>
 
                         <div id={!isOpen ? "calender-wrapper" : "disabled-calender-wrapper"}>

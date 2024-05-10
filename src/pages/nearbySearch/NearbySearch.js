@@ -81,12 +81,12 @@ export default function NearbySearch() {
                 <div id="search-inner-wrapper">
                     <div id="search-condition-wrapper">
                         <div id="present-checkbox-wrapper">
-                            <input type="checkbox" id="chk1"
+                            <input type="checkbox" id="present-checkbox"
                                    name="present"
                                    checked={isOpen}
-                                   onChange={handleOpenChange}/><label id="present-checkbox-label" htmlFor="chk1"></label>
+                                   onChange={handleOpenChange}/><label id="present-checkbox-label" htmlFor="present-checkbox"></label>
 
-                            <label id='present-checkbox-name' htmlFor="chk1">{t('search-only-open')}</label>
+                            <label id='present-checkbox-name' htmlFor="present-checkbox">{t('search-only-open')}</label>
                         </div>
 
                         <h3 id="language-choice-text"><img id="language-icon" src={Language} alt=""/>{t('language')}</h3>
