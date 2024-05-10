@@ -242,6 +242,7 @@ export default function RegionSearch() {
                                 <React.Fragment key={key}>
                                     <input
                                         id={`speaking-${key}`}
+                                        className="language-checkbox-item"
                                         type="checkbox"
                                         checked={languageState[key]}
                                         onChange={() => handleLanguageChange(key)}
