@@ -9,13 +9,47 @@
 #summarize-name {
     color: #004770;
     font-family: "SUIT-ExtraBold";
-    font-size: 15px;
-    line-height: 200%;
+    font-size: 17px;
+    line-height: 150%;
 }
 
 #summarize-info {
     color: #004770;
     font-family: "SUIT-Medium", "Murecho-Medium", "Noto-Medium", sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 100%;
+}
+
+/*태블릿*/
+@media (max-width: 800px) {
+    #summarize-result {
+        padding: 1vh 2vw;
+    }
+    
+    #summarize-name {
+        font-size: 17px;
+        line-height: 150%;
+    }
+    
+    #summarize-info {
+        font-size: 13px;
+        line-height: 100%;
+    }
+}
+
+/*모바일*/
+@media (max-width: 480px) {
+    #summarize-result {
+        padding: 1vh 2vw;
+    }
+    
+    #summarize-name {
+        font-size: 13px;
+        line-height: 200%;
+    }
+    
+    #summarize-info {
+        font-size: 11px;
+        line-height: 100%;
+    }
 }
