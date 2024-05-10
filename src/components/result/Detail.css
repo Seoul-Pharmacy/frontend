@@ -1,12 +1,12 @@
 #result-details {
     background-color: white;
     width: 55%;
-    height: 90%;
+    height: 100%;
     min-height: 400px;
     box-shadow: 0 0 5px 3px #DCDCDC;
     border-radius: 20px 0 0 20px;
 
-    padding: 4% 4%;
+    padding: 4%;
 }
 
 #result-details-text-wrapper {
@@ -19,31 +19,24 @@
     font-size: 25px;
     color: #004770;
 
-    padding-top: 20px;
-    padding: 7px;
+    padding: 20px 7px 0 7px;
     
     cursor: pointer;
 }
 
-.result-details-text-item {
+.result-details-text-item,
+#operating-hours-name {
     padding: 7px;
     font-size: 18px;
     font-family: "SUIT-Medium", "Murecho-Medium", "Noto-Medium", sans-serif;
     color: black;
-}
-
-#operating-hours-name {
-    font-size: 18px;
-    border: 0;
-    padding: 0;
-
     background-color: white;
-    color: black;
+    border: 0;
 }
-
 
 #operating-hours-dropdown {
     font-size: 18px;
+    font-family: "SUIT-Medium", "Murecho-Medium", "Noto-Medium", sans-serif;
 }
 
 /*오류*/
@@ -54,23 +47,41 @@
     font-size: 25px;
 }
 
-/*모바일*/
-@media (max-width: 480px) {
-    #result-details-text-wrapper {
-        font-size: 12px;
-
-        #result-details-name {
-            font-size: 20px;
-            padding-top: 20px;
-        }
-
-        .result-details-text-item {
-            padding: 5px;
-        }
+/*태블릿*/
+@media (max-width: 800px) {
+    #result-details-name {
+        font-size: 21px;
     }
 
+    .result-details-text-item,
     #operating-hours-name {
+        padding: 5px;
+        font-size: 16px;
+    }
+
+    #operating-hours-dropdown {
+        font-size: 13px;
+    }
+
+    #result-details-else {
+        font-size: 15px;
+    }
+}
+
+/*모바일*/
+@media (max-width: 480px) {
+    #result-details-name {
+        font-size: 20px;
+    }
+
+    .result-details-text-item,
+    #operating-hours-name {
+        padding: 5px;
         font-size: 12px;
+    }
+
+    #operating-hours-dropdown {
+        font-size: 13px;
     }
 
     #result-details-else {
