@@ -15,8 +15,10 @@ export default async function nearbyApi(japanese = false, chinese = false, engli
                 "Content-type": "application/json",
             }
         });
-        if (!response.ok) {
-            throw new Error('Network response error.');
+        if (response.status === 404) {
+            throw new Error('404');
+        } else if (!response.ok) {
+            throw new Error(`${response.status}`);
         }
         return await response.json();
     } catch (error) {

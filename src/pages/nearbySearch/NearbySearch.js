@@ -41,7 +41,7 @@ export default function NearbySearch() {
                 }).catch(error => {
                     console.error('Failed to fetch pharmacies:', error);
                     if (error.message === '404') {
-                        alert(t('no-pharmacies-match'));
+                        alert('404: ' + t('no-pharmacies-match'));
                     } else {
                         alert(`Error: ${error.message}`);
                     }
