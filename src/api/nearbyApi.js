@@ -5,7 +5,7 @@ export default async function nearbyApi(japanese = false, chinese = false, engli
     }
     let url;
     const { lat, lng } = location;
-    url = `http://www.pharmaseoul.com:8000/api/nearby-pharmacies?speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&latitude=${lat}&longitude=${lng}&isOpen=${isOpen}`;
+    url = `/api/nearby-pharmacies?speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&latitude=${lat}&longitude=${lng}&isOpen=${isOpen}`;
     
 
     try {

@@ -1,5 +1,5 @@
 export default async function apiDetail( id ) {
-    const url = `http://www.pharmaseoul.com:8000/api/pharmacies/${id}`;
+    const url = `/api/pharmacies/${id}`;
 
     try {
         const response = await fetch(url, {

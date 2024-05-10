@@ -2,7 +2,7 @@ export default async function regionApi(page, gu, japanese = false, chinese = fa
     let url;
 
     if(isOpen) {
-        url = `http://www.pharmaseoul.com:8000/api/pharmacies?page=${page}&gu=${gu}&speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}`;
+        url = `/api/pharmacies?page=${page}&gu=${gu}&speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}`;
     } else {
         let year = date.getFullYear();
         let month = ('0' + (date.getMonth() + 1)).slice(-2); // 월은 0부터 시작
@@ -12,7 +12,7 @@ export default async function regionApi(page, gu, japanese = false, chinese = fa
         let [exitHour, exitMin] = end.split(':');
         const enterTime = enterHour + enterMin;
         const exitTime = exitHour + exitMin;
-            url = `http://www.pharmaseoul.com:8000/api/pharmacies?page=${page}&gu=${gu}&speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&enterTime=${enterTime}&exitTime=${exitTime}&year=${year}&month=${month}&day=${day}`;
+            url = `/api/pharmacies?page=${page}&gu=${gu}&speakingEnglish=${english}&speakingJapanese=${japanese}&speakingChinese=${chinese}&enterTime=${enterTime}&exitTime=${exitTime}&year=${year}&month=${month}&day=${day}`;
     }
     
     try {
