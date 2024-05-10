@@ -538,7 +538,7 @@
     margin: 0;
 }
 
-.language-checkbox:checked + .language-checkbox {
+.language-checkbox-item:checked + .language-checkbox {
     background-color: #004770; /* 체크된 상태일 때의 배경 색상 설정 */
     color: white;
 }
