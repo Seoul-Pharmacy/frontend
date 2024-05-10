@@ -88,7 +88,6 @@ export default function Detail({ identifier }) {
             <div id="result-details-text-wrapper">
                 <h1
                     id="result-details-name"
-                    className="result-details-text-item"
                     onClick={() => copyToClipboard(pharmacy.name)}
                 >
                     {pharmacy.name}

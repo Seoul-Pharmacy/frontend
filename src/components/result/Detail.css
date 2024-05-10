@@ -10,29 +10,26 @@
 }
 
 #result-details-text-wrapper {
+    display: block;
     text-align: left;
 }
 
-#result-details-text-wrapper {
-    display: block;
-    font-family: "SUIT-Medium", "Murecho-Medium", "Noto-Medium", sans-serif;
+#result-details-name {
+    font-family: "SUIT-ExtraBold", sans-serif;
+    font-size: 25px;
+    color: #004770;
 
+    padding-top: 20px;
+    padding: 7px;
+    
+    cursor: pointer;
+}
+
+.result-details-text-item {
+    padding: 7px;
     font-size: 18px;
-    font-weight: 500;
-
-    #result-details-name {
-        font-family: "SUIT-ExtraBold", sans-serif;
-        font-size: 25px;
-        color: #004770;
-
-        padding-top: 20px;
-        
-        cursor: pointer;
-    }
-
-    .result-details-text-item {
-        padding: 7px;
-    }
+    font-family: "SUIT-Medium", "Murecho-Medium", "Noto-Medium", sans-serif;
+    color: black;
 }
 
 #operating-hours-name {
