@@ -12,6 +12,8 @@
     "find_pharmacy": "약국 찾기",
     "select": "선택하기",
 
+    "location-permission": "위치 권한을 허용해주세요.",
+
     "language": "언어",
 
     "based-on-location": "위치기반 맞춤형 정보 제공",

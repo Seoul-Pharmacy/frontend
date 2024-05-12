@@ -12,6 +12,8 @@
     "find_pharmacy": "Find a Pharmacy",
     "select": "Select",
 
+    "location-permission": "Please allow location permission.",
+
     "language": "English",
 
     "based-on-location": "Pharmacy informaton based on location",

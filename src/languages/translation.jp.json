@@ -12,6 +12,8 @@
     "find_pharmacy": "薬局を探す",
     "select": "選ぶ",
 
+    "location-permission": "位置権限を許可してください。",
+
     "language": "言語",
 
     "based-on-location": "位置基盤に合わせた情報提供",

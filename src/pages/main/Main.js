@@ -15,11 +15,9 @@ import Mark from '../../images/locationMarkIcon.png';
 
 
 export default function Main() {
-    const [permissionDenied, setPermissionDenied] = useState(false);
     const navigate = useNavigate();
     const {t} = useTranslation();
     const location = useUserLocation();
-
 
     const goToNearbySearch = () => {
         if (location && location.lat && location.lng) {
@@ -27,6 +25,7 @@ export default function Main() {
             navigate(`/nearbysearch?lat=${location.lat}&lng=${location.lng}`);
         } else { // 위치 권한 거부 시
             console.error("Location data is not available.");
+            alert(t('location-permission'));
         }
     };
 

@@ -12,6 +12,8 @@
     "find_pharmacy": "寻找药房",
     "select": "选择",
 
+    "location-permission": "请允许位置权限 。",
+
     "language": "语言",
     
     "based-on-location": "提供基于位置的定制信息",
