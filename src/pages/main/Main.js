@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import useUserLocation from '../../Hooks/useUserLocation.js';
@@ -15,14 +15,17 @@ import Mark from '../../images/locationMarkIcon.png';
 
 
 export default function Main() {
+    const [permissionDenied, setPermissionDenied] = useState(false);
     const navigate = useNavigate();
     const {t} = useTranslation();
     const location = useUserLocation();
+
+
     const goToNearbySearch = () => {
         if (location && location.lat && location.lng) {
             // URL을 통해 위치 정보를 전달
             navigate(`/nearbysearch?lat=${location.lat}&lng=${location.lng}`);
-        } else {
+        } else { // 위치 권한 거부 시
             console.error("Location data is not available.");
         }
     };
