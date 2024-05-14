@@ -14,7 +14,7 @@ import { Button } from "react-bootstrap";
 
 const languages = {
     japanese: '日本語',
-    chinese: '中国人',
+    chinese: '中国語',
     english: 'English'
 };
 
