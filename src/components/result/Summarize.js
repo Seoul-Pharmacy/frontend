@@ -12,9 +12,9 @@ export default function Summarize({ id, name, distance = 0, si, gu, road_name_ad
                     <div>{t('from-me')}{distance}</div>
                     <div>{si} {gu} {road_name_address}</div>
                     <div>
-                        {speaking_english ? <span> english</span> : ''}
-                        {speaking_chinese ? <span> 中国人</span> : ''}
-                        {speaking_japanese ? <span> 日本語</span> : ''}
+                        {speaking_english ? <span>&nbsp;English</span> : ''}
+                        {speaking_chinese ? <span>&nbsp;中国語</span> : ''}
+                        {speaking_japanese ? <span>&nbsp;日本語</span> : ''}
                     </div>
                 </div>
             </div>
@@ -26,9 +26,9 @@ export default function Summarize({ id, name, distance = 0, si, gu, road_name_ad
                 <div id="summarize-info">
                     <div>{si} {gu} {road_name_address}</div>
                     <div>
-                        {speaking_english ? <span> english</span> : ''}
-                        {speaking_chinese ? <span> 中国人</span> : ''}
-                        {speaking_japanese ? <span>日本語</span> : ''}
+                        {speaking_english ? <span> English</span> : ''}
+                        {speaking_chinese ? <span>&nbsp;中国語</span> : ''}
+                        {speaking_japanese ? <span>&nbsp;日本語</span> : ''}
                     </div>
                 </div>
             </div>
