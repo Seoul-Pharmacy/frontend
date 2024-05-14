@@ -7,7 +7,7 @@ import {Dropdown} from "react-bootstrap";
 const lngs = {
     en: {nativeName: 'English'},
     ko: {nativeName: '한국어'},
-    cn: {nativeName: '中国人'},
+    cn: {nativeName: '中国語'},
     jp: {nativeName: '日本語'},
 };
 
