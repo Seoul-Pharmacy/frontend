@@ -91,12 +91,14 @@ section {
     font-size: 25px;
     font-family: "SUIT-Bold", "Murecho-Bold", "Noto-Bold", sans-serif;
     text-align: left;
+    word-break: keep-all;
 }
 
 .selectOptionDescription {
     font-size: 15px;
     font-family: "SUIT-Regular", "Murecho-Light", "Noto-Light", sans-serif;
     text-align: left;
+    word-break: keep-all;
 }
 
 .SelectOptionInnerButton {
