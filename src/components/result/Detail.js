@@ -1,21 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import apiDetail from '../../api/apiDetail';
-import { Wrapper, Status } from '@googlemaps/react-wrapper';
 import Map from "../map/Map";
 import './Detail.css';
 import {Dropdown} from "react-bootstrap";
 
-const apiKey = process.env.REACT_APP_API_KEY;
-
 const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun', 'holiday'];
-
-// 로딩 상태 처리 함수
-const render = (status) => {
-    if (status === Status.LOADING) return <div>Loading...</div>;
-    if (status === Status.FAILURE) return <div>Error loading map</div>;
-    return null;
-  };
 
 export default function Detail({ identifier }) {
     const { t } = useTranslation();
@@ -82,9 +72,7 @@ export default function Detail({ identifier }) {
 
     return (
         <article id="result-details">
-            <Wrapper apiKey={`${apiKey}`} render={render}>
-                <Map lat={parseFloat(pharmacy.latitude)} lng={parseFloat(pharmacy.longitude)}/>
-            </Wrapper>
+            <Map lat={parseFloat(pharmacy.latitude)} lng={parseFloat(pharmacy.longitude)}/>
             <div id="result-details-text-wrapper">
                 <h1
                     id="result-details-name"
@@ -105,8 +93,8 @@ export default function Detail({ identifier }) {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu id="operating-hours-dropdown">
-                        {days.map((day) => (
-                            <Dropdown.Item>{t(day)}: {pharmacy[`${day}_open_time`]}~{pharmacy[`${day}_close_time`]}</Dropdown.Item>
+                        {days.map((day, index) => (
+                            <Dropdown.Item key={index}>{t(day)}: {pharmacy[`${day}_open_time`]}~{pharmacy[`${day}_close_time`]}</Dropdown.Item>
                         ))}
                     </Dropdown.Menu>
                 </Dropdown>
