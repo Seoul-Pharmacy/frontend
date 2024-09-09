@@ -481,7 +481,6 @@
 
 /*검색버튼*/
 #pharmacy-search-button {
-
     width: 25%;
     height: 80px;
 
@@ -626,7 +625,7 @@
 
 /*결과창*/
 #result-wrapper {
-    height: 75vh;
+    height: auto;
     min-height: 400px;
     display: flex;
     padding-bottom: 5vh;
@@ -656,8 +655,8 @@
 
 .pharmacy-list-item {
     width: 80%;
-    height: 20%;
-    min-height: 75px;
+    height: 100%;
+    margin: 5px 0;
 
     background-color: white;
 
