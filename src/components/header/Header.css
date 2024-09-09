@@ -22,15 +22,6 @@ header {
     padding-left: 50px;
 }
 
-#header-content > a.title {
-    box-sizing: border-box;
-    padding: 0px;
-    text-decoration: none;
-    color: #004770;
-    font-size: 50px;
-    font-family: "SUIT-Regular";
-}
-
 header > div {
     display: flex;
     justify-content: flex-start;
@@ -101,10 +92,6 @@ header > div {
         padding: 0px;
     }
 
-    #header-content > a.title {
-        font-size: 40px;
-    }
-
     .home-icon {
         display: none;
     }
@@ -128,10 +115,6 @@ header > div {
         height: 55px;
     }
 
-    #header-content > a.title {
-        font-size: 30px;
-    }
-
     .home-icon {
         display: none;
     }
@@ -146,6 +129,6 @@ header > div {
     .title {
         font-size: 20px;
         transform: translateX(0%);
-        right: 0;
+        right: 5px;
     }
 }
