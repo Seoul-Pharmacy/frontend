@@ -34,7 +34,7 @@ export default function NearbySearch() {
 
     function fetchPharmacies(language, isOpen) {
         if (lat && lng) {
-            nearbyApi(language.japanese, language.chinese, language.english , location, isOpen)
+            nearbyApi(language.japanese, language.chinese, language.english, location, isOpen)
                 .then(data => {
                     const results = data?.results || [];
                     setPharmacies(results);
