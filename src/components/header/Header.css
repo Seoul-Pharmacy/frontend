@@ -19,7 +19,7 @@ header {
     box-sizing: border-box;
     text-decoration: none;
     color: #004770;
-    padding-left: 50px;
+    font-family: "SUIT-Regular";
 }
 
 header > div {
@@ -50,7 +50,6 @@ header > div {
     color: #004770;
     font-family: "SUIT-Regular", "Murecho-Light";
     font-size: 22px;
-    margin-left: 40px;
 }
 
 
@@ -75,6 +74,7 @@ header > div {
     top: 5px;
     width: 35px;
     height: 35px;
+    margin: 0 10px 0 50px;
 }
 
 /*태블릿*/
@@ -100,7 +100,6 @@ header > div {
         position: relative;
         top: 7px;
         font-size: 17px;
-        margin-left: 20px;
     }
 
     .title {
@@ -122,7 +121,6 @@ header > div {
     #language-dropdown-button {
         position: static;
         font-size: 15px;
-        margin-left: 4vw;
     }
 
 
