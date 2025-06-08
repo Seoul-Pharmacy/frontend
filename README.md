@@ -1,6 +1,7 @@
 # 💊 PharmaSeoul Frontend
 외국인 및 내국인들을 위한, 서울시 약국 찾기 프로젝트입니다. 사이트 언어 설정이 가능하고, 외국어 가능 약국을 찾을 수 있어 외국인들의 의료 접근성을 높일 수 있습니다.
-### https://www.pharmaseoul.com
+
+~https://www.pharmaseoul.com~ 배포 링크 만료
 
 ## 👑 팀원 소개
 |Frontend|
